@@ -16,7 +16,7 @@ namespace Negocio
 
         public void CrearUsuario(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
-            // llama a ValidarUsuario pasandole usuario, nombre y apellido)
+            // llama a ValidarUsuario pasandole usuario, nombre y apellido
             // si ValidarUsuario devuelve True, instancia el objeto Usuario de la capa modelo y lo devuelve
         }
 
