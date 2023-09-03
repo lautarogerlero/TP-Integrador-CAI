@@ -1,0 +1,58 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TP Integrador/1.0.0": {
+        "dependencies": {
+          "Modelo": "1.0.0",
+          "Negocio": "1.0.0",
+          "Utils": "1.0.0"
+        },
+        "runtime": {
+          "TP Integrador.dll": {}
+        }
+      },
+      "Modelo/1.0.0": {
+        "runtime": {
+          "Modelo.dll": {}
+        }
+      },
+      "Negocio/1.0.0": {
+        "runtime": {
+          "Negocio.dll": {}
+        }
+      },
+      "Utils/1.0.0": {
+        "runtime": {
+          "Utils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TP Integrador/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modelo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Negocio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Utils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

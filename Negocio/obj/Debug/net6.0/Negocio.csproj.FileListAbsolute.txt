@@ -1,0 +1,11 @@
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\bin\Debug\net6.0\Negocio.deps.json
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\bin\Debug\net6.0\Negocio.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\bin\Debug\net6.0\Negocio.pdb
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\Negocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\Negocio.AssemblyInfoInputs.cache
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\Negocio.AssemblyInfo.cs
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\Negocio.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\refint\Negocio.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\Negocio.pdb
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\ref\Negocio.dll

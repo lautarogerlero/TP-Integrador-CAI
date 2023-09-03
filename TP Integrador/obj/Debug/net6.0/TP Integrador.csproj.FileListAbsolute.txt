@@ -1,0 +1,22 @@
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\TP Integrador.exe
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\TP Integrador.deps.json
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\TP Integrador.runtimeconfig.json
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\TP Integrador.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\TP Integrador.pdb
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\Modelo.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\Negocio.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\Utils.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\Utils.pdb
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\Modelo.pdb
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\Negocio.pdb
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.csproj.AssemblyReference.cache
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.AssemblyInfoInputs.cache
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.AssemblyInfo.cs
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.csproj.CoreCompileInputs.cache
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.csproj.CopyComplete
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\refint\TP Integrador.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.pdb
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.genruntimeconfig.cache
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\ref\TP Integrador.dll
