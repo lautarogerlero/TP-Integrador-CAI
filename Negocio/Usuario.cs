@@ -14,15 +14,28 @@ namespace Negocio
         // Llama al método ValidarUsuario para verificar si el nombre de usuario cumple con los requisitos
 
 
-        public void CrearUsuario(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
+        public UsuarioModel CrearUsuario(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
-            // llama a ValidarUsuario pasándole usuario, nombre y apellido
-            // si ValidarUsuario devuelve True, instancia el objeto Usuario de la capa modelo y lo devuelve
+            while (!ValidarUsuario(usuario, nombre, apellido))
+            {
+                Console.WriteLine("El nombre de usuario no cumple con los requisitos.\nPor favor, ingrese uno válido.");
+                usuario = Console.ReadLine(); // Pedir nuevamente el nombre de usuario
+            }
+            // Crea una instancia de UsuarioModel
+            UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
+
+            // Retorna el usuario creado
+            return nuevoUsuario;
         }
 
-        private bool ValidarUsuario(string usuario, string nombre, string apellido)
+           private bool ValidarUsuario(string usuario, string nombre, string apellido)
         {
-            //Validación del nombre de usuario. Verifica si tiene entre 8 y 15 caracteres y no contiene el nombre o apellido del usuario.
+            // Normalizacion para que no haya problemas con las mayusculas/minusculas
+            usuario = usuario.ToLower();
+            nombre = nombre.ToLower();
+            apellido = apellido.ToLower();
+
+            // Validación del nombre de usuario. Verifica si tiene entre 8 y 15 caracteres y no contiene el nombre o apellido del usuario.
             bool cumpleRequisitos = usuario.Length >= 8 && usuario.Length <= 15 && !usuario.Contains(nombre) && !usuario.Contains(apellido);
 
             return cumpleRequisitos;
