@@ -28,6 +28,119 @@ namespace Negocio
             return cumpleRequisitos;
         }
 
+        static void Main(string[] args)
+        {
+            string newPassword = SolicitarContrasenia();
+            Console.WriteLine("Contraseña guardada con éxito");
+        }
+
+        static string SolicitarContrasenia()
+        {
+            Console.Write("Ingrese la nueva contraseña: " & vbCrLf & "La misma debe cumplir los siguientes requisitos:" & vbCrLf &
+    "-Tener entre 8 y 15 caracteres entre letras y números" & vbCrLf & "-Contener como mínimo una letra mayúscula y un número"
+    & vbCrLf & "-No puede ser igual a la anterior");
+            string newPassword = Console.ReadLine();
+            return newPassword;
+
+        }
+
+        static void Main(string[] args)
+        {
+            string password = SolicitarContrasenia();
+            bool isValid = ValidarContrasenia(password);
+
+            if (isValid)
+            {
+                Console.WriteLine("Contraseña válida.");
+            }
+            else
+            {
+                Console.WriteLine("Contraseña inválida.");
+            }
+
+
+        }
+        static string SolicitarContrasenia()
+        {
+            Console.Write("Ingrese la nueva contraseña: ");
+            string newPassword = Console.ReadLine();
+            return newPassword;
+        }
+        static bool ValidarContrasenia(string password)
+        {
+            // Requisito 1: La contraseña debe tener entre 8 y 15 caracteres alfanuméricos.
+            if (password.Length < 8 || password.Length > 15)
+            {
+                return false;
+            }
+
+            // Requisito 2: La contraseña debe contener al menos una letra mayúscula y un número.
+            bool mayuscula = false, minuscula = false, numero = false;
+
+            for (int i = 0; i < password.Lenght; i++)
+
+            {
+                if (Char.IsUpper(password, i))
+                {
+                    mayuscula = true;
+                }
+
+                else (char.IsDigit(password, i))
+                {
+                    numero = true;
+                }
+
+            }
+
+            if (mayuscula && numero)
+            {
+                return true;
+            }
+            return false;
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+}   
+
+
+
+		
+
+
+
+
+
+
+
+
+
+    
+        
+
+
+        
+            
+
+
         // Otro método login que permita iniciar sesión con el nombre de usuario y la contraseña. En este caso, si es el primer login
         // debe solicitar cambiar la contraseña y el estado del usuario (capa Modelo) pasará a ser ACTIVO
         // Otro método SolicitarContrasenia que pida una nueva contraseña y la guarde
