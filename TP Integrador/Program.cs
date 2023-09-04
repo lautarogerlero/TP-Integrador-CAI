@@ -14,9 +14,9 @@ namespace TPIntegrador
 {
     internal class Program
     {
+        static List<UsuarioModel> Usuarios = new List<UsuarioModel>();
         static void Main(string[] args)
         {
-            List<UsuarioModel> Usuarios = new List<UsuarioModel>();
             //UsuarioModel administrador1 = new UsuarioModel();
             //Usuarios.Add(administrador1);
 
@@ -81,6 +81,8 @@ namespace TPIntegrador
                 int host = ConsolaUtils.PedirInt("Ingrese el número de host");
                 int dni = ConsolaUtils.ValidarDni("Ingrese el DNI");
                 // una vez solicitados los atributos, llamar al metodo CrearUsuario de la capa de negocio
+                UsuarioModel nuevoUsuario = Usuario.CrearUsuario(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
+                Usuarios.Add(nuevoUsuario);
                 // Si el usuario se creo con exito, usuarioCreado = true
                 usuarioCreado = true;
 

@@ -22,6 +22,9 @@
         }
       },
       "Negocio/1.0.0": {
+        "dependencies": {
+          "Modelo": "1.0.0"
+        },
         "runtime": {
           "Negocio.dll": {}
         }
