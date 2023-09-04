@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Modelo/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Modelo.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Modelo/1.0.0": {
+      "type": "project",
+      "path": "../Modelo/Modelo.csproj",
+      "msbuildProject": "../Modelo/Modelo.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Modelo >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\lauta\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

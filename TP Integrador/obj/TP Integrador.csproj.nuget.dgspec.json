@@ -137,7 +137,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
