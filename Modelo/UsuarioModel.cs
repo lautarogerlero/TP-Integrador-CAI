@@ -1,5 +1,7 @@
 ﻿// Contiene las clases con los atributos y los constructores
 // Acá va a estar la clase Usuario con todos sus atributos
+using System.Globalization;
+
 namespace Modelo
 {
     public class UsuarioModel
@@ -62,6 +64,13 @@ namespace Modelo
             Estado = "INACTIVO";
             PrimerLogin = true;
             DiasContrasenia = 0;
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}, Nombre: {Nombre}, Apellido: {Apellido}, Direccion: {Direccion}, Telefono: {Telefono}, Email: {Email}, " +
+                $"Fecha Alta: {FechaAlta}, Fecha Nacimiento: {FechaNacimiento}, Usuario: {Usuario}, Host: {Host}, DNI: {Dni}, Contraseña: {Contrasenia}, " +
+                $"Estado: {Estado}, Primer Login: {PrimerLogin}, Dias Contraseña: {DiasContrasenia}";
         }
     }
 }

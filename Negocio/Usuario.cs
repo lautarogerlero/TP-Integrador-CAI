@@ -26,8 +26,7 @@ namespace Negocio
             }
             // Crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
-            string prueba = SolicitarContrasenia();
-
+ 
             // Retorna el usuario creado
             return nuevoUsuario;
         }
@@ -45,25 +44,27 @@ namespace Negocio
             return cumpleRequisitos;
         }
 
-        private static string SolicitarContrasenia()
+        public static void SolicitarContrasenia(UsuarioModel usuario)
         {
             bool contraseniaValida = false;
             string newPassword;
+            Console.Write("Ingrese la nueva contraseña: " +
+                        "\nLa misma debe cumplir los siguientes requisitos: " +
+                        "\n-Tener entre 8 y 15 caracteres entre letras y números " +
+                        "\n-Contener como mínimo una letra mayúscula y un número " +
+                        "\n-No puede ser igual a la anterior\n");
             do
             {
-                Console.Write("Ingrese la nueva contraseña: " +
-                "\nLa misma debe cumplir los siguientes requisitos: " +
-                "\n-Tener entre 8 y 15 caracteres entre letras y números y contener como mínimo una letra mayúscula y un número. " +
-                "\nNo puede ser igual a la anteriorn\n");
                 newPassword = Console.ReadLine();
                 contraseniaValida = ValidarContrasenia(newPassword);
                 if (!contraseniaValida)
                 {
-                    Console.WriteLine("La contraseña no cumple alguno de los requisitos.");
+                    Console.WriteLine("La contraseña no cumple alguno de los requisitos. Intente nuevamente");
                 }
             } while (!contraseniaValida);
+            usuario.Contrasenia = newPassword;
 
-            return newPassword;
+            //return newPassword;
 
         }
 

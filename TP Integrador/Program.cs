@@ -17,8 +17,9 @@ namespace TPIntegrador
         static List<UsuarioModel> Usuarios = new List<UsuarioModel>();
         static void Main(string[] args)
         {
-            //UsuarioModel administrador1 = new UsuarioModel();
-            //Usuarios.Add(administrador1);
+            UsuarioModel administrador1 = new UsuarioModel("Patricia", "Bertagnoli", "Economicas 123", "44444444", "facultad@economicas.com", new DateTime(2000,01,01), "Administrador1", 1, 11111111);
+            administrador1.Contrasenia = "CAI20232";
+            Usuarios.Add(administrador1);
 
             bool continuar = true;
 
@@ -85,8 +86,11 @@ namespace TPIntegrador
                 Usuarios.Add(nuevoUsuario);
                 // Si el usuario se creo con exito, usuarioCreado = true
                 usuarioCreado = true;
-
-
+                // Mostrar lista de usuarios
+                foreach (var u in Usuarios)
+                {
+                    Console.WriteLine(u.ToString());
+                }
             } while (!usuarioCreado);
 
         }
