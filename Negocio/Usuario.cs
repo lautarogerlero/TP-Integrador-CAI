@@ -1,4 +1,4 @@
-﻿// Contiene las acciones de negocio. Las clases sin atributos, solo con acciones
+// Contiene las acciones de negocio. Las clases sin atributos, solo con acciones
 // Acá va a estar la clase usuario con todas sus acciones
 // Por ejemplo: la clase usuario con el metodo crearUsuario
 // Realiza las validaciones de negocio (las validaciones especificas de cada clase)
@@ -14,7 +14,6 @@ namespace Negocio
         // CrearUsuario tiene que llamar a otro método ValidarUsuario que valide que el nombre de usuarios cumpla los requisitos
         // Llama al método ValidarUsuario para verificar si el nombre de usuario cumple con los requisitos
 
-
         public static UsuarioModel CrearUsuario(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
             bool usuarioValido = ValidarUsuario(usuario, nombre, apellido);
@@ -26,12 +25,12 @@ namespace Negocio
             }
             // Crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
- 
+
             // Retorna el usuario creado
             return nuevoUsuario;
         }
 
-        private static bool ValidarUsuario(string usuario, string nombre, string apellido)
+        private static bool ValidarUsuario(string usuario, string nombre, string apellido)l
         {
             // Normalizacion para que no haya problemas con las mayusculas/minusculas
             usuario = usuario.ToLower();
@@ -99,9 +98,11 @@ namespace Negocio
         }
     }
 }
+
             // Otro método login que permita iniciar sesión con el nombre de usuario y la contraseña. En este caso, si es el primer login
             // debe solicitar cambiar la contraseña y el estado del usuario (capa Modelo) pasará a ser ACTIVO
             // Otro método SolicitarContrasenia que pida una nueva contraseña y la guarde
             // SolicitarContrasenia va a llamar al método ValidarContrasenia que verifique que cumpla los requisitos
             // Cuando el usuario se quiera registrar, se deberá chequear hace cuanto cambio la contraseña, si pasaron 30 días o más
             // se deberá llamar nuevamente al método SolicitarContrasenia (chequeando que la nueva contraseña no sea igual a la anterior)
+
