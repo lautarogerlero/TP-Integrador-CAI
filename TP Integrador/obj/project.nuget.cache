@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "z1UI2gY380aL4gESR204TKSE4z2CrtN4UvDGQUa5t+GeGaHFODfAf+eK085s2ElfILdGAcLA2YUjZJLJc2Tguw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\TP Integrador.csproj",
+  "dgSpecHash": "6JYn6Jd6lf1H32ZQfi5yt43TxsuHU7y5iUuKUarXfw/1nTK3NmEgXr3tS57SbU4hhwQ3ZFPEKjfxlIJ1VIz24A==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

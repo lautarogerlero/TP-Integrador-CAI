@@ -23,7 +23,7 @@ namespace TPIntegrador
 
             bool continuar = true;
 
-            string menu = "1) Agregar usuario \nX) Salir";
+            string menu = "1) Iniciar Sesión \n2) Registrar usuario \nX) Salir";
 
             Console.WriteLine("Bienvenido al menú. Por favor elija una opción.");
 
@@ -45,8 +45,12 @@ namespace TPIntegrador
                     switch (opcionElegida)
                     {
                         case "1":
-                            // Si elige 1, llama al método agregarUsuario
-                            AgregarUsuario();
+                            // Si elige 1, llama al método LogIn
+                            LogIn();
+                            break;
+                        case "2":
+                            // Si elige 2, llama al método RegistrarUsuario
+                            RegistrarUsuario();
                             break;
                         default:
                             Console.WriteLine("Opción inválida.");
@@ -66,7 +70,7 @@ namespace TPIntegrador
             Console.WriteLine("Gracias por usar la app.");
         }
 
-        private static void AgregarUsuario()
+        private static void RegistrarUsuario()
         {
             bool usuarioCreado = false;
             do
@@ -86,6 +90,7 @@ namespace TPIntegrador
                 Usuarios.Add(nuevoUsuario);
                 // Si el usuario se creo con exito, usuarioCreado = true
                 usuarioCreado = true;
+                Console.WriteLine("Su contraseña para el primer LogIn es 12345");
                 // Mostrar lista de usuarios
                 foreach (var u in Usuarios)
                 {
@@ -94,5 +99,30 @@ namespace TPIntegrador
             } while (!usuarioCreado);
 
         }
-    }
+        private static void LogIn()
+        {
+            bool usuarioLogueado = false;
+            do
+            {
+                // Pedir los atributos que necesita el usuario para logear
+                string usuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario");
+                string contrasenia = ConsolaUtils.PedirString("Ingrese la contraseña del usuario");
+
+                usuarioLogueado = Usuarios.Find(u => u.Usuario == usuario && u.Contrasenia == contrasenia);
+
+                if (usuarioLogueado == false)
+                {
+                    Console.WriteLine("El usuario o la contraseña no existen");
+                }
+                else
+                {
+                    // llamar al metodo LogIn de la capa de negocio
+                    usuarioLogueado = Usuario.LogIn(usuario, contrasenia);
+                }
+
+                // Si el usuario se logeo con exito, usuarioLogeado = true
+                usuarioLogueado = true;
+
+            } while (!usuarioLogueado);
+        }
 }

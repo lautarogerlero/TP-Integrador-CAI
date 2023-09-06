@@ -24,16 +24,6 @@
         "runtime": {
           "bin/placeholder/Negocio.dll": {}
         }
-      },
-      "Utils/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Utils.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Utils.dll": {}
-        }
       }
     }
   },
@@ -47,34 +37,29 @@
       "type": "project",
       "path": "../Negocio/Negocio.csproj",
       "msbuildProject": "../Negocio/Negocio.csproj"
-    },
-    "Utils/1.0.0": {
-      "type": "project",
-      "path": "../../Practica/TP Integrador/Utils/Utils.csproj",
-      "msbuildProject": "../../Practica/TP Integrador/Utils/Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj",
       "Modelo >= 1.0.0",
-      "Negocio >= 1.0.0",
-      "Utils >= 1.0.0"
+      "Negocio >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lauta\\.nuget\\packages\\": {}
+    "C:\\Users\\Dibu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\TP Integrador.csproj",
+      "projectUniqueName": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
       "projectName": "TP Integrador",
-      "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\TP Integrador.csproj",
-      "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\obj\\",
+      "projectPath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
+      "packagesPath": "C:\\Users\\Dibu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\TP Integrador\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lauta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dibu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -88,14 +73,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\Practica\\TP Integrador\\Utils\\Utils.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\Practica\\TP Integrador\\Utils\\Utils.csproj"
+            "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj": {
+              "projectPath": "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj"
             },
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj"
+            "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\Modelo.csproj"
             },
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Negocio\\Negocio.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Negocio\\Negocio.csproj"
+            "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Negocio\\Negocio.csproj": {
+              "projectPath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Negocio\\Negocio.csproj"
             }
           }
         }
@@ -115,18 +100,23 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

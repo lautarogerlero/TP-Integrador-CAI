@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\lauta\\.nuget\\packages\\": {}
+    "C:\\Users\\Dibu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj",
+      "projectUniqueName": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
       "projectName": "Modelo",
-      "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj",
-      "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\obj\\",
+      "projectPath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
+      "packagesPath": "C:\\Users\\Dibu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lauta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dibu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -51,17 +51,11 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
       }
     }
   }

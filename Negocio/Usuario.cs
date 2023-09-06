@@ -96,13 +96,33 @@ namespace Negocio
             }
             return false;
         }
+
+    // Otro método login que permita iniciar sesión con el nombre de usuario y la contraseña. En este caso, si es el primer login
+    // debe solicitar cambiar la contraseña y el estado del usuario (capa Modelo) pasará a ser ACTIVO
+    public static bool LogIn(string usuario, string contrasenia)
+        {
+        // ES LA PRIMERA VEZ QUE INGRESA?
+        if (PrimerLogin == true)
+        {
+            Console.WriteLine("Bienvenido, debe cambiar su contraseña");
+            SolicitarContrasenia();
+            UsuarioModel.PrimerLogin = false;
+            UsuarioModel.Estado = "ACTIVO";
+        }
+
+        else
+        {
+            // 2- TENGO QUE CAMBIAR LA CONTRASEÑA? else
+            // _diasContrasenia en realidad deberia ser una fecha, que se actualiza cada vez que se actualiza la pw.
+            //  else if (HOY - user.last_update_pw > 30 dias)
+            //  SolicitarContrasenia
+            //  ultima fecha actualizacion pw = HOY() (_diasContrasenia -> deberia ser una fecha)
+        }
+
+
+        return true;
+    }
+
     }
 }
-
-            // Otro método login que permita iniciar sesión con el nombre de usuario y la contraseña. En este caso, si es el primer login
-            // debe solicitar cambiar la contraseña y el estado del usuario (capa Modelo) pasará a ser ACTIVO
-            // Otro método SolicitarContrasenia que pida una nueva contraseña y la guarde
-            // SolicitarContrasenia va a llamar al método ValidarContrasenia que verifique que cumpla los requisitos
-            // Cuando el usuario se quiera registrar, se deberá chequear hace cuanto cambio la contraseña, si pasaron 30 días o más
-            // se deberá llamar nuevamente al método SolicitarContrasenia (chequeando que la nueva contraseña no sea igual a la anterior)
 
