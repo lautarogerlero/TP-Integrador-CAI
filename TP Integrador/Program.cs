@@ -90,7 +90,7 @@ namespace TPIntegrador
                 Usuarios.Add(nuevoUsuario);
                 // Si el usuario se creo con exito, usuarioCreado = true
                 usuarioCreado = true;
-                Console.WriteLine("Su contraseña para el primer LogIn es 12345");
+                Console.WriteLine("Su contraseña para el primer LogIn es ", nuevoUsuario.contrasenia);
                 // Mostrar lista de usuarios
                 foreach (var u in Usuarios)
                 {
@@ -117,7 +117,7 @@ namespace TPIntegrador
                 else
                 {
                     // llamar al metodo LogIn de la capa de negocio
-                    usuarioLogueado = Usuario.LogIn(usuario, contrasenia);
+                    usuarioLogueado = Usuario.LogIn(contrasenia);
                 }
 
                 // Si el usuario se logeo con exito, usuarioLogeado = true

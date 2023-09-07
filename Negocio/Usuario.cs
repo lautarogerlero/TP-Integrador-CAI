@@ -99,15 +99,17 @@ namespace Negocio
 
     // Otro método login que permita iniciar sesión con el nombre de usuario y la contraseña. En este caso, si es el primer login
     // debe solicitar cambiar la contraseña y el estado del usuario (capa Modelo) pasará a ser ACTIVO
-    public static bool LogIn(string usuario, string contrasenia)
+    public static bool LogIn(string contrasenia)
         {
         // ES LA PRIMERA VEZ QUE INGRESA?
-        if (PrimerLogin == true)
+        if (UsuarioModel.PrimerLogin == true)
         {
             Console.WriteLine("Bienvenido, debe cambiar su contraseña");
             SolicitarContrasenia();
-            UsuarioModel.PrimerLogin = false;
-            UsuarioModel.Estado = "ACTIVO";
+
+
+            /// no se como llamar y cambiar la lsita para  PrimerLogin = false; y Estado = "ACTIVO";
+            /// primerlogin = Usuarios.Find(u => u.PrimerLogin == );
         }
 
         else
