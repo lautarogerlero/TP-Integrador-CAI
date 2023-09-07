@@ -13,3 +13,5 @@ C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negoci
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\bin\Debug\net6.0\Modelo.dll
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\bin\Debug\net6.0\Modelo.pdb
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\obj\Debug\net6.0\Negocio.csproj.CopyComplete
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\bin\Debug\net6.0\Utils.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Negocio\bin\Debug\net6.0\Utils.pdb
