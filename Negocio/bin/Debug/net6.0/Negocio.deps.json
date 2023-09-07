@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Negocio/1.0.0": {
         "dependencies": {
-          "Modelo": "1.0.0"
+          "Modelo": "1.0.0",
+          "Utils": "1.0.0"
         },
         "runtime": {
           "Negocio.dll": {}
@@ -17,6 +18,11 @@
       "Modelo/1.0.0": {
         "runtime": {
           "Modelo.dll": {}
+        }
+      },
+      "Utils/1.0.0": {
+        "runtime": {
+          "Utils.dll": {}
         }
       }
     }
@@ -28,6 +34,11 @@
       "sha512": ""
     },
     "Modelo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Utils/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

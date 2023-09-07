@@ -5,18 +5,15 @@
 // El método crearUsuario crea una instancia de la clase Usuario de la capa de Modelo
 // Ve a las otras dos capas
 using Modelo;
+using Utils;
 namespace Negocio
 {
     public class Usuario
     {
-        //Lautaro
-        // debe tener un método CrearUsuario que recibe los parametros necesarios para la creación
-        // CrearUsuario tiene que llamar a otro método ValidarUsuario que valide que el nombre de usuarios cumpla los requisitos
-        // Llama al método ValidarUsuario para verificar si el nombre de usuario cumple con los requisitos
-
-
         public static UsuarioModel CrearUsuario(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
+            // Método para crear un usuario
+            // Primero llama a ValidarUsuario para verificar que el nombre de usuario sea válido
             bool usuarioValido = ValidarUsuario(usuario, nombre, apellido);
             while (!usuarioValido)
             {
@@ -24,9 +21,9 @@ namespace Negocio
                 usuario = Console.ReadLine(); // Pedir nuevamente el nombre de usuario
                 usuarioValido = ValidarUsuario(usuario, nombre, apellido);
             }
-            // Crea una instancia de UsuarioModel
+            // Una vez que se obtiene un ombre de usuario válido, crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
- 
+            Console.WriteLine("Usuario creado con exito!");
             // Retorna el usuario creado
             return nuevoUsuario;
         }
@@ -46,7 +43,8 @@ namespace Negocio
 
         public static void SolicitarContrasenia(UsuarioModel usuario)
         {
-            bool contraseniaValida = false;
+            // Método que solicita una contraseña y verifica que sea válida
+            bool contraseniaValida;
             string newPassword;
             Console.Write("Ingrese la nueva contraseña: " +
                         "\nLa misma debe cumplir los siguientes requisitos: " +
@@ -56,19 +54,18 @@ namespace Negocio
             do
             {
                 newPassword = Console.ReadLine();
-                contraseniaValida = ValidarContrasenia(newPassword);
+                // Llama al método ValidarContrasenia para chequear que cumpla los requisitos
+                contraseniaValida = ValidarContrasenia(newPassword, usuario);
                 if (!contraseniaValida)
                 {
                     Console.WriteLine("La contraseña no cumple alguno de los requisitos. Intente nuevamente");
                 }
             } while (!contraseniaValida);
+            //  Asigna la contraseña valida a usuario.Contrasenia
             usuario.Contrasenia = newPassword;
-
-            //return newPassword;
-
         }
 
-        static bool ValidarContrasenia(string password)
+        static bool ValidarContrasenia(string password, UsuarioModel usuario)
         {
             // Requisito 1: La contraseña debe tener entre 8 y 15 caracteres alfanuméricos.
             if (password.Length < 8 || password.Length > 15)
@@ -77,7 +74,7 @@ namespace Negocio
             }
 
             // Requisito 2: La contraseña debe contener al menos una letra mayúscula y un número.
-            bool mayuscula = false, numero = false;
+            bool mayuscula = false, numero = false, distintaAAnterior = false;
 
             foreach (char c in password)
             {
@@ -91,17 +88,50 @@ namespace Negocio
                     numero = true;
                 }
             }
-            if (mayuscula && numero)
+            // Requisito 3: La contraseña no debe ser igual a la anterior
+            if (password.ToLower() != usuario.Contrasenia.ToLower())
+            {
+                distintaAAnterior = true;
+            }
+            if (mayuscula && numero && distintaAAnterior)
             {
                 return true;
             }
+            
             return false;
         }
+
+        public static UsuarioModel LogIn(List<UsuarioModel> Usuarios)
+        {
+            // Método que pide usuario y contraseña y verifica que exista en la lista de usuarios
+            bool usuarioEncontrado = false;
+            UsuarioModel usuario;
+            do
+            {
+                string nombreUsuario = ConsolaUtils.PedirString("Ingrese su nombre de usuario");
+                string password = ConsolaUtils.PedirString("Ingrese su contraseña");
+                // Busca que en usuarios haya un usuario con ese nombre de usuario y esa contraseña
+                usuario = Usuarios.Find(u => u.Usuario == nombreUsuario && u.Contrasenia == password);
+                if (usuario == null)
+                {
+                    Console.WriteLine("Alguno de los datos solicitados no es correcto");
+                }
+                else
+                {   
+                    // Si es el primer login, pide una nueva contraseña, cambia PrimerLogin a false y estado a ACTIVO
+                    if (usuario.PrimerLogin == true)
+                    {
+                        Console.WriteLine($"Bienvenida/o {usuario.Nombre}. Por ser la primera vez que inicia sesión debe establecer una nueva contraseña");
+                        SolicitarContrasenia(usuario);
+                        usuario.PrimerLogin = false;
+                        usuario.Estado = "ACTIVO";
+                    }
+                    usuarioEncontrado = true;
+                }
+            } while (!usuarioEncontrado);
+            
+            return usuario;
+        }
+
     }
 }
-            // Otro método login que permita iniciar sesión con el nombre de usuario y la contraseña. En este caso, si es el primer login
-            // debe solicitar cambiar la contraseña y el estado del usuario (capa Modelo) pasará a ser ACTIVO
-            // Otro método SolicitarContrasenia que pida una nueva contraseña y la guarde
-            // SolicitarContrasenia va a llamar al método ValidarContrasenia que verifique que cumpla los requisitos
-            // Cuando el usuario se quiera registrar, se deberá chequear hace cuanto cambio la contraseña, si pasaron 30 días o más
-            // se deberá llamar nuevamente al método SolicitarContrasenia (chequeando que la nueva contraseña no sea igual a la anterior)

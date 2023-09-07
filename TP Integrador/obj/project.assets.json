@@ -16,7 +16,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Modelo": "1.0.0"
+          "Modelo": "1.0.0",
+          "Utils": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Negocio.dll": {}
