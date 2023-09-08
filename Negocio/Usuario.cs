@@ -23,6 +23,7 @@ namespace Negocio
             }
             // Una vez que se obtiene un ombre de usuario válido, crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
+            SolicitarContrasenia(nuevoUsuario);
             Console.WriteLine("Usuario creado con exito!");
             // Retorna el usuario creado
             return nuevoUsuario;
@@ -63,6 +64,8 @@ namespace Negocio
             } while (!contraseniaValida);
             //  Asigna la contraseña valida a usuario.Contrasenia
             usuario.Contrasenia = newPassword;
+            // Cambia la fecha en la que se actualizó la contraseña
+            usuario.FechaContrasenia = DateTime.Now;
         }
 
         static bool ValidarContrasenia(string password, UsuarioModel usuario)
@@ -127,10 +130,38 @@ namespace Negocio
                         usuario.Estado = "ACTIVO";
                     }
                     usuarioEncontrado = true;
+                    // chequear hace cuanto se cambio la contraseña
+                    UltimoCambioContrasenia(usuario);
                 }
             } while (!usuarioEncontrado);
             
             return usuario;
+        }
+
+        private static void UltimoCambioContrasenia(UsuarioModel usuario)
+        {
+
+            //fecha actual
+            DateTime fechaActual = DateTime.Now;
+            // ultima fecha de cambio de contraseña de ese usuario 
+            DateTime? fechaCambioContrasenia = usuario.FechaContrasenia;
+            int diferenciaDias;
+            // primero chequea si fechaCambioContrasenia tiene valor
+            if(fechaCambioContrasenia.HasValue)
+            {
+                //Restamos fecha actual y la fecha de cambio de contraseña y verificamos si pasaron mas de 30 dias
+                TimeSpan diferencia = fechaActual.Subtract(fechaCambioContrasenia.Value);
+                diferenciaDias = diferencia.Days;
+            }
+            else
+            {
+                diferenciaDias = 0;
+            }
+            if (diferenciaDias >= 30)
+            {
+                SolicitarContrasenia(usuario);
+            }
+
         }
 
     }
