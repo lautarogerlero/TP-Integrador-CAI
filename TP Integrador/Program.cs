@@ -123,6 +123,10 @@ namespace TPIntegrador
             }
             while (continuar);
             Console.WriteLine("Gracias por usar la app.");
+            foreach(UsuarioModel usuario in Usuarios)
+            {
+                Console.WriteLine(usuario);
+            }
         }
 
         private static void AgregarUsuario()

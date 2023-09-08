@@ -22,7 +22,7 @@ namespace Modelo
         private string _contrasenia;
         private string _estado;
         private bool _primerLogin;
-        private int _diasContrasenia; // lleva la cuenta de hace cuantos días no se cambia la contraseña
+        private DateTime? _fechaContrasenia; // fecha del último cambio de contraseña
 
         // Propiedades
         // Las que tienen set es porque se pueden cambiar, las que no tienen set se crean con el constructor y no cambian más
@@ -41,7 +41,7 @@ namespace Modelo
         public string Contrasenia { get => _contrasenia; set => _contrasenia = value; }
         public string Estado { get => _estado; set => _estado = value; }
         public bool PrimerLogin { get => _primerLogin; set => _primerLogin = value; }
-        public int DiasContrasenia { get => _diasContrasenia; set => _diasContrasenia = value; }
+        public DateTime? FechaContrasenia { get => _fechaContrasenia; set => _fechaContrasenia = value; }
 
 
         // Constructor
@@ -63,14 +63,14 @@ namespace Modelo
             Contrasenia = "12345";
             Estado = "INACTIVO";
             PrimerLogin = true;
-            DiasContrasenia = 0;
+            FechaContrasenia = null;
         }
 
         public override string ToString()
         {
             return $"ID: {Id}, Nombre: {Nombre}, Apellido: {Apellido}, Direccion: {Direccion}, Telefono: {Telefono}, Email: {Email}, " +
                 $"Fecha Alta: {FechaAlta}, Fecha Nacimiento: {FechaNacimiento}, Usuario: {Usuario}, Host: {Host}, DNI: {Dni}, Contraseña: {Contrasenia}, " +
-                $"Estado: {Estado}, Primer Login: {PrimerLogin}, Dias Contraseña: {DiasContrasenia}";
+                $"Estado: {Estado}, Primer Login: {PrimerLogin}, Fecha Contraseña: {FechaContrasenia}";
         }
     }
 }
