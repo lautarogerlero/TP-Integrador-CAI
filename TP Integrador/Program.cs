@@ -123,10 +123,6 @@ namespace TPIntegrador
             }
             while (continuar);
             Console.WriteLine("Gracias por usar la app.");
-            foreach(UsuarioModel usuario in Usuarios)
-            {
-                Console.WriteLine(usuario);
-            }
         }
 
         private static void AgregarUsuario()
@@ -140,7 +136,7 @@ namespace TPIntegrador
             DateTime fechaNacimiento = ConsolaUtils.ValidarFechaNacimiento("Ingrese la fecha de nacimiento");
             int host = ConsolaUtils.PedirHost("Ingrese el número de host (Supervisor = 2, Vendedor = 3)");
             int dni = ConsolaUtils.ValidarDni("Ingrese el DNI");
-            string usuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario");
+            string usuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario. \nEntre 8 y 15 caracteres y no puede contener ni nombre ni apellido");
             // una vez solicitados los atributos, llamar al metodo CrearUsuario de la capa de negocio
             UsuarioModel nuevoUsuario = Usuario.CrearUsuario(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             // Agrega el usuario creado a la lista de Usuarios

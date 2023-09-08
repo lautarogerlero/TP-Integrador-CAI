@@ -159,6 +159,7 @@ namespace Negocio
             }
             if (diferenciaDias >= 30)
             {
+                Console.WriteLine("Pasaron más de 30 días desde que actualizó su contraseña, por lo que deberá cambiarla");
                 SolicitarContrasenia(usuario);
             }
 
