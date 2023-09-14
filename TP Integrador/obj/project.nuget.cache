@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "6JYn6Jd6lf1H32ZQfi5yt43TxsuHU7y5iUuKUarXfw/1nTK3NmEgXr3tS57SbU4hhwQ3ZFPEKjfxlIJ1VIz24A==",
+=======
+  "dgSpecHash": "dQMV0qe1XHyK3zsrGjBk37hybMJKhiQqnUFccs428qfa8TyVYTcGQnGFXqYY3sc7tCbXVVTxTDhUIgv3Q2SnPg==",
+>>>>>>> Stashed changes
   "success": false,
   "projectFilePath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
   "expectedPackageFiles": [],

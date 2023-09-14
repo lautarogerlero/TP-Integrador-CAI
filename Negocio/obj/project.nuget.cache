@@ -1,8 +1,23 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "Xmv1wpw8m7wR9iENt50fMKlCvev5QHEdo2ooMsHLwQ0R4/Dmi+lC1igedzAcWnAlD9itVE46rX8XS1nItBqBEg==",
   "success": true,
+=======
+  "dgSpecHash": "mdUEhlYq8e6dIOYMhITspVRnIHnJPK9oUPwvA4cByu/K2EedlfPezpgnYqLdqAzQwnYzw0Q/GWg9tyPdwyuq1w==",
+  "success": false,
+>>>>>>> Stashed changes
   "projectFilePath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Negocio\\Negocio.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

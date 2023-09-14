@@ -9,13 +9,10 @@ namespace Negocio
 {
     public class Usuario
     {
-        //Lautaro
-        // debe tener un método CrearUsuario que recibe los parametros necesarios para la creación
-        // CrearUsuario tiene que llamar a otro método ValidarUsuario que valide que el nombre de usuarios cumpla los requisitos
-        // Llama al método ValidarUsuario para verificar si el nombre de usuario cumple con los requisitos
-
         public static UsuarioModel CrearUsuario(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
+            // Método para crear un usuario
+            // Primero llama a ValidarUsuario para verificar que el nombre de usuario sea válido
             bool usuarioValido = ValidarUsuario(usuario, nombre, apellido);
             while (!usuarioValido)
             {
@@ -23,14 +20,15 @@ namespace Negocio
                 usuario = Console.ReadLine(); // Pedir nuevamente el nombre de usuario
                 usuarioValido = ValidarUsuario(usuario, nombre, apellido);
             }
-            // Crea una instancia de UsuarioModel
+            // Una vez que se obtiene un ombre de usuario válido, crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
-
+            SolicitarContrasenia(nuevoUsuario);
+            Console.WriteLine("Usuario creado con exito!");
             // Retorna el usuario creado
             return nuevoUsuario;
         }
 
-        private static bool ValidarUsuario(string usuario, string nombre, string apellido)l
+        private static bool ValidarUsuario(string usuario, string nombre, string apellido)
         {
             // Normalizacion para que no haya problemas con las mayusculas/minusculas
             usuario = usuario.ToLower();
@@ -45,7 +43,8 @@ namespace Negocio
 
         public static void SolicitarContrasenia(UsuarioModel usuario)
         {
-            bool contraseniaValida = false;
+            // Método que solicita una contraseña y verifica que sea válida
+            bool contraseniaValida;
             string newPassword;
             Console.Write("Ingrese la nueva contraseña: " +
                         "\nLa misma debe cumplir los siguientes requisitos: " +
@@ -55,19 +54,20 @@ namespace Negocio
             do
             {
                 newPassword = Console.ReadLine();
-                contraseniaValida = ValidarContrasenia(newPassword);
+                // Llama al método ValidarContrasenia para chequear que cumpla los requisitos
+                contraseniaValida = ValidarContrasenia(newPassword, usuario);
                 if (!contraseniaValida)
                 {
                     Console.WriteLine("La contraseña no cumple alguno de los requisitos. Intente nuevamente");
                 }
             } while (!contraseniaValida);
+            //  Asigna la contraseña valida a usuario.Contrasenia
             usuario.Contrasenia = newPassword;
-
-            //return newPassword;
-
+            // Cambia la fecha en la que se actualizó la contraseña
+            usuario.FechaContrasenia = DateTime.Now;
         }
 
-        static bool ValidarContrasenia(string password)
+        static bool ValidarContrasenia(string password, UsuarioModel usuario)
         {
             // Requisito 1: La contraseña debe tener entre 8 y 15 caracteres alfanuméricos.
             if (password.Length < 8 || password.Length > 15)
@@ -76,7 +76,7 @@ namespace Negocio
             }
 
             // Requisito 2: La contraseña debe contener al menos una letra mayúscula y un número.
-            bool mayuscula = false, numero = false;
+            bool mayuscula = false, numero = false, distintaAAnterior = false;
 
             foreach (char c in password)
             {
@@ -90,40 +90,87 @@ namespace Negocio
                     numero = true;
                 }
             }
-            if (mayuscula && numero)
+            // Requisito 3: La contraseña no debe ser igual a la anterior
+            if (password.ToLower() != usuario.Contrasenia.ToLower())
+            {
+                distintaAAnterior = true;
+            }
+            if (mayuscula && numero && distintaAAnterior)
             {
                 return true;
             }
+
             return false;
         }
 
-    // Otro método login que permita iniciar sesión con el nombre de usuario y la contraseña. En este caso, si es el primer login
-    // debe solicitar cambiar la contraseña y el estado del usuario (capa Modelo) pasará a ser ACTIVO
-    public static bool LogIn(string contrasenia)
+        public static UsuarioModel LogIn(List<UsuarioModel> Usuarios)
         {
-        // ES LA PRIMERA VEZ QUE INGRESA?
-        if (UsuarioModel.PrimerLogin == true)
-        {
-            Console.WriteLine("Bienvenido, debe cambiar su contraseña");
-            SolicitarContrasenia();
+            // Método que pide usuario y contraseña y verifica que exista en la lista de usuarios
+            UsuarioModel usuario;
+            int intentos = 3;
+            do
+            {
+                string nombreUsuario = ConsolaUtils.PedirString("Ingrese su nombre de usuario");
+                string password = ConsolaUtils.PedirString("Ingrese su contraseña");
+                // Busca que en usuarios haya un usuario con ese nombre de usuario y esa contraseña
+                usuario = Usuarios.Find(u => u.Usuario == nombreUsuario && u.Contrasenia == password);
 
+                if (usuario == null)
+                {
+                    intentos--;
+                    Console.WriteLine($"Alguno de los datos solicitados no es correcto\nLe quedan {intentos} intentos restantes");
+                }
+                else
+                {
+                    // Si es el primer login, pide una nueva contraseña, cambia PrimerLogin a false y estado a ACTIVO
+                    if (usuario.PrimerLogin == true)
+                    {
+                        Console.WriteLine($"Bienvenida/o {usuario.Nombre}. Por ser la primera vez que inicia sesión debe establecer una nueva contraseña");
+                        SolicitarContrasenia(usuario);
+                        usuario.PrimerLogin = false;
+                        usuario.Estado = "ACTIVO";
+                    }
+                    // chequear hace cuanto se cambio la contraseña
+                    UltimoCambioContrasenia(usuario);
+                }
 
-            /// no se como llamar y cambiar la lsita para  PrimerLogin = false; y Estado = "ACTIVO";
-            /// primerlogin = Usuarios.Find(u => u.PrimerLogin == );
+                if (intentos == 0)
+                {
+                    Console.WriteLine($"Te has quedado sin intentos, el {usuario} queda INACTIVO");
+                    usuario.Estado = "INACTIVO";
+
+                }
+            } while (intentos > 0);
+
+            return usuario;
         }
 
-        else
+        private static void UltimoCambioContrasenia(UsuarioModel usuario)
         {
-            // 2- TENGO QUE CAMBIAR LA CONTRASEÑA? else
-            // _diasContrasenia en realidad deberia ser una fecha, que se actualiza cada vez que se actualiza la pw.
-            //  else if (HOY - user.last_update_pw > 30 dias)
-            //  SolicitarContrasenia
-            //  ultima fecha actualizacion pw = HOY() (_diasContrasenia -> deberia ser una fecha)
+
+            //fecha actual
+            DateTime fechaActual = DateTime.Now;
+            // ultima fecha de cambio de contraseña de ese usuario 
+            DateTime? fechaCambioContrasenia = usuario.FechaContrasenia;
+            int diferenciaDias;
+            // primero chequea si fechaCambioContrasenia tiene valor
+            if (fechaCambioContrasenia.HasValue)
+            {
+                //Restamos fecha actual y la fecha de cambio de contraseña y verificamos si pasaron mas de 30 dias
+                TimeSpan diferencia = fechaActual.Subtract(fechaCambioContrasenia.Value);
+                diferenciaDias = diferencia.Days;
+            }
+            else
+            {
+                diferenciaDias = 0;
+            }
+            if (diferenciaDias >= 30)
+            {
+                Console.WriteLine("Pasaron más de 30 días desde que actualizó su contraseña, por lo que deberá cambiarla");
+                SolicitarContrasenia(usuario);
+            }
+
         }
-
-
-        return true;
-    }
 
     }
 }

@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "V2D4fkOYI0m+jS4+lNChMZ4WkoKHGPFH7/LXVMUedMlIy4HPtUos0BGpn4XIdohAxlJXQMVNewRNhIAguId0wQ==",
+=======
+  "dgSpecHash": "Pt+jYqp9z+nrl5Ytz636tokxerV9yDem06TeLRSbjMH7OlvvIN35EXHsevQFjN1cBBNV78o3qG6XVBF312UCcA==",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
   "expectedPackageFiles": [],

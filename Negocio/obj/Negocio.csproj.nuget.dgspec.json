@@ -49,7 +49,16 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+=======
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
         }
       }
     },
@@ -77,6 +86,12 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< Updated upstream
+=======
+              "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj": {
+                "projectPath": "C:\\Users\\Dibu\\Documents\\GitHub\\Practica\\TP Integrador\\Utils\\Utils.csproj"
+              },
+>>>>>>> Stashed changes
               "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
                 "projectPath": "C:\\Users\\Dibu\\Documents\\GitHub\\TP-Integrador-CAI\\Modelo\\Modelo.csproj"
               }
@@ -102,7 +117,16 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+=======
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
         }
       }
     }
