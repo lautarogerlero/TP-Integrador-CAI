@@ -23,6 +23,7 @@ namespace Modelo
         private string _estado;
         private bool _primerLogin;
         private DateTime? _fechaContrasenia; // fecha del último cambio de contraseña
+        private int _intentos; // Se usa para llevar registro de cuantas veces puso mal la contraseña
 
         // Propiedades
         // Las que tienen set es porque se pueden cambiar, las que no tienen set se crean con el constructor y no cambian más
@@ -42,6 +43,7 @@ namespace Modelo
         public string Estado { get => _estado; set => _estado = value; }
         public bool PrimerLogin { get => _primerLogin; set => _primerLogin = value; }
         public DateTime? FechaContrasenia { get => _fechaContrasenia; set => _fechaContrasenia = value; }
+        public int intentos { get => _intentos; set => _intentos = value; }
 
 
         // Constructor
@@ -64,6 +66,7 @@ namespace Modelo
             Estado = "INACTIVO";
             PrimerLogin = true;
             FechaContrasenia = null;
+            intentos = 3;
         }
 
         public override string ToString()

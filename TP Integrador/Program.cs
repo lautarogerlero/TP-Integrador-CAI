@@ -15,11 +15,24 @@ namespace TPIntegrador
     internal class Program
     {
         // Lista donde se van a guardar los usuarios
-        static List<UsuarioModel> Usuarios = new List<UsuarioModel>();
+        private static List<UsuarioModel> Usuarios = new List<UsuarioModel>();
+        // Para controlar el flujo del menú de login
+        static bool continuarPrograma = true;
+        // Distintos menus para cada caso
+        static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
+        static string menu_admin = "1) Agregar usuario \nX) Cerrar Sesión";
+        static string menu_basico = "X) Cerrar Sesión";
         static void Main(string[] args)
         {
+            CargaInicialDatos();
+
+            MenuPrincipal();
+        }
+
+        private static void CargaInicialDatos()
+        {
             // Crear los 3 usuarios que deben estar cargados cuando se inicia el programa
-            UsuarioModel administrador1 = new UsuarioModel("Admin", "Admin", "Economicas 123", "44444444", "administrador@economicas.com", new DateTime(2000,01,01), "Administrador1", 1, 11111111);
+            UsuarioModel administrador1 = new UsuarioModel("Admin", "Admin", "Economicas 123", "44444444", "administrador@economicas.com", new DateTime(2000, 01, 01), "Administrador1", 1, 11111111);
             administrador1.Contrasenia = "CAI20232";
             administrador1.PrimerLogin = false;
             administrador1.Estado = "ACTIVO";
@@ -32,17 +45,14 @@ namespace TPIntegrador
             UsuarioModel vendedor1 = new UsuarioModel("Vendedor", "Vendedor", "Economicas 789", "66666666", "vendedor@economicas.com", new DateTime(2000, 01, 01), "Vendedor1", 3, 33333333);
             vendedor1.Contrasenia = "CAI20232";
             Usuarios.Add(vendedor1);
+        }
 
-            // Para controlar el flujo del menú de login
-            bool continuar = true;
-            // Distintos menus para cada caso
-            string menu_inicial = "1) Iniciar Sesión \nX) Salir";
-            string menu_admin = "1) Agregar usuario \nX) Cerrar Sesión";
-            string menu_basico = "X) Cerrar Sesión";
-
-            do 
+        private static void MenuPrincipal()
+        {
+            do
             // Mientras continuar = true
             {
+                DibujarTitulo("EletroHogar SA");
                 Console.WriteLine(menu_inicial);
 
                 try
@@ -52,7 +62,7 @@ namespace TPIntegrador
                     if (opcionElegida.ToUpper() == "X")
                     {
                         // Si elige X, termina la ejecución
-                        continuar = false;
+                        continuarPrograma = false;
                         continue;
                     }
 
@@ -64,47 +74,30 @@ namespace TPIntegrador
                             bool cerrarMenu = false; // para controlar el flujo del segundo menú
                             string nuevaOpcion;
 
-                            Console.WriteLine($"Bienvenido/a {usuarioLogueado.Nombre}. ¿Que querés hacer?");
-
-                            do // mientras cerrarMenu = false;
+                            if (usuarioLogueado == null)
                             {
+                                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                                Console.ReadKey();
+                                cerrarMenu = true;
+                            }
+
+                            while (!cerrarMenu) // mientras cerrarMenu = false;
+                            {
+                                DibujarTitulo($"{usuarioLogueado.Nombre}");
                                 // Si el host == 1, muestra el menú de Admin con la opción de agregar usuario
                                 if (usuarioLogueado.Host == 1)
                                 {
-                                    Console.WriteLine(menu_admin);
-                                    nuevaOpcion = Console.ReadLine();
-                                    // Si elige 1, agrega un usuario, si elige X sale, si elige otra cosa le vuelve a pedir una opción
-                                    if (nuevaOpcion == "1")
-                                    {
-                                        AgregarUsuario();
-                                    }
-                                    else if (nuevaOpcion.ToUpper() == "X")
-                                    {
-                                        cerrarMenu = true;
-                                        continue;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Opción inválida.");
-                                    }  
+                                    // Muestra el MenuAdmin y devuelve un booleano para ver si sigue en el menú o cierra sesión
+                                    cerrarMenu = MenuAdmin(cerrarMenu);
                                 }
-                                // Si el host no es 1, muestra el menú básico por ahora solo con la opción de cerrar sesión
-                                else
+                                // Si el host es 1 o 2, muestra el menú básico por ahora solo con la opción de cerrar sesión
+                                else if (usuarioLogueado.Host  == 2 || usuarioLogueado.Host == 3)
                                 {
-                                    Console.WriteLine(menu_basico);
-                                    nuevaOpcion = Console.ReadLine();
-                                    // Si elige X cierra sesión, sino pide de vuelta la opción
-                                    if (nuevaOpcion.ToUpper() == "X")
-                                    {
-                                        cerrarMenu = true;
-                                        continue;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Opción inválida.");
-                                    }
+                                    // Muestra el MenuVendedor y devuelve un booleano para ver si sigue en el menú o cierra sesión
+                                    cerrarMenu = MenuVendedor(cerrarMenu);
                                 }
-                            } while (!cerrarMenu);
+                            }
 
                             break;
                         default:
@@ -116,13 +109,60 @@ namespace TPIntegrador
                 {
                     Console.WriteLine("Error durante la ejecución del comando. Por favor intente nuevamente. Mensaje: " + ex.Message);
                 }
+
+            }
+            while (continuarPrograma);
+            Console.WriteLine("Gracias por usar la app.");
+        }
+
+        private static bool MenuAdmin(bool cerrarMenu)
+        {
+            Console.WriteLine(menu_admin);
+            string nuevaOpcion = Console.ReadLine();
+            // Si elige 1, agrega un usuario, si elige X sale, si elige otra cosa le vuelve a pedir una opción
+            if (nuevaOpcion == "1")
+            {
+                AgregarUsuario();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion.ToUpper() == "X")
+            {
+                cerrarMenu = true;
+                return cerrarMenu;
+            }
+            else
+            {
+                Console.WriteLine("Opción inválida.");
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
                 Console.ReadKey();
                 Console.Clear();
+                return cerrarMenu;
             }
-            while (continuar);
-            Console.WriteLine("Gracias por usar la app.");
+        }
+
+        private static bool MenuVendedor(bool cerrarMenu)
+        {
+            Console.WriteLine(menu_basico);
+            string nuevaOpcion = Console.ReadLine();
+            // Si elige X cierra sesión, sino pide de vuelta la opción
+            if (nuevaOpcion.ToUpper() == "X")
+            {
+                cerrarMenu = true;
+                return cerrarMenu;
+            }
+            else
+            {
+                Console.WriteLine("Opción inválida.");
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                Console.Clear();
+                return cerrarMenu;
+            }
         }
 
         private static void AgregarUsuario()
@@ -141,6 +181,38 @@ namespace TPIntegrador
             UsuarioModel nuevoUsuario = Usuario.CrearUsuario(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             // Agrega el usuario creado a la lista de Usuarios
             Usuarios.Add(nuevoUsuario);
+        }
+
+        private static void DibujarTitulo(String titulo)
+        {
+            Console.Clear();
+            String separador = "";
+            String separadorTitulo = "";
+            int cantidadMaxima = 0;
+
+            if (titulo.Length % 2 == 0)
+            {
+                cantidadMaxima = 64;
+            }
+            else
+            {
+                cantidadMaxima = 63;
+            }
+
+            for (int i = 0; i < cantidadMaxima + 2; i++)
+            {
+                separador = separador + "-";
+            }
+
+            for (int i = 0; i < ((cantidadMaxima - titulo.Length) / 2); i++)
+            {
+                separadorTitulo = separadorTitulo + "-";
+            }
+
+
+            Console.WriteLine(separador);
+            Console.WriteLine(separadorTitulo + " " + titulo + " " + separadorTitulo);
+            Console.WriteLine(separador);
         }
     }
 }
