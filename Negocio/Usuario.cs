@@ -21,7 +21,7 @@ namespace Negocio
                 usuario = Console.ReadLine(); // Pedir nuevamente el nombre de usuario
                 usuarioValido = ValidarUsuario(usuario, nombre, apellido);
             }
-            // Una vez que se obtiene un ombre de usuario válido, crea una instancia de UsuarioModel
+            // Una vez que se obtiene un nombre de usuario válido, crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             SolicitarContrasenia(nuevoUsuario);
             Console.WriteLine("Usuario creado con exito!");
@@ -107,34 +107,60 @@ namespace Negocio
         public static UsuarioModel LogIn(List<UsuarioModel> Usuarios)
         {
             // Método que pide usuario y contraseña y verifica que exista en la lista de usuarios
-            bool usuarioEncontrado = false;
             UsuarioModel usuario;
+            UsuarioModel usuarioCompleto = null;
             do
             {
                 string nombreUsuario = ConsolaUtils.PedirString("Ingrese su nombre de usuario");
                 string password = ConsolaUtils.PedirString("Ingrese su contraseña");
-                // Busca que en usuarios haya un usuario con ese nombre de usuario y esa contraseña
-                usuario = Usuarios.Find(u => u.Usuario == nombreUsuario && u.Contrasenia == password);
-                if (usuario == null)
+                // Primero busca que el nombre de usuario exista, para descontar intentos en caso de que ingrese mal la contraseña
+                usuario = Usuarios.Find(u => u.Usuario == nombreUsuario);
+                if (usuario != null)
                 {
-                    Console.WriteLine("Alguno de los datos solicitados no es correcto");
+                    // Busca que en usuarios haya un usuario con ese nombre de usuario y esa contraseña
+                    usuarioCompleto = Usuarios.Find(u => u.Usuario == nombreUsuario && u.Contrasenia == password);
+                    if (usuarioCompleto == null)
+                    {
+                        // Si no encontro nada se resta 1 intento
+                        usuario.intentos--;
+                        if (usuario.intentos > 1)
+                        {
+                            Console.WriteLine($"Alguno de los datos solicitados no es correcto.\nLe quedan {usuario.intentos} intentos");
+                        }
+                        else if (usuario.intentos == 1)
+                        {
+                            Console.WriteLine($"Alguno de los datos solicitados no es correcto.\nLe queda {usuario.intentos} intento");
+                        }
+                        else
+                        {
+                            // Si se quedó sin intentos se inhabilita el usuario
+                            Console.WriteLine($"Te has quedado sin intentos, el usuario {usuario.Usuario} queda INACTIVO");
+                            usuario.Estado = "INACTIVO";
+                            return null;
+                        }
+                    }
+                    else
+                    {
+                        // Si es el primer login, pide una nueva contraseña, cambia PrimerLogin a false y estado a ACTIVO
+                        if (usuario.PrimerLogin == true)
+                        {
+                            Console.WriteLine($"Bienvenida/o {usuario.Nombre}. Por ser la primera vez que inicia sesión debe establecer una nueva contraseña");
+                            SolicitarContrasenia(usuario);
+                            usuario.PrimerLogin = false;
+                            usuario.Estado = "ACTIVO";
+                        }
+                        usuario.intentos = 3; // Vuelve el contador de intentos a 3
+                        // chequear hace cuanto se cambio la contraseña
+                        UltimoCambioContrasenia(usuario);
+                    }
                 }
                 else
-                {   
-                    // Si es el primer login, pide una nueva contraseña, cambia PrimerLogin a false y estado a ACTIVO
-                    if (usuario.PrimerLogin == true)
-                    {
-                        Console.WriteLine($"Bienvenida/o {usuario.Nombre}. Por ser la primera vez que inicia sesión debe establecer una nueva contraseña");
-                        SolicitarContrasenia(usuario);
-                        usuario.PrimerLogin = false;
-                        usuario.Estado = "ACTIVO";
-                    }
-                    usuarioEncontrado = true;
-                    // chequear hace cuanto se cambio la contraseña
-                    UltimoCambioContrasenia(usuario);
+                {
+                    Console.WriteLine("Alguno de los datos solicitados no es correcto.");
                 }
-            } while (!usuarioEncontrado);
-            
+                
+            } while (usuario == null || (usuario.intentos > 0 && usuarioCompleto == null)); // Mientras le queden intentos y no haya encontrado un usuario
+
             return usuario;
         }
 
@@ -163,6 +189,11 @@ namespace Negocio
                 SolicitarContrasenia(usuario);
             }
 
+        }
+
+        private static void DarDeBaja(UsuarioModel usuario)
+        {
+            usuario.Estado = "INACTIVO";
         }
 
     }
