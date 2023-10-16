@@ -7,7 +7,7 @@ namespace Modelo
     public class UsuarioModel
     {
         // Atributos
-        private Guid _id;
+        private string _id;
         private string _nombre;
         private string _apellido;
         private string _direccion;
@@ -27,7 +27,7 @@ namespace Modelo
 
         // Propiedades
         // Las que tienen set es porque se pueden cambiar, las que no tienen set se crean con el constructor y no cambian más
-        public Guid Id { get => _id; }
+        public string Id { get => _id; set => _id = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
@@ -47,10 +47,10 @@ namespace Modelo
 
 
         // Constructor
-        public UsuarioModel(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
+        public UsuarioModel(string id, string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
             // Las que tienen mayuscula son las que tienen setter
-            _id = Guid.NewGuid();
+            Id = id;
             Nombre = nombre;
             Apellido = apellido;
             Direccion = direccion;

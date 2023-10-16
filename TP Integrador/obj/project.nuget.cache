@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "rwBDXAjpYipIiLiF580L6DEMQ+zsHYRMSW+xdpLRpp2lJi4wNGFpzXxRziznS4nLL/2SlKjG4mljebqYLcfGaQ==",
+  "dgSpecHash": "2/VHWGRwaWpJHxSHMlz86iVeqJIZPaU2CWnuFs7VfgaRNFPNazrAhtI2Phqp+2gXVMqEQjsKFJdBJDt6CoFqFA==",
   "success": true,
   "projectFilePath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\TP Integrador.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lauta\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
