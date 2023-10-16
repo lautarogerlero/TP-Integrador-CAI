@@ -25,24 +25,25 @@ namespace TPIntegrador
         static void Main(string[] args)
         {
             CargaInicialDatos();
-
+            
             MenuPrincipal();
         }
 
         private static void CargaInicialDatos()
         {
             // Crear los 3 usuarios que deben estar cargados cuando se inicia el programa
-            UsuarioModel administrador1 = new UsuarioModel("Admin", "Admin", "Economicas 123", "44444444", "administrador@economicas.com", new DateTime(2000, 01, 01), "Administrador1", 1, 11111111);
+            UsuarioModel administrador1 = new UsuarioModel("D347CE99-DB8D-4542-AA97-FC9F3CCE6969", "Admin", "Admin", "Economicas 123", "44444444", "administrador@economicas.com", new DateTime(2000, 01, 01), "Administrador1", 1, 11111111);
             administrador1.Contrasenia = "CAI20232";
             administrador1.PrimerLogin = false;
             administrador1.Estado = "ACTIVO";
+            
             Usuarios.Add(administrador1);
 
-            UsuarioModel supervisor1 = new UsuarioModel("Supervisor", "Supervisor", "Economicas 456", "55555555", "supervisor@economicas.com", new DateTime(2000, 01, 01), "Supervisor1", 2, 22222222);
+            UsuarioModel supervisor1 = new UsuarioModel(Guid.NewGuid().ToString(), "Supervisor", "Supervisor", "Economicas 456", "55555555", "supervisor@economicas.com", new DateTime(2000, 01, 01), "Supervisor1", 2, 22222222);
             supervisor1.Contrasenia = "CAI20232";
             Usuarios.Add(supervisor1);
 
-            UsuarioModel vendedor1 = new UsuarioModel("Vendedor", "Vendedor", "Economicas 789", "66666666", "vendedor@economicas.com", new DateTime(2000, 01, 01), "Vendedor1", 3, 33333333);
+            UsuarioModel vendedor1 = new UsuarioModel(Guid.NewGuid().ToString(), "Vendedor", "Vendedor", "Economicas 789", "66666666", "vendedor@economicas.com", new DateTime(2000, 01, 01), "Vendedor1", 3, 33333333);
             vendedor1.Contrasenia = "CAI20232";
             Usuarios.Add(vendedor1);
         }
@@ -54,6 +55,11 @@ namespace TPIntegrador
             {
                 DibujarTitulo("EletroHogar SA");
                 Console.WriteLine(menu_inicial);
+
+                foreach (var usuario in Usuarios)
+                {
+                    Console.WriteLine(usuario.ToString());
+                }
 
                 try
                 {
@@ -168,6 +174,7 @@ namespace TPIntegrador
         private static void AgregarUsuario()
         {
             // Pedir los atributos que necesita el usuario para ser creado
+            string id = Guid.NewGuid().ToString();
             string nombre = ConsolaUtils.ValidarNombre("Ingrese el nombre");
             string apellido = ConsolaUtils.ValidarNombre("Ingrese el apellido");
             string direccion = ConsolaUtils.PedirString("Ingrese la dirección");
@@ -178,7 +185,7 @@ namespace TPIntegrador
             int dni = ConsolaUtils.ValidarDni("Ingrese el DNI");
             string usuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario. \nEntre 8 y 15 caracteres y no puede contener ni nombre ni apellido");
             // una vez solicitados los atributos, llamar al metodo CrearUsuario de la capa de negocio
-            UsuarioModel nuevoUsuario = Usuario.CrearUsuario(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
+            UsuarioModel nuevoUsuario = Usuario.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             // Agrega el usuario creado a la lista de Usuarios
             Usuarios.Add(nuevoUsuario);
         }

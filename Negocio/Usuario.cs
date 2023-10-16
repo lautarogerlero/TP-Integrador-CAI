@@ -6,11 +6,17 @@
 // Ve a las otras dos capas
 using Modelo;
 using Utils;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Net.Http;
+
 namespace Negocio
 {
     public class Usuario
     {
-        public static UsuarioModel CrearUsuario(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
+        public static UsuarioModel CrearUsuario(string id, string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
             // Método para crear un usuario
             // Primero llama a ValidarUsuario para verificar que el nombre de usuario sea válido
@@ -22,9 +28,20 @@ namespace Negocio
                 usuarioValido = ValidarUsuario(usuario, nombre, apellido);
             }
             // Una vez que se obtiene un nombre de usuario válido, crea una instancia de UsuarioModel
-            UsuarioModel nuevoUsuario = new UsuarioModel(nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
+            UsuarioModel nuevoUsuario = new UsuarioModel(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             SolicitarContrasenia(nuevoUsuario);
-            Console.WriteLine("Usuario creado con exito!");
+            // Agrega al usuario a la base de datos
+            var jsonRequest = JsonConvert.SerializeObject(nuevoUsuario);
+            HttpResponseMessage response = WebHelper.Post("Usuario/AgregarUsuario", jsonRequest);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
+            else
+            {
+                Console.WriteLine("Usuario creado con exito!");
+            }
             // Retorna el usuario creado
             return nuevoUsuario;
         }
