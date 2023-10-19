@@ -7,7 +7,7 @@ namespace Modelo
     public class UsuarioModel
     {
         // Atributos
-        private Guid _id;
+        private string _id;
         private string _nombre;
         private string _apellido;
         private string _direccion;
@@ -23,10 +23,11 @@ namespace Modelo
         private string _estado;
         private bool _primerLogin;
         private DateTime? _fechaContrasenia; // fecha del último cambio de contraseña
+        private int _intentos; // Se usa para llevar registro de cuantas veces puso mal la contraseña
 
         // Propiedades
         // Las que tienen set es porque se pueden cambiar, las que no tienen set se crean con el constructor y no cambian más
-        public Guid Id { get => _id; }
+        public string Id { get => _id; set => _id = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
@@ -42,13 +43,14 @@ namespace Modelo
         public string Estado { get => _estado; set => _estado = value; }
         public bool PrimerLogin { get => _primerLogin; set => _primerLogin = value; }
         public DateTime? FechaContrasenia { get => _fechaContrasenia; set => _fechaContrasenia = value; }
+        public int intentos { get => _intentos; set => _intentos = value; }
 
 
         // Constructor
-        public UsuarioModel(string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
+        public UsuarioModel(string id, string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
             // Las que tienen mayuscula son las que tienen setter
-            _id = Guid.NewGuid();
+            Id = id;
             Nombre = nombre;
             Apellido = apellido;
             Direccion = direccion;
@@ -64,6 +66,7 @@ namespace Modelo
             Estado = "INACTIVO";
             PrimerLogin = true;
             FechaContrasenia = null;
+            intentos = 3;
         }
 
         public override string ToString()
