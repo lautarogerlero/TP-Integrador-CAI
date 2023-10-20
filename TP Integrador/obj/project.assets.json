@@ -32,28 +32,15 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj": "1.0.0",
           "Modelo": "1.0.0",
-          "Newtonsoft.Json": "13.0.3",
-          "Utils": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Negocio.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Negocio.dll": {}
-        }
-      },
-      "Utils/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
           "Newtonsoft.Json": "13.0.3"
         },
         "compile": {
-          "bin/placeholder/Utils.dll": {}
+          "bin/placeholder/Negocio.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Utils.dll": {}
+          "bin/placeholder/Negocio.dll": {}
         }
       }
     }
@@ -98,19 +85,14 @@
       "type": "project",
       "path": "../Negocio/Negocio.csproj",
       "msbuildProject": "../Negocio/Negocio.csproj"
-    },
-    "Utils/1.0.0": {
-      "type": "project",
-      "path": "../../Practica/TP Integrador/Utils/Utils.csproj",
-      "msbuildProject": "../../Practica/TP Integrador/Utils/Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj",
       "Modelo >= 1.0.0",
       "Negocio >= 1.0.0",
-      "Newtonsoft.Json >= 13.0.3",
-      "Utils >= 1.0.0"
+      "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
@@ -119,11 +101,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\TP Integrador.csproj",
+      "projectUniqueName": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
       "projectName": "TP Integrador",
-      "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\TP Integrador.csproj",
+      "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
       "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\obj\\",
+      "outputPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lauta\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -140,14 +122,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\Practica\\TP Integrador\\Utils\\Utils.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\Practica\\TP Integrador\\Utils\\Utils.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj"
             },
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj"
             },
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Negocio\\Negocio.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Negocio\\Negocio.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj"
             }
           }
         }
@@ -183,16 +165,19 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
     {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
     }
   ]
 }

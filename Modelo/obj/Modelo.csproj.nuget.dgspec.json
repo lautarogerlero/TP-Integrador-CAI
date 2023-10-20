@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj": {}
+    "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj": {
+    "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj",
+        "projectUniqueName": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
         "projectName": "Modelo",
-        "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj",
+        "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
         "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\obj\\",
+        "outputPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lauta\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

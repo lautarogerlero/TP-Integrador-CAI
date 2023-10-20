@@ -27,19 +27,6 @@
         "runtime": {
           "bin/placeholder/Modelo.dll": {}
         }
-      },
-      "Utils/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
-        },
-        "compile": {
-          "bin/placeholder/Utils.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Utils.dll": {}
-        }
       }
     }
   },
@@ -78,18 +65,13 @@
       "type": "project",
       "path": "../Modelo/Modelo.csproj",
       "msbuildProject": "../Modelo/Modelo.csproj"
-    },
-    "Utils/1.0.0": {
-      "type": "project",
-      "path": "../../Practica/TP Integrador/Utils/Utils.csproj",
-      "msbuildProject": "../../Practica/TP Integrador/Utils/Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj",
       "Modelo >= 1.0.0",
-      "Newtonsoft.Json >= 13.0.3",
-      "Utils >= 1.0.0"
+      "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
@@ -98,11 +80,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Negocio\\Negocio.csproj",
+      "projectUniqueName": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj",
       "projectName": "Negocio",
-      "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Negocio\\Negocio.csproj",
+      "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj",
       "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Negocio\\obj\\",
+      "outputPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lauta\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -119,11 +101,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\Practica\\TP Integrador\\Utils\\Utils.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\Practica\\TP Integrador\\Utils\\Utils.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj"
             },
-            "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj": {
-              "projectPath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\Modelo\\Modelo.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj"
             }
           }
         }
@@ -159,8 +141,19 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "No se encuentra el proyecto \"C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
+      "libraryId": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\Practica\\TP Integrador\\Utils\\Utils.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
