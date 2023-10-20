@@ -6,5 +6,12 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Net.Http;
 
-namespace 
+namespace Negocio
+{
+
+
+
+
+
+}
 
