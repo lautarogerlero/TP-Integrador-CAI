@@ -57,11 +57,6 @@ namespace TPIntegrador
                 DibujarTitulo("EletroHogar SA");
                 Console.WriteLine(menu_inicial);
 
-                foreach (var usuario in Usuarios)
-                {
-                    Console.WriteLine(usuario.ToString());
-                }
-
                 try
                 {
                     string opcionElegida = Console.ReadLine();

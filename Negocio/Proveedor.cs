@@ -11,13 +11,7 @@ namespace Negocio
     public class Proveedor
     {
         // Lista de proveedores registrados
-        static List<ProveedorModel> proveedores;
-
-        public Proveedor()
-        {
-            // Inicializar la lista de proveedores
-            proveedores = new List<ProveedorModel>();
-        }
+        static List<ProveedorModel> proveedores = new List<ProveedorModel>();
 
         // Método para registrar un nuevo proveedor
         public static void RegistrarProveedor(string nombre, string apellido, List<int> categoriasProductos)
@@ -27,6 +21,7 @@ namespace Negocio
 
             // Agregar el nuevo proveedor a la lista de proveedores
             proveedores.Add(nuevoProveedor);
+            Console.WriteLine($"El proveedor {nombre} {apellido} fue registrado con éxito");
         }
 
         // Método para dar de baja un proveedor existente
@@ -39,6 +34,7 @@ namespace Negocio
             if (proveedor != null && proveedor.Estado == "Activo")
             {
                 proveedor.Estado = "Inactivo";
+                Console.WriteLine($"El proveedor {nombre} {apellido} fue dado de baja");
             }
             else
             {

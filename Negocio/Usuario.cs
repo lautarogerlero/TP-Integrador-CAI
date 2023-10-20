@@ -31,18 +31,19 @@ namespace Negocio
             UsuarioModel nuevoUsuario = new UsuarioModel(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             SolicitarContrasenia(nuevoUsuario);
             // Agrega al usuario a la base de datos
-            var jsonRequest = JsonConvert.SerializeObject(nuevoUsuario);
-            HttpResponseMessage response = WebHelper.Post("Usuario/AgregarUsuario", jsonRequest);
+            //var jsonRequest = JsonConvert.SerializeObject(nuevoUsuario);
+            //HttpResponseMessage response = WebHelper.Post("Usuario/AgregarUsuario", jsonRequest);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new Exception(response.StatusCode.ToString());
-            }
-            else
-            {
-                Console.WriteLine("Usuario creado con exito!");
-            }
+            //if (!response.IsSuccessStatusCode)
+            //{
+            //    throw new Exception(response.StatusCode.ToString());
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Usuario creado con exito!");
+            //}
             // Retorna el usuario creado
+            Console.WriteLine("Usuario creado con exito!");
             return nuevoUsuario;
         }
 
