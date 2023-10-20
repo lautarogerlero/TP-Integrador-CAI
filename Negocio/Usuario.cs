@@ -121,6 +121,24 @@ namespace Negocio
             return false;
         }
 
+        //public static string LogIn(Login login)
+        //{
+        //    var jsonRequest = JsonConvert.SerializeObject(login);
+
+        //    HttpResponseMessage response = WebHelper.Post("Usuario/Login", jsonRequest);
+
+        //    if (!response.IsSuccessStatusCode)
+        //    {
+        //        throw new Exception("Verifique los datos ingresados");
+        //    }
+
+        //    var reader = new StreamReader(response.Content.ReadAsStream());
+
+        //    String respuesta = reader.ReadToEnd();
+
+        //    return respuesta;
+        //}
+
         public static UsuarioModel LogIn(List<UsuarioModel> Usuarios)
         {
             // Método que pide usuario y contraseña y verifica que exista en la lista de usuarios
@@ -175,13 +193,13 @@ namespace Negocio
                 {
                     Console.WriteLine("Alguno de los datos solicitados no es correcto.");
                 }
-                
+
             } while (usuario == null || (usuario.intentos > 0 && usuarioCompleto == null)); // Mientras le queden intentos y no haya encontrado un usuario
 
             return usuario;
         }
 
-        private static void UltimoCambioContrasenia(UsuarioModel usuario)
+                private static void UltimoCambioContrasenia(UsuarioModel usuario)
         {
 
             //fecha actual

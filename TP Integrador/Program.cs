@@ -9,6 +9,7 @@ using System.ComponentModel;
 using Negocio;
 using Utils;
 using Modelo;
+using Newtonsoft.Json;
 
 namespace TPIntegrador
 {
@@ -20,12 +21,12 @@ namespace TPIntegrador
         static bool continuarPrograma = true;
         // Distintos menus para cada caso
         static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
-        static string menu_admin = "1) Agregar usuario \nX) Cerrar Sesión";
+        static string menu_admin = "1) Agregar usuario \n2) Registrar Proveedor \n3) Dar de baja Proveedor \nX) Cerrar Sesión";
         static string menu_basico = "X) Cerrar Sesión";
         static void Main(string[] args)
         {
             CargaInicialDatos();
-            
+
             MenuPrincipal();
         }
 
@@ -36,7 +37,7 @@ namespace TPIntegrador
             administrador1.Contrasenia = "CAI20232";
             administrador1.PrimerLogin = false;
             administrador1.Estado = "ACTIVO";
-            
+
             Usuarios.Add(administrador1);
 
             UsuarioModel supervisor1 = new UsuarioModel(Guid.NewGuid().ToString(), "Supervisor", "Supervisor", "Economicas 456", "55555555", "supervisor@economicas.com", new DateTime(2000, 01, 01), "Supervisor1", 2, 22222222);
@@ -98,7 +99,7 @@ namespace TPIntegrador
                                     cerrarMenu = MenuAdmin(cerrarMenu);
                                 }
                                 // Si el host es 1 o 2, muestra el menú básico por ahora solo con la opción de cerrar sesión
-                                else if (usuarioLogueado.Host  == 2 || usuarioLogueado.Host == 3)
+                                else if (usuarioLogueado.Host == 2 || usuarioLogueado.Host == 3)
                                 {
                                     // Muestra el MenuVendedor y devuelve un booleano para ver si sigue en el menú o cierra sesión
                                     cerrarMenu = MenuVendedor(cerrarMenu);
@@ -129,6 +130,22 @@ namespace TPIntegrador
             if (nuevaOpcion == "1")
             {
                 AgregarUsuario();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "2")
+            {
+                RegistrarProveedor();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "3")
+            {
+                DarDeBajaProveedor();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
                 Console.ReadKey();
@@ -188,6 +205,21 @@ namespace TPIntegrador
             UsuarioModel nuevoUsuario = Usuario.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             // Agrega el usuario creado a la lista de Usuarios
             Usuarios.Add(nuevoUsuario);
+        }
+
+        private static void RegistrarProveedor()
+        {
+            string nombre = ConsolaUtils.ValidarNombre("Ingrese el nombre");
+            string apellido = ConsolaUtils.ValidarNombre("Ingrese el apellido");
+            List<int> productos = ConsolaUtils.PedirListaNumeros("Ingrese las categorías de productos (1-5) o X para terminar");
+            Proveedor.RegistrarProveedor(nombre, apellido, productos);
+        }
+
+        private static void DarDeBajaProveedor()
+        {
+            string nombre = ConsolaUtils.ValidarNombre("Ingrese el nombre");
+            string apellido = ConsolaUtils.ValidarNombre("Ingrese el apellido");
+            Proveedor.DarDeBajaProveedor(nombre, apellido);
         }
 
         private static void DibujarTitulo(String titulo)
