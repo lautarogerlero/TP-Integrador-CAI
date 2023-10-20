@@ -20,3 +20,4 @@ C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Int
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.pdb
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\TP Integrador.genruntimeconfig.cache
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\obj\Debug\net6.0\ref\TP Integrador.dll
+C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\TP Integrador\bin\Debug\net6.0\Newtonsoft.Json.dll
