@@ -8,10 +8,11 @@ using System.Net.Http;
 
 namespace Negocio
 {
+ public class Usuario
+    {
 
 
 
-
-
+    }
 }
 
