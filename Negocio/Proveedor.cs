@@ -70,22 +70,29 @@ namespace Negocio
 
             Dictionary<String, String> map = new Dictionary<String, String>(); 
             JToken proveedor = ObtenerProveedorPorNombre(nombre, apellido);
-            string idProveedor = proveedor["id"].ToString();
-            map.Add("id", idProveedor);
-            map.Add("idUsuario", IdUsuarioMaster);
-
-            var jsonRequest = JsonConvert.SerializeObject(map);
-
-            HttpResponseMessage response = WebHelper.DeleteConBody("Proveedor/BajaProveedor", jsonRequest);
-
-            if (!response.IsSuccessStatusCode)
+            if (proveedor == null)
             {
-                throw new Exception("Verifique los datos ingresados");
+                Console.WriteLine("El proveedor ingresado no fue encontrado en la base de datos");
             }
             else
             {
-                Console.WriteLine("Proveedor eliminado");
-            }
+                string idProveedor = proveedor["id"].ToString();
+                map.Add("id", idProveedor);
+                map.Add("idUsuario", IdUsuarioMaster);
+
+                var jsonRequest = JsonConvert.SerializeObject(map);
+
+                HttpResponseMessage response = WebHelper.DeleteConBody("Proveedor/BajaProveedor", jsonRequest);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception("Verifique los datos ingresados");
+                }
+                else
+                {
+                    Console.WriteLine("Proveedor eliminado");
+                }
+            }  
         }
     }
 }
