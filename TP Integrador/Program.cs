@@ -23,8 +23,9 @@ namespace TPIntegrador
         static bool continuarPrograma = true;
         // Distintos menus para cada caso
         static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
-        static string menu_admin = "1) Agregar usuario \n2) Registrar Proveedor \n3) Dar de baja Proveedor \nX) Cerrar Sesión";
-        static string menu_basico = "X) Cerrar Sesión";
+        static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \nX) Cerrar sesión";
+        static string menu_supervisor = "1) Agregar producto \nX) Cerrar sesión";
+        static string menu_vendedor = "X) Cerrar sesión";
         static void Main(string[] args)
         {
             CargaInicialDatos();
@@ -116,8 +117,14 @@ namespace TPIntegrador
                                     // Muestra el MenuAdmin y devuelve un booleano para ver si sigue en el menú o cierra sesión
                                     cerrarMenu = MenuAdmin(cerrarMenu);
                                 }
-                                // Si el host es 1 o 2, muestra el menú básico por ahora solo con la opción de cerrar sesión
-                                else if (host == 2 || host == 3)
+                                // Si el host es 2, muestra el menú supervisor
+                                else if (host == 2)
+                                {
+                                    // Muestra el MenuVendedor y devuelve un booleano para ver si sigue en el menú o cierra sesión
+                                    cerrarMenu = MenuSupervisor(cerrarMenu);
+                                }
+                                // Si el host es 3, muestra el menú vendedor
+                                else if (host == 3)
                                 {
                                     // Muestra el MenuVendedor y devuelve un booleano para ver si sigue en el menú o cierra sesión
                                     cerrarMenu = MenuVendedor(cerrarMenu);
@@ -169,6 +176,43 @@ namespace TPIntegrador
                 Console.ReadKey();
                 return cerrarMenu;
             }
+            else if (nuevaOpcion == "4")
+            {
+                AgregarProducto();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion.ToUpper() == "X")
+            {
+                cerrarMenu = true;
+                return cerrarMenu;
+            }
+            else
+            {
+                Console.WriteLine("Opción inválida.");
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                Console.Clear();
+                return cerrarMenu;
+            }
+        }
+
+        private static bool MenuSupervisor(bool cerrarMenu)
+        {
+            Console.WriteLine(menu_supervisor);
+            string nuevaOpcion = Console.ReadLine();
+            // Si elige X cierra sesión, sino pide de vuelta la opción
+            if (nuevaOpcion == "1")
+            {
+                AgregarProducto();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
             else if (nuevaOpcion.ToUpper() == "X")
             {
                 cerrarMenu = true;
@@ -187,7 +231,7 @@ namespace TPIntegrador
 
         private static bool MenuVendedor(bool cerrarMenu)
         {
-            Console.WriteLine(menu_basico);
+            Console.WriteLine(menu_vendedor);
             string nuevaOpcion = Console.ReadLine();
             // Si elige X cierra sesión, sino pide de vuelta la opción
             if (nuevaOpcion.ToUpper() == "X")
@@ -216,7 +260,7 @@ namespace TPIntegrador
             string telefono = ConsolaUtils.ValidarTelefono("Ingrese el número de teléfono");
             string email = ConsolaUtils.ValidarEmail("Ingrese el email");
             DateTime fechaNacimiento = ConsolaUtils.ValidarFechaNacimiento("Ingrese la fecha de nacimiento");
-            int host = ConsolaUtils.PedirHost("Ingrese el número de host (Supervisor = 2, Vendedor = 3)");
+            int host = ConsolaUtils.PedirIntRango("Ingrese el número de host (Supervisor = 2, Vendedor = 3)", 2, 3);
             int dni = ConsolaUtils.ValidarDni("Ingrese el DNI");
             string usuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario. \nEntre 8 y 15 caracteres y no puede contener ni nombre ni apellido");
             // una vez solicitados los atributos, llamar al metodo CrearUsuario de la capa de negocio
@@ -315,6 +359,26 @@ namespace TPIntegrador
                 idUsuario = usuario["id"].ToString();
             }
             return idUsuario;
+        }
+
+        private static void AgregarProducto()
+        {
+            int categoria = ConsolaUtils.PedirIntRango("Ingrese la categoría de producto (1-5)", 1, 5);
+            string nombreProducto = ConsolaUtils.PedirString("Ingrese el nombre del producto");
+            int precio = ConsolaUtils.PedirIntRango("Ingrese el precio del producto", 1, 100000000);
+            int stock = ConsolaUtils.PedirIntRango("Ingrese el stock del producto", 1, 1000000);
+            string nombre = ConsolaUtils.ValidarNombre("Ingrese el nombre del proveedor");
+            string apellido = ConsolaUtils.ValidarNombre("Ingrese el apellido del proveedor");
+            JToken proveedor = Proveedor.ObtenerProveedorPorNombre(nombre, apellido);
+            if (proveedor == null)
+            {
+                Console.WriteLine("El proveedor ingresado no fue encontrado en la base de datos");
+            }
+            else
+            {
+                string idProveedor = proveedor["id"].ToString();
+                Producto.RegistrarProducto(categoria, idProveedor, nombreProducto, precio, stock);
+            }
         }
 
         private static void DibujarTitulo(String titulo)
