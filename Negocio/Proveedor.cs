@@ -5,6 +5,7 @@ using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace Negocio
 {
@@ -14,31 +15,76 @@ namespace Negocio
         static List<ProveedorModel> proveedores = new List<ProveedorModel>();
 
         // Método para registrar un nuevo proveedor
-        public static void RegistrarProveedor(string nombre, string apellido, List<int> categoriasProductos)
+        public static void RegistrarProveedor(string nombre, string apellido, string email, string cuit)
         {
             // Crear un nuevo proveedor con un ID único, el nombre, el apellido, el estado "Activo" y las categorías de productos
-            ProveedorModel nuevoProveedor = new ProveedorModel(Guid.NewGuid(), nombre, apellido, "Activo", categoriasProductos);
+            ProveedorModel nuevoProveedor = new ProveedorModel(nombre, apellido, email, cuit);
 
-            // Agregar el nuevo proveedor a la lista de proveedores
-            proveedores.Add(nuevoProveedor);
-            Console.WriteLine($"El proveedor {nombre} {apellido} fue registrado con éxito");
+            // Agregar el nuevo proveedor
+            var jsonRequest = JsonConvert.SerializeObject(nuevoProveedor);
+            HttpResponseMessage response = WebHelper.Post("Proveedor/AgregarProveedor", jsonRequest);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(response.StatusCode.ToString());
+            }
+            else
+            {
+                Console.WriteLine($"El proveedor {nombre} {apellido} fue registrado con éxito");
+            }
+        }
+
+        public static string ObtenerListaProveedores()
+        {
+            // Trae todos los proveedores activos
+            string content = "";
+            HttpResponseMessage response = WebHelper.Get($"Proveedor/TraerProveedores");
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Verifique los datos ingresados");
+            }
+            else
+            {
+                content = response.Content.ReadAsStringAsync().Result;
+            }
+            return content;
+        }
+
+        public static JToken ObtenerProveedorPorNombre(string nombre, string apellido)
+        {
+            // Busca en los usuarios activos a un usuario por el nombre de usuario y devuelve su id
+            string idProveedor = "";
+            string content = ObtenerListaProveedores();
+            // Analizar el contenido JSON
+            JArray jsonArray = JArray.Parse(content);
+            // Buscar el objeto con nombreUsuario igual a "master"
+            JToken proveedor = jsonArray.FirstOrDefault(item => (string)item["nombre"] == nombre && (string)item["apellido"] == apellido);
+
+            return proveedor;
         }
 
         // Método para dar de baja un proveedor existente
         public static void DarDeBajaProveedor(string nombre, string apellido)
         {
-            // Buscar el proveedor
-            ProveedorModel proveedor = proveedores.Find(p => p.Nombre == nombre && p.Apellido == apellido);
+            String IdUsuarioMaster = "D347CE99-DB8D-4542-AA97-FC9F3CCE6969";
 
-            // Si el proveedor existe y está activo, cambiar su estado a "Inactivo"
-            if (proveedor != null && proveedor.Estado == "Activo")
+            Dictionary<String, String> map = new Dictionary<String, String>(); 
+            JToken proveedor = ObtenerProveedorPorNombre(nombre, apellido);
+            string idProveedor = proveedor["id"].ToString();
+            map.Add("id", idProveedor);
+            map.Add("idUsuario", IdUsuarioMaster);
+
+            var jsonRequest = JsonConvert.SerializeObject(map);
+
+            HttpResponseMessage response = WebHelper.DeleteConBody("Proveedor/BajaProveedor", jsonRequest);
+
+            if (!response.IsSuccessStatusCode)
             {
-                proveedor.Estado = "Inactivo";
-                Console.WriteLine($"El proveedor {nombre} {apellido} fue dado de baja");
+                throw new Exception("Verifique los datos ingresados");
             }
             else
             {
-                Console.WriteLine("El proveedor no existe o ya se encuentra Inactivo");
+                Console.WriteLine("Proveedor eliminado");
             }
         }
     }
