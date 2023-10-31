@@ -11,12 +11,16 @@ using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
+using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Negocio
 {
     public class Usuario
     {
-        public static UsuarioModel CrearUsuario(string id, string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
+        public static void CrearUsuario(string id, string nombre, string apellido, string direccion, string telefono, string email, DateTime fechaNacimiento, string usuario, int host, int dni)
         {
             // Método para crear un usuario
             // Primero llama a ValidarUsuario para verificar que el nombre de usuario sea válido
@@ -42,8 +46,6 @@ namespace Negocio
             {
                 Console.WriteLine("Usuario creado con exito!");
             }
-            // Retorna el usuario creado
-            return nuevoUsuario;
         }
 
         private static bool ValidarUsuario(string usuario, string nombre, string apellido)
@@ -80,9 +82,9 @@ namespace Negocio
                 }
             } while (!contraseniaValida);
             //  Asigna la contraseña valida a usuario.Contrasenia
-            usuario.Contrasenia = newPassword;
+            usuario.Contraseña = newPassword;
             // Cambia la fecha en la que se actualizó la contraseña
-            usuario.FechaContrasenia = DateTime.Now;
+            // usuario.FechaContrasenia = DateTime.Now;
         }
 
         static bool ValidarContrasenia(string password, UsuarioModel usuario)
@@ -109,7 +111,7 @@ namespace Negocio
                 }
             }
             // Requisito 3: La contraseña no debe ser igual a la anterior
-            if (password.ToLower() != usuario.Contrasenia.ToLower())
+            if (password.ToLower() != usuario.Contraseña.ToLower())
             {
                 distintaAAnterior = true;
             }
@@ -121,98 +123,86 @@ namespace Negocio
             return false;
         }
 
-        public static UsuarioModel LogIn(List<UsuarioModel> Usuarios)
+        public static string LogIn(Login login)
         {
-            // Método que pide usuario y contraseña y verifica que exista en la lista de usuarios
-            UsuarioModel usuario;
-            UsuarioModel usuarioCompleto = null;
-            do
-            {
-                string nombreUsuario = ConsolaUtils.PedirString("Ingrese su nombre de usuario");
-                string password = ConsolaUtils.PedirString("Ingrese su contraseña");
-                // Primero busca que el nombre de usuario exista, para descontar intentos en caso de que ingrese mal la contraseña
-                usuario = Usuarios.Find(u => u.Usuario == nombreUsuario);
-                if (usuario != null)
-                {
-                    // Busca que en usuarios haya un usuario con ese nombre de usuario y esa contraseña
-                    usuarioCompleto = Usuarios.Find(u => u.Usuario == nombreUsuario && u.Contrasenia == password);
-                    if (usuarioCompleto == null)
-                    {
-                        // Si no encontro nada se resta 1 intento
-                        usuario.intentos--;
-                        if (usuario.intentos > 1)
-                        {
-                            Console.WriteLine($"Alguno de los datos solicitados no es correcto.\nLe quedan {usuario.intentos} intentos");
-                        }
-                        else if (usuario.intentos == 1)
-                        {
-                            Console.WriteLine($"Alguno de los datos solicitados no es correcto.\nLe queda {usuario.intentos} intento");
-                        }
-                        else
-                        {
-                            // Si se quedó sin intentos se inhabilita el usuario
-                            Console.WriteLine($"Te has quedado sin intentos, el usuario {usuario.Usuario} queda INACTIVO");
-                            usuario.Estado = "INACTIVO";
-                            return null;
-                        }
-                    }
-                    else
-                    {
-                        // Si es el primer login, pide una nueva contraseña, cambia PrimerLogin a false y estado a ACTIVO
-                        if (usuario.PrimerLogin == true)
-                        {
-                            Console.WriteLine($"Bienvenida/o {usuario.Nombre}. Por ser la primera vez que inicia sesión debe establecer una nueva contraseña");
-                            SolicitarContrasenia(usuario);
-                            usuario.PrimerLogin = false;
-                            usuario.Estado = "ACTIVO";
-                        }
-                        usuario.intentos = 3; // Vuelve el contador de intentos a 3
-                        // chequear hace cuanto se cambio la contraseña
-                        UltimoCambioContrasenia(usuario);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Alguno de los datos solicitados no es correcto.");
-                }
+            var jsonRequest = JsonConvert.SerializeObject(login);
 
-            } while (usuario == null || (usuario.intentos > 0 && usuarioCompleto == null)); // Mientras le queden intentos y no haya encontrado un usuario
+            HttpResponseMessage response = WebHelper.Post("Usuario/Login", jsonRequest);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Verifique los datos ingresados");
+            }
+
+            var reader = new StreamReader(response.Content.ReadAsStream());
+
+            String respuesta = reader.ReadToEnd();
+
+            return respuesta;
+        }
+
+        public static void BorrarUsuario(string idUsuario)
+        {
+            String IdUsuarioMaster = "D347CE99-DB8D-4542-AA97-FC9F3CCE6969";
+
+            Dictionary<String, String> map = new Dictionary<String, String>();
+            map.Add("id", idUsuario);
+            map.Add("idUsuario", IdUsuarioMaster);
+
+            var jsonRequest = JsonConvert.SerializeObject(map);
+
+            HttpResponseMessage response = WebHelper.DeleteConBody("Usuario/BajaUsuario", jsonRequest);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Verifique los datos ingresados");
+            }
+        }
+
+        public static string ObtenerListaUsuarios()
+        {
+            // Trae todos los usuarios activos
+            String IdUsuarioMaster = "D347CE99-DB8D-4542-AA97-FC9F3CCE6969";
+            string content = "";
+            HttpResponseMessage response = WebHelper.Get($"Usuario/TraerUsuariosActivos?id={IdUsuarioMaster}");
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Verifique los datos ingresados");
+            }
+            else
+            {
+                content = response.Content.ReadAsStringAsync().Result;
+            }
+            return content;
+        }
+
+        public static JToken ObtenerUsuarioPorNombre(string nombreUsuario)
+        {
+            // Busca en los usuarios activos a un usuario por el nombre de usuario y devuelve su id
+            string idUsuario = "";
+            string content = ObtenerListaUsuarios();
+            // Analizar el contenido JSON
+            JArray jsonArray = JArray.Parse(content);
+            // Buscar el objeto con nombreUsuario igual a "master"
+            JToken usuario = jsonArray.FirstOrDefault(item => (string)item["nombreUsuario"] == nombreUsuario);
 
             return usuario;
         }
 
-        private static void UltimoCambioContrasenia(UsuarioModel usuario)
+        public static JToken ObtenerUsuarioPorId(string id)
         {
+            // Busca en los usuarios activos a un usuario por el id
+            string content = ObtenerListaUsuarios();
+            // Analizar el contenido JSON
+            JArray jsonArray = JArray.Parse(content);
+            string idFinal = id.Trim('"');
 
-            //fecha actual
-            DateTime fechaActual = DateTime.Now;
-            // ultima fecha de cambio de contraseña de ese usuario 
-            DateTime? fechaCambioContrasenia = usuario.FechaContrasenia;
-            int diferenciaDias;
-            // primero chequea si fechaCambioContrasenia tiene valor
-            if (fechaCambioContrasenia.HasValue)
-            {
-                //Restamos fecha actual y la fecha de cambio de contraseña y verificamos si pasaron mas de 30 dias
-                TimeSpan diferencia = fechaActual.Subtract(fechaCambioContrasenia.Value);
-                diferenciaDias = diferencia.Days;
-            }
-            else
-            {
-                diferenciaDias = 0;
-            }
-            if (diferenciaDias >= 30)
-            {
-                Console.WriteLine("Pasaron más de 30 días desde que actualizó su contraseña, por lo que deberá cambiarla");
-                SolicitarContrasenia(usuario);
-            }
+            // Buscar el objeto con nombreUsuario igual a "master"
+            JToken usuario = jsonArray.FirstOrDefault(item => (string)item["id"] == idFinal);
 
+
+            return usuario;
         }
-
-        private static void DarDeBaja(UsuarioModel usuario)
-        {
-            usuario.Estado = "INACTIVO";
-        }
-
     }
 }
 

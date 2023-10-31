@@ -8,19 +8,28 @@ namespace Modelo
 {
     public class ProductoModel
     {
-        private int _id;
-        private string _descripcion;
+        private int _idCategoria;
+        private string _idUsuario;
+        private string _idProveedor;
+        private string _nombre;
+        private int _precio;
         private int _stock;
 
-        public int Id { get => _id; set => _id = value; }
-        public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        public int IdCategoria { get => _idCategoria; set => _idCategoria = value; }
+        public string IdUsuario { get => _idUsuario; set => _idUsuario = value; }
+        public string IdProveedor { get => _idProveedor; set => _idProveedor = value; }
+        public string Nombre { get => _nombre; set => _nombre = value; }
+        public int Precio { get => _precio; set => _precio = value; }
         public int Stock { get => _stock; set => _stock = value; }
 
-        public ProductoModel(int id, string descripcion, int stock)
+        public ProductoModel(int idCategoria, string idUsuario, string idProveedor, string nombre, int precio, int stock)
         {
             // Las que tienen mayuscula son las que tienen setter
-            Id = id;
-            Descripcion = descripcion;
+            IdCategoria = idCategoria;
+            IdUsuario = idUsuario;
+            IdProveedor = idProveedor;
+            Nombre = nombre;
+            Precio = precio;
             Stock = stock;
         }
     }

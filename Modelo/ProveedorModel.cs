@@ -8,26 +8,26 @@ namespace Modelo
 {
     public class ProveedorModel
     {
-        private Guid _id;
+        private string _idUsuario;
         private string _nombre;
         private string _apellido;
-        private string _estado;
-        private List<int> _categoriasProductos;
+        private string _email;
+        private string _cuit;
 
-        public Guid Id { get => _id; }
+        public string IdUsuario { get => _idUsuario; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
-        public string Estado { get => _estado; set => _estado = value; }
-        public List<int> CategoriasProductos { get => _categoriasProductos; set => _categoriasProductos = value; }
+        public string Email { get => _email; set => _email = value; }
+        public string Cuit { get => _cuit; set => _cuit = value; }
 
-        public ProveedorModel(Guid id, string nombre, string apellido, string estado, List<int> categoriasProductos)
+        public ProveedorModel(string nombre, string apellido, string email, string cuit)
         {
             // Las que tienen mayuscula son las que tienen setter
-            _id = id;
+            _idUsuario = "D347CE99-DB8D-4542-AA97-FC9F3CCE6969";
             Nombre = nombre;
             Apellido = apellido;
-            Estado = "ACTIVO";
-            CategoriasProductos = categoriasProductos;
+            Email = email;
+            Cuit = cuit;
         }
 
     }
