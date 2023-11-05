@@ -10,3 +10,15 @@ C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Modelo
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Modelo\obj\Debug\net6.0\Modelo.pdb
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Modelo\obj\Debug\net6.0\ref\Modelo.dll
 C:\Users\lauta\OneDrive - Económicas - UBA\Carrera UBA\CAI\TP Integrador\Modelo\obj\Debug\net6.0\Modelo.csproj.AssemblyReference.cache
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\bin\Debug\net6.0\Modelo.deps.json
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\bin\Debug\net6.0\Modelo.dll
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\bin\Debug\net6.0\Modelo.pdb
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\Modelo.csproj.AssemblyReference.cache
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\Modelo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\Modelo.AssemblyInfo.cs
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\Modelo.dll
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\refint\Modelo.dll
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\Modelo.pdb
+C:\Users\lauta\Downloads\TP-Integrador-CAI-main\Modelo\obj\Debug\net6.0\ref\Modelo.dll
