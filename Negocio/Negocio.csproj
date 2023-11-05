@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Practica\TP Integrador\Utils\Utils.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\Utils.csproj" />
     <ProjectReference Include="..\Modelo\Modelo.csproj" />
   </ItemGroup>
 
