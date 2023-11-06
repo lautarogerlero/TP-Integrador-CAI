@@ -1,5 +1,6 @@
 ﻿using Modelo;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,42 @@ namespace Negocio
             {
                 Console.WriteLine($"El producto fue registrado con éxito");
             }
+        }
+
+        public static string ObtenerListaProductos()
+        {
+            // Trae todos los proveedores activos
+            string content = "";
+            HttpResponseMessage response = WebHelper.Get($"Producto/TraerProductos");
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Verifique los datos ingresados");
+            }
+            else
+            {
+                content = response.Content.ReadAsStringAsync().Result;
+            }
+            return content;
+        }
+
+        public static JToken ObtenerProductoPorNombre(string nombre)
+        {
+            // Busca en los usuarios activos a un usuario por el nombre de usuario y devuelve su id
+            string content = ObtenerListaProductos();
+            // Analizar el contenido JSON
+            JArray jsonArray = JArray.Parse(content);
+            // Buscar el objeto con nombreUsuario igual a "master"
+            JToken producto = jsonArray.FirstOrDefault(item => (string)item["nombre"] == nombre);
+
+            return producto;
+        }
+
+        public static int ObtenerStock(string nombre)
+        {
+            JToken producto = ObtenerProductoPorNombre(nombre);
+            int stock = producto["stock"].Value<int>();
+
+            return stock;
         }
     }
 }

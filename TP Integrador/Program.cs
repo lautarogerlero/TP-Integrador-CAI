@@ -25,7 +25,7 @@ namespace TPIntegrador
         static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
         static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \n5) Registrar cliente \n6) Modificar cliente \nX) Cerrar sesión";
         static string menu_supervisor = "1) Agregar producto \nX) Cerrar sesión";
-        static string menu_vendedor = "X) Cerrar sesión";
+        static string menu_vendedor = "1) Registrar venta \nX) Cerrar sesión";
         static void Main(string[] args)
         {
             CargaInicialDatos();
@@ -250,7 +250,15 @@ namespace TPIntegrador
             Console.WriteLine(menu_vendedor);
             string nuevaOpcion = Console.ReadLine();
             // Si elige X cierra sesión, sino pide de vuelta la opción
-            if (nuevaOpcion.ToUpper() == "X")
+            if (nuevaOpcion == "1")
+            {
+                RegistrarVenta();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion.ToUpper() == "X")
             {
                 cerrarMenu = true;
                 return cerrarMenu;
@@ -418,6 +426,39 @@ namespace TPIntegrador
             string nombre = ConsolaUtils.ValidarNombre("Ingrese el nombre del cliente");
             string apellido = ConsolaUtils.ValidarNombre("Ingrese el apellido del cliente");
             Cliente.ModificarCliente(nombre, apellido);
+        }
+
+        private static void RegistrarVenta()
+        {
+            bool valoresCorrectos = false;
+            do
+            {
+                string nombreCliente = ConsolaUtils.ValidarNombre("Ingrese el nombre del cliente");
+                string apellidoCliente = ConsolaUtils.ValidarNombre("Ingrese el apellido del cliente");
+                string nombreUsuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario");
+                string nombreProducto = ConsolaUtils.PedirString("Ingrese el nombre del producto");
+
+                JToken cliente = Cliente.ObtenerClientePorNombre(nombreCliente, apellidoCliente);
+                JToken usuario = Usuario.ObtenerUsuarioPorNombre(nombreUsuario);
+                JToken producto = Producto.ObtenerProductoPorNombre(nombreProducto);
+
+                if (cliente != null && usuario != null && producto != null)
+                {
+                    valoresCorrectos = true;
+                    string idCliente = cliente["id"].Value<string>();
+                    string idUsuario = usuario["id"].Value<string>();
+                    string idProducto = producto["id"].Value<string>();
+
+                    int stock = Producto.ObtenerStock(nombreProducto);
+                    int cantidad = ConsolaUtils.PedirIntRango($"Ingrese la cantidad. El stock disponible es {stock}", 1, stock);
+                    Venta.RegistrarVenta(idCliente, idUsuario, idProducto, cantidad);
+                }
+                else
+                {
+                    Console.WriteLine("Alguno de los datos ingresados no existe en la base de datos");
+                }
+            } while(!valoresCorrectos);
+            
         }
 
         private static void DibujarTitulo(String titulo)
