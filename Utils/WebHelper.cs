@@ -61,6 +61,22 @@ namespace Utils
 
         }
 
+        public static HttpResponseMessage DeleteSinBody(string url, string id)
+        {
+            var uri = rutaBase + url + $"?id={id}";
+
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Delete,
+                RequestUri = new Uri(uri)
+            };
+
+            HttpResponseMessage response = client.SendAsync(request).Result;
+
+            return response;
+        }
+
+
         public static HttpResponseMessage DeleteConBody(string url, String jsonRequest)
         {
             var uri = rutaBase + url;

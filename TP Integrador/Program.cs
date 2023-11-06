@@ -23,7 +23,7 @@ namespace TPIntegrador
         static bool continuarPrograma = true;
         // Distintos menus para cada caso
         static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
-        static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \nX) Cerrar sesión";
+        static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \n5) Registrar cliente \n6) Modificar cliente \nX) Cerrar sesión";
         static string menu_supervisor = "1) Agregar producto \nX) Cerrar sesión";
         static string menu_vendedor = "X) Cerrar sesión";
         static void Main(string[] args)
@@ -184,6 +184,22 @@ namespace TPIntegrador
                 Console.ReadKey();
                 return cerrarMenu;
             }
+            else if (nuevaOpcion == "5")
+            {
+                AgregarCliente();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "6")
+            {
+                ModificarCliente();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
             else if (nuevaOpcion.ToUpper() == "X")
             {
                 cerrarMenu = true;
@@ -295,12 +311,13 @@ namespace TPIntegrador
             do
             {
                 nombreUsuario = ConsolaUtils.PedirString("Ingrese su nombre de usuario");
+                string contraseña = ConsolaUtils.PedirString("Ingrese su contraseña. \nSi es la primera vez que inicia sesión, ingrese la contraseña 'PrimerLoginG3' y cambie la contraseña para poder continuar");
                 login.NombreUsuario = nombreUsuario;
-                login.Contraseña = ConsolaUtils.PedirString("Ingrese su contraseña");
+                login.Contraseña = contraseña;
 
                 try
                 {
-                    idUsuario = Usuario.LogIn(login);
+                    idUsuario = Usuario.LogIn(login, nombreUsuario, contraseña);
                     Console.WriteLine("Login exitoso");
                     usuarioEncontrado = true;
                     // Si el inicio de sesión es exitoso, restablece el contador de intentos fallidos.
@@ -379,6 +396,28 @@ namespace TPIntegrador
                 string idProveedor = proveedor["id"].ToString();
                 Producto.RegistrarProducto(categoria, idProveedor, nombreProducto, precio, stock);
             }
+        }
+
+        private static void AgregarCliente()
+        {
+            // Pedir los atributos que necesita el usuario para ser creado
+            string id = "D347CE99-DB8D-4542-AA97-FC9F3CCE6969";
+            string nombre = ConsolaUtils.ValidarNombre("Ingrese el nombre");
+            string apellido = ConsolaUtils.ValidarNombre("Ingrese el apellido");
+            string direccion = ConsolaUtils.PedirString("Ingrese la dirección");
+            string telefono = ConsolaUtils.ValidarTelefono("Ingrese el número de teléfono");
+            string email = ConsolaUtils.ValidarEmail("Ingrese el email");
+            DateTime fechaNacimiento = ConsolaUtils.ValidarFechaNacimiento("Ingrese la fecha de nacimiento");
+            string host = ConsolaUtils.PedirString("Ingrese el host");
+            int dni = ConsolaUtils.ValidarDni("Ingrese el DNI");
+            Cliente.CrearCliente(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, host, dni);
+        }
+
+        private static void ModificarCliente()
+        {
+            string nombre = ConsolaUtils.ValidarNombre("Ingrese el nombre del cliente");
+            string apellido = ConsolaUtils.ValidarNombre("Ingrese el apellido del cliente");
+            Cliente.ModificarCliente(nombre, apellido);
         }
 
         private static void DibujarTitulo(String titulo)

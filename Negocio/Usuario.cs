@@ -33,7 +33,7 @@ namespace Negocio
             }
             // Una vez que se obtiene un nombre de usuario válido, crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
-            SolicitarContrasenia(nuevoUsuario);
+            // SolicitarContrasenia(nuevoUsuario);
             // Agrega al usuario a la base de datos
             var jsonRequest = JsonConvert.SerializeObject(nuevoUsuario);
             HttpResponseMessage response = WebHelper.Post("Usuario/AgregarUsuario", jsonRequest);
@@ -61,7 +61,7 @@ namespace Negocio
             return cumpleRequisitos;
         }
 
-        public static void SolicitarContrasenia(UsuarioModel usuario)
+        public static void SolicitarContrasenia(string nombreUsuario, string passwordAnterior)
         {
             // Método que solicita una contraseña y verifica que sea válida
             bool contraseniaValida;
@@ -75,19 +75,19 @@ namespace Negocio
             {
                 newPassword = Console.ReadLine();
                 // Llama al método ValidarContrasenia para chequear que cumpla los requisitos
-                contraseniaValida = ValidarContrasenia(newPassword, usuario);
+                contraseniaValida = ValidarContrasenia(newPassword, passwordAnterior);
                 if (!contraseniaValida)
                 {
                     Console.WriteLine("La contraseña no cumple alguno de los requisitos. Intente nuevamente");
                 }
             } while (!contraseniaValida);
             //  Asigna la contraseña valida a usuario.Contrasenia
-            usuario.Contraseña = newPassword;
+            ActualizarContrasenia(nombreUsuario, passwordAnterior, newPassword);
             // Cambia la fecha en la que se actualizó la contraseña
             // usuario.FechaContrasenia = DateTime.Now;
         }
 
-        static bool ValidarContrasenia(string password, UsuarioModel usuario)
+        static bool ValidarContrasenia(string password, string anterior)
         {
             // Requisito 1: La contraseña debe tener entre 8 y 15 caracteres alfanuméricos.
             if (password.Length < 8 || password.Length > 15)
@@ -111,7 +111,7 @@ namespace Negocio
                 }
             }
             // Requisito 3: La contraseña no debe ser igual a la anterior
-            if (password.ToLower() != usuario.Contraseña.ToLower())
+            if (password.ToLower() != anterior.ToLower())
             {
                 distintaAAnterior = true;
             }
@@ -123,7 +123,28 @@ namespace Negocio
             return false;
         }
 
-        public static string LogIn(Login login)
+        public static void ActualizarContrasenia(string nombreUsuario, string contraseñaAnterior, string contraseñaNueva)
+        {
+            Dictionary<String, String> map = new Dictionary<String, String>();
+
+            map.Add("nombreUsuario", nombreUsuario);
+            map.Add("contraseña", contraseñaAnterior);
+            map.Add("contraseñaNueva", contraseñaNueva);
+
+            var jsonRequest = JsonConvert.SerializeObject(map);
+
+            HttpResponseMessage response = WebHelper.Patch("Usuario/CambiarContraseña", jsonRequest);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Verifique los datos ingresados");
+            }
+            else
+            {
+                Console.WriteLine("Contraseña actualizada!");
+            }
+        }
+        public static string LogIn(Login login, string nombreUsuario, string password)
         {
             var jsonRequest = JsonConvert.SerializeObject(login);
 
@@ -137,6 +158,11 @@ namespace Negocio
             var reader = new StreamReader(response.Content.ReadAsStream());
 
             String respuesta = reader.ReadToEnd();
+
+            if (password == "PrimerLoginG3")
+            {
+                SolicitarContrasenia(nombreUsuario, password);
+            }
 
             return respuesta;
         }
@@ -183,7 +209,7 @@ namespace Negocio
             string content = ObtenerListaUsuarios();
             // Analizar el contenido JSON
             JArray jsonArray = JArray.Parse(content);
-            // Buscar el objeto con nombreUsuario igual a "master"
+
             JToken usuario = jsonArray.FirstOrDefault(item => (string)item["nombreUsuario"] == nombreUsuario);
 
             return usuario;
@@ -197,9 +223,7 @@ namespace Negocio
             JArray jsonArray = JArray.Parse(content);
             string idFinal = id.Trim('"');
 
-            // Buscar el objeto con nombreUsuario igual a "master"
             JToken usuario = jsonArray.FirstOrDefault(item => (string)item["id"] == idFinal);
-
 
             return usuario;
         }

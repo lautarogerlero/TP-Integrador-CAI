@@ -62,7 +62,7 @@ namespace Modelo
             NombreUsuario = usuario;
             _host = host;
             _dni = dni;
-            Contraseña = "12345";
+            Contraseña = "PrimerLoginG3";
             //Estado = "INACTIVO";
             //PrimerLogin = true;
             //FechaContrasenia = null;
