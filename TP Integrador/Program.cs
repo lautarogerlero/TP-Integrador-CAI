@@ -24,7 +24,7 @@ namespace TPIntegrador
         // Distintos menus para cada caso
         static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
         static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \n5) Registrar cliente \n6) Modificar cliente \nX) Cerrar sesión";
-        static string menu_supervisor = "1) Agregar producto \nX) Cerrar sesión";
+        static string menu_supervisor = "1) Agregar producto \n2) Devolver venta \nX) Cerrar sesión";
         static string menu_vendedor = "1) Registrar venta \nX) Cerrar sesión";
         static void Main(string[] args)
         {
@@ -224,6 +224,14 @@ namespace TPIntegrador
             if (nuevaOpcion == "1")
             {
                 AgregarProducto();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "2")
+            {
+                DevolverVenta();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
                 Console.ReadKey();
@@ -459,6 +467,32 @@ namespace TPIntegrador
                 }
             } while(!valoresCorrectos);
             
+        }
+
+        public static void DevolverVenta()
+        {
+            bool valoresCorrectos = false;
+            do
+            {
+                string nombreCliente = ConsolaUtils.ValidarNombre("Ingrese el nombre del cliente");
+                string apellidoCliente = ConsolaUtils.ValidarNombre("Ingrese el apellido del cliente");
+
+
+                JToken cliente = Cliente.ObtenerClientePorNombre(nombreCliente, apellidoCliente);
+
+                if (cliente != null)
+                {
+                    string idCliente = cliente["id"].Value<string>();
+
+                    int cantidad = ConsolaUtils.PedirIntRango($"Ingrese la cantidad vendida", 1, 10000000);
+
+                    valoresCorrectos = Venta.DevolverVenta(cantidad, idCliente);
+                }
+                else
+                {
+                    Console.WriteLine("Alguno de los datos ingresados no existe en la base de datos");
+                }
+            } while (!valoresCorrectos);
         }
 
         private static void DibujarTitulo(String titulo)
