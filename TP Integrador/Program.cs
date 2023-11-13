@@ -460,6 +460,7 @@ namespace TPIntegrador
                     int stock = Producto.ObtenerStock(nombreProducto);
                     int cantidad = ConsolaUtils.PedirIntRango($"Ingrese la cantidad. El stock disponible es {stock}", 1, stock);
                     Venta.RegistrarVenta(idCliente, idUsuario, idProducto, cantidad);
+                    Venta.MostrarResumenVenta(cliente, producto, cantidad);
                 }
                 else
                 {
