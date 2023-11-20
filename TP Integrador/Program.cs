@@ -23,9 +23,9 @@ namespace TPIntegrador
         static bool continuarPrograma = true;
         // Distintos menus para cada caso
         static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
-        static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \n5) Registrar cliente \n6) Modificar cliente \nX) Cerrar sesión";
-        static string menu_supervisor = "1) Agregar producto \n2) Devolver venta \nX) Cerrar sesión";
-        static string menu_vendedor = "1) Registrar venta \nX) Cerrar sesión";
+        static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \n5) Registrar cliente \n6) Modificar cliente \n7) Ver stock crítico \n8) Ventas por vendedor \n9) Productos más vendidos por categoría \nX) Cerrar sesión";
+        static string menu_supervisor = "1) Agregar producto \n2) Devolver venta \n3) Ver stock crítico \n4) Ventas por vendedor \n5) Productos más vendidos por categoría \nX) Cerrar sesión";
+        static string menu_vendedor = "1) Registrar venta \n2) Ventas por vendedor \nX) Cerrar sesión";
         static void Main(string[] args)
         {
             CargaInicialDatos();
@@ -121,7 +121,7 @@ namespace TPIntegrador
                                 else if (host == 2)
                                 {
                                     // Muestra el MenuVendedor y devuelve un booleano para ver si sigue en el menú o cierra sesión
-                                    cerrarMenu = MenuSupervisor(cerrarMenu);
+                                    cerrarMenu = MenuSupervisor(cerrarMenu, idUsuario);
                                 }
                                 // Si el host es 3, muestra el menú vendedor
                                 else if (host == 3)
@@ -140,6 +140,9 @@ namespace TPIntegrador
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error durante la ejecución del comando. Por favor intente nuevamente. Mensaje: " + ex.Message);
+                    Console.WriteLine("Ingrese una tecla para continuar.");
+
+                    Console.ReadKey();
                 }
 
             }
@@ -200,6 +203,14 @@ namespace TPIntegrador
                 Console.ReadKey();
                 return cerrarMenu;
             }
+            else if (nuevaOpcion == "9")
+            {
+                ProductosMasVendidos();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
             else if (nuevaOpcion.ToUpper() == "X")
             {
                 cerrarMenu = true;
@@ -216,7 +227,7 @@ namespace TPIntegrador
             }
         }
 
-        private static bool MenuSupervisor(bool cerrarMenu)
+        private static bool MenuSupervisor(bool cerrarMenu, string idUsuario)
         {
             Console.WriteLine(menu_supervisor);
             string nuevaOpcion = Console.ReadLine();
@@ -231,7 +242,15 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "2")
             {
-                DevolverVenta();
+                DevolverVenta(idUsuario);
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "5")
+            {
+                ProductosMasVendidos();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
                 Console.ReadKey();
@@ -470,14 +489,13 @@ namespace TPIntegrador
             
         }
 
-        public static void DevolverVenta()
+        public static void DevolverVenta(string idUsuario)
         {
             bool valoresCorrectos = false;
             do
             {
                 string nombreCliente = ConsolaUtils.ValidarNombre("Ingrese el nombre del cliente");
                 string apellidoCliente = ConsolaUtils.ValidarNombre("Ingrese el apellido del cliente");
-
 
                 JToken cliente = Cliente.ObtenerClientePorNombre(nombreCliente, apellidoCliente);
 
@@ -487,13 +505,22 @@ namespace TPIntegrador
 
                     int cantidad = ConsolaUtils.PedirIntRango($"Ingrese la cantidad vendida", 1, 10000000);
 
-                    valoresCorrectos = Venta.DevolverVenta(cantidad, idCliente);
+                    valoresCorrectos = Venta.DevolverVenta(cantidad, idCliente, idUsuario);
                 }
                 else
                 {
                     Console.WriteLine("Alguno de los datos ingresados no existe en la base de datos");
                 }
             } while (!valoresCorrectos);
+        }
+
+        public static void ProductosMasVendidos()
+        {
+            List<string> clientes = Cliente.ObtenerIdsClientes();
+            foreach (string idCliente in clientes)
+            {
+                Console.WriteLine(idCliente);
+            }
         }
 
         private static void DibujarTitulo(String titulo)

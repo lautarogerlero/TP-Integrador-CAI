@@ -87,9 +87,7 @@ namespace Negocio
                 {
                     string id = cliente["id"].ToString();
                     ModificarClienteEstado(map, id);
-                }
-
-                
+                } 
             }
         }
 
@@ -134,6 +132,24 @@ namespace Negocio
             {
                 Console.WriteLine("Cliente modificado");
             }
+        }
+
+        public static List<string> ObtenerIdsClientes()
+        {
+            string clientes = ObtenerListaClientes();
+            List<string> idsClientes = new List<string>();
+
+            List<Dictionary<string, object>> listaDiccionarios = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(clientes);
+
+            foreach (var diccionario in listaDiccionarios)
+            {
+                if (diccionario.TryGetValue("id", out var idValue))
+                {
+                    idsClientes.Add(idValue.ToString());
+                }
+            }
+
+            return idsClientes;
         }
 
     }

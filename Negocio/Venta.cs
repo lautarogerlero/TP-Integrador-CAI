@@ -95,7 +95,7 @@ namespace Negocio
             return content;
         }
 
-        public static bool DevolverVenta(int cantidad, string idCliente)
+        public static bool DevolverVenta(int cantidad, string idCliente, string idUsuario)
         {
             string ventas = ObtenerVentasPorCliente(idCliente);
             JArray jsonArray = JArray.Parse(ventas);
@@ -108,7 +108,8 @@ namespace Negocio
                 Dictionary<String, String> map = new Dictionary<String, String>();
 
                 map.Add("id", idVenta);
-                map.Add("idUsuario", idCliente);
+                // string idFinal = id.Trim('"');
+                map.Add("idUsuario", idUsuario.Trim('"'));
 
                 var jsonRequest = JsonConvert.SerializeObject(map);
 
