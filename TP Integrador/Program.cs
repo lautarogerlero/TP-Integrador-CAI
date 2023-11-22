@@ -23,9 +23,13 @@ namespace TPIntegrador
         static bool continuarPrograma = true;
         // Distintos menus para cada caso
         static string menu_inicial = "1) Iniciar Sesión \nX) Salir";
-        static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \n5) Registrar cliente \n6) Modificar cliente \n7) Ver stock crítico \n8) Ventas por vendedor \n9) Productos más vendidos por categoría \nX) Cerrar sesión";
-        static string menu_supervisor = "1) Agregar producto \n2) Devolver venta \n3) Ver stock crítico \n4) Ventas por vendedor \n5) Productos más vendidos por categoría \nX) Cerrar sesión";
-        static string menu_vendedor = "1) Registrar venta \n2) Ventas por vendedor \nX) Cerrar sesión";
+        static string menu_admin = "1) Agregar usuario \n2) Registrar proveedor \n3) Dar de baja proveedor \n4) Agregar producto \n5) Registrar cliente \n6) Modificar cliente \n7) Ver stock crítico \n8) Ventas por clientes \n9) Productos más vendidos por categoría \nX) Cerrar sesión";
+        static string menu_supervisor = "1) Agregar producto \n2) Devolver venta \n3) Ver stock crítico \n4) Ventas por clientes \n5) Productos más vendidos por categoría \nX) Cerrar sesión";
+        static string menu_vendedor = "1) Registrar venta \n2) Ventas por clientes \nX) Cerrar sesión";
+
+        static int productosConStrockCritico = 0;
+        static List<JToken> listaProductosConStrockCritico = new List<JToken>();
+
         static void Main(string[] args)
         {
             CargaInicialDatos();
@@ -152,6 +156,10 @@ namespace TPIntegrador
 
         private static bool MenuAdmin(bool cerrarMenu)
         {
+            if(productosConStrockCritico > 0)
+            {
+                Console.WriteLine($"Hay {productosConStrockCritico} producto/s con stock crítico!");
+            }
             Console.WriteLine(menu_admin);
             string nuevaOpcion = Console.ReadLine();
             // Si elige 1, agrega un usuario, si elige X sale, si elige otra cosa le vuelve a pedir una opción
@@ -203,6 +211,22 @@ namespace TPIntegrador
                 Console.ReadKey();
                 return cerrarMenu;
             }
+            else if (nuevaOpcion == "7")
+            {
+                MostrarStockCritico();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "8")
+            {
+                MostrarVentasPorClientes();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
             else if (nuevaOpcion == "9")
             {
                 ProductosMasVendidos();
@@ -229,6 +253,10 @@ namespace TPIntegrador
 
         private static bool MenuSupervisor(bool cerrarMenu, string idUsuario)
         {
+            if (productosConStrockCritico > 0)
+            {
+                Console.WriteLine($"Hay {productosConStrockCritico} producto/s con stock crítico!!\n");
+            }
             Console.WriteLine(menu_supervisor);
             string nuevaOpcion = Console.ReadLine();
             // Si elige X cierra sesión, sino pide de vuelta la opción
@@ -243,6 +271,22 @@ namespace TPIntegrador
             else if (nuevaOpcion == "2")
             {
                 DevolverVenta(idUsuario);
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "3")
+            {
+                MostrarStockCritico();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "4")
+            {
+                MostrarVentasPorClientes();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
                 Console.ReadKey();
@@ -280,6 +324,14 @@ namespace TPIntegrador
             if (nuevaOpcion == "1")
             {
                 RegistrarVenta();
+                Console.WriteLine("Ingrese una tecla para continuar.");
+
+                Console.ReadKey();
+                return cerrarMenu;
+            }
+            else if (nuevaOpcion == "2")
+            {
+                MostrarVentasPorClientes();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
                 Console.ReadKey();
@@ -480,13 +532,18 @@ namespace TPIntegrador
                     int cantidad = ConsolaUtils.PedirIntRango($"Ingrese la cantidad. El stock disponible es {stock}", 1, stock);
                     Venta.RegistrarVenta(idCliente, idUsuario, idProducto, cantidad);
                     Venta.MostrarResumenVenta(cliente, producto, cantidad);
+
+                    if (stock - cantidad < cantidad * 0.25)
+                    {
+                        productosConStrockCritico += 1;
+                        listaProductosConStrockCritico.Add(producto);
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Alguno de los datos ingresados no existe en la base de datos");
                 }
             } while(!valoresCorrectos);
-            
         }
 
         public static void DevolverVenta(string idUsuario)
@@ -514,12 +571,109 @@ namespace TPIntegrador
             } while (!valoresCorrectos);
         }
 
+        public static void MostrarStockCritico()
+        {
+            Dictionary<int, List<(string Nombre, int Stock)>> productosAgrupados = new Dictionary<int, List<(string, int)>>();
+
+            if(productosConStrockCritico > 0)
+            {
+                foreach (JToken producto in listaProductosConStrockCritico)
+                {
+                    string nombreProducto = producto["nombre"].Value<string>();
+                    int idCategoria = producto["idCategoria"].Value<int>();
+                    int stock = Producto.ObtenerStock(nombreProducto);
+
+                    if (!productosAgrupados.ContainsKey(idCategoria))
+                    {
+                        productosAgrupados[idCategoria] = new List<(string, int)>();
+                    }
+
+                    productosAgrupados[idCategoria].Add((nombreProducto, stock));
+                }
+
+                foreach (var categoriaProductos in productosAgrupados)
+                {
+                    int idCategoria = categoriaProductos.Key;
+                    Console.WriteLine($"Productos en stock crítico de categoría {idCategoria}:");
+
+                    foreach (var producto in categoriaProductos.Value)
+                    {
+                        Console.WriteLine($"  Nombre: {producto.Nombre}, Stock: {producto.Stock}");
+                    }
+
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hay productos con stock crítico");
+            }
+        }
+
+        public static void MostrarVentasPorClientes()
+        {
+            string clientes = Cliente.ObtenerListaClientes();
+            JArray arrayClientes = JArray.Parse(clientes);
+
+            string nombreClienteMasVentas = "";
+            string apellidoClienteMasVentas = "";
+            int maxVentas = 0;
+
+            foreach (JObject clienteJson in arrayClientes)
+            {
+                string idCliente = clienteJson["id"].Value<string>();
+                string nombre = clienteJson["nombre"].Value<string>();
+                string apellido = clienteJson["apellido"].Value<string>();
+                string ventasPorCliente = Venta.ObtenerVentasPorCliente(idCliente);
+                JArray arrayVentas = JArray.Parse(ventasPorCliente);
+
+                if(arrayVentas.Count > 0)
+                {
+                    Console.WriteLine($"Cliente {nombre} {apellido}");
+                    Console.WriteLine("Ventas realizadas:");
+                    foreach (JObject venta in arrayVentas)
+                    {
+                        string idVenta = venta["id"].Value<string>();
+                        int cantidad = venta["cantidad"].Value<int>();
+                        Console.WriteLine($"Id Venta: {idVenta} \nCantidad vendida: {cantidad}");
+                    }
+                    Console.WriteLine();
+                    if(arrayVentas.Count > maxVentas)
+                    {
+                        maxVentas = arrayVentas.Count;
+                        nombreClienteMasVentas = nombre;
+                        apellidoClienteMasVentas = apellido;
+                    }
+                }        
+            }
+            Console.WriteLine($"El cliente con que más ventas realizó es {nombreClienteMasVentas} {apellidoClienteMasVentas} con {maxVentas} ventas");
+        }
+
         public static void ProductosMasVendidos()
         {
-            List<string> clientes = Cliente.ObtenerIdsClientes();
-            foreach (string idCliente in clientes)
+            string clientes = Cliente.ObtenerListaClientes();
+            JArray arrayClientes = JArray.Parse(clientes);
+
+            foreach (JObject clienteJson in arrayClientes)
             {
-                Console.WriteLine(idCliente);
+                string idCliente = clienteJson["id"].Value<string>();
+                string nombre = clienteJson["nombre"].Value<string>();
+                string apellido = clienteJson["apellido"].Value<string>();
+                string ventasPorCliente = Venta.ObtenerVentasPorCliente(idCliente);
+                JArray arrayVentas = JArray.Parse(ventasPorCliente);
+
+                if (arrayVentas.Count > 0)
+                {
+                    Console.WriteLine($"Cliente {nombre} {apellido}");
+                    Console.WriteLine("Ventas realizadas:");
+                    foreach (JObject venta in arrayVentas)
+                    {
+                        string idVenta = venta["id"].Value<string>();
+                        int cantidad = venta["cantidad"].Value<int>();
+                        Console.WriteLine($"Id Venta: {idVenta} \nCantidad vendida: {cantidad}");
+                    }
+                    Console.WriteLine();
+                }
             }
         }
 
