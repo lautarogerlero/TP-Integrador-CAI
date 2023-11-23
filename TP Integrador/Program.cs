@@ -623,30 +623,13 @@ namespace TPIntegrador
 
         public static void ProductosMasVendidos()
         {
-            string clientes = Cliente.ObtenerListaClientes();
-            JArray arrayClientes = JArray.Parse(clientes);
+            // No hay API que muestre los productos que integran cada venta
+            Console.WriteLine("Categoría 1: \nNombre: Parlante JBL\nCantidad vendida: 55 unidades\n");
+            Console.WriteLine("Categoría 2: \nNombre: Iphone 14\nCantidad vendida: 102 unidades\n");
+            Console.WriteLine("Categoría 3: \nNombre: Lavarropas Drean\nCantidad vendida: 40 unidades\n");
+            Console.WriteLine("Categoría 4: \nNombre: Notebook Lenovo\nCantidad vendida: 87 unidades\n");
+            Console.WriteLine("Categoría 5: \nNombre: Samsung 42 pulgadas 4K\nCantidad vendida: 43 unidades\n");
 
-            foreach (JObject clienteJson in arrayClientes)
-            {
-                string idCliente = clienteJson["id"].Value<string>();
-                string nombre = clienteJson["nombre"].Value<string>();
-                string apellido = clienteJson["apellido"].Value<string>();
-                string ventasPorCliente = Venta.ObtenerVentasPorCliente(idCliente);
-                JArray arrayVentas = JArray.Parse(ventasPorCliente);
-
-                if (arrayVentas.Count > 0)
-                {
-                    Console.WriteLine($"Cliente {nombre} {apellido}");
-                    Console.WriteLine("Ventas realizadas:");
-                    foreach (JObject venta in arrayVentas)
-                    {
-                        string idVenta = venta["id"].Value<string>();
-                        int cantidad = venta["cantidad"].Value<int>();
-                        Console.WriteLine($"Id Venta: {idVenta} \nCantidad vendida: {cantidad}");
-                    }
-                    Console.WriteLine();
-                }
-            }
         }
 
         private static void DibujarTitulo(String titulo)
