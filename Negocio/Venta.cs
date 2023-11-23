@@ -108,7 +108,6 @@ namespace Negocio
                 Dictionary<String, String> map = new Dictionary<String, String>();
 
                 map.Add("id", idVenta);
-                // string idFinal = id.Trim('"');
                 map.Add("idUsuario", idUsuario.Trim('"'));
 
                 var jsonRequest = JsonConvert.SerializeObject(map);

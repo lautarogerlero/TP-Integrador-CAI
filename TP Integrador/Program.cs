@@ -1,10 +1,4 @@
-﻿// Contiene la lógica principal
-// Por ejemplo: pedir el input del usuario
-// Realiza las validaciones de integridad de datos (las validaciones generales)
-// Estas validaciones pueden estar en una carpeta aparte como en el ejemplo de Agenda
-// Llama al método crearUsuario de la clase Usuario de la capa de Negocio
-// Solo ve la capa de Negocio, no la de Modelo
-using System;
+﻿using System;
 using System.ComponentModel;
 using Negocio;
 using Utils;
@@ -17,8 +11,11 @@ namespace TPIntegrador
 {
     internal class Program
     {
-        // Lista donde se van a guardar los usuarios
-        private static List<UsuarioModel> Usuarios = new List<UsuarioModel>();
+        // USUARIOS POR DEFECTO CON CONTRASEÑA CAI20232
+        // AdminiG3
+        // Supervis0rG3
+        // VendedG3
+
         // Para controlar el flujo del menú de login
         static bool continuarPrograma = true;
         // Distintos menus para cada caso
@@ -32,45 +29,7 @@ namespace TPIntegrador
 
         static void Main(string[] args)
         {
-            CargaInicialDatos();
-
             MenuPrincipal();
-        }
-
-        private static void CargaInicialDatos()
-        {
-            // Crear los 3 usuarios que deben estar cargados cuando se inicia el programa
-            UsuarioModel administrador1 = new UsuarioModel("D347CE99-DB8D-4542-AA97-FC9F3CCE6969", "Administrador", "Administrador", "Economicas 123", "44444444", "administrador@economicas.com", new DateTime(2000, 01, 01), "AdminiG3", 1, 11111111);
-            administrador1.Contraseña = "CAI20232";
-            //administrador1.PrimerLogin = false;
-            //administrador1.Estado = "ACTIVO";
-
-            Usuarios.Add(administrador1);
-
-            UsuarioModel supervisor1 = new UsuarioModel("D347CE99-DB8D-4542-AA97-FC9F3CCE6969", "Supervisor", "Supervisor", "Economicas 456", "55555555", "supervisor@economicas.com", new DateTime(2000, 01, 01), "SupervG3", 2, 22222222);
-            supervisor1.Contraseña = "CAI20232";
-            Usuarios.Add(supervisor1);
-
-            UsuarioModel vendedor1 = new UsuarioModel("D347CE99-DB8D-4542-AA97-FC9F3CCE6969", "Vendedor", "Vendedor", "Economicas 789", "66666666", "vendedor@economicas.com", new DateTime(2000, 01, 01), "VendedG3", 3, 33333333);
-            vendedor1.Contraseña = "CAI20232";
-            Usuarios.Add(vendedor1);
-
-            //foreach (var usuario in Usuarios)
-            //{
-            //    var jsonRequest = JsonConvert.SerializeObject(usuario);
-            //    Console.WriteLine(jsonRequest.ToString());
-            //    HttpResponseMessage response = WebHelper.Post("Usuario/AgregarUsuario", jsonRequest);
-
-
-            //    if (!response.IsSuccessStatusCode)
-            //    {
-            //        throw new Exception(response.StatusCode.ToString());
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Usuario creado con exito!");
-            //    }
-            //}
         }
 
         private static void MenuPrincipal()
@@ -97,7 +56,6 @@ namespace TPIntegrador
                         case "1":
                             // Si elige 1, llama al método LogIn
                             string idUsuario = IniciarSesion();
-                            //UsuarioModel usuarioLogueado = null;
                             bool cerrarMenu = false; // para controlar el flujo del segundo menú
                             string nuevaOpcion;
 
@@ -165,6 +123,7 @@ namespace TPIntegrador
             // Si elige 1, agrega un usuario, si elige X sale, si elige otra cosa le vuelve a pedir una opción
             if (nuevaOpcion == "1")
             {
+                DibujarTitulo("Agregar usuario");
                 AgregarUsuario();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -173,6 +132,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "2")
             {
+                DibujarTitulo("Registrar proveedor");
                 RegistrarProveedor();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -181,6 +141,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "3")
             {
+                DibujarTitulo("Dar de baja proveedor");
                 DarDeBajaProveedor();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -189,6 +150,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "4")
             {
+                DibujarTitulo("Agregar producto");
                 AgregarProducto();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -197,6 +159,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "5")
             {
+                DibujarTitulo("Agregar cliente");
                 AgregarCliente();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -205,6 +168,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "6")
             {
+                DibujarTitulo("Modificar cliente");
                 ModificarCliente();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -213,6 +177,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "7")
             {
+                DibujarTitulo("Stock crítico");
                 MostrarStockCritico();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -221,6 +186,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "8")
             {
+                DibujarTitulo("Ventas por cliente");
                 MostrarVentasPorClientes();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -229,6 +195,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "9")
             {
+                DibujarTitulo("Productos más vendidos");
                 ProductosMasVendidos();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -262,6 +229,7 @@ namespace TPIntegrador
             // Si elige X cierra sesión, sino pide de vuelta la opción
             if (nuevaOpcion == "1")
             {
+                DibujarTitulo("Agregar producto");
                 AgregarProducto();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -270,6 +238,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "2")
             {
+                DibujarTitulo("Devolver venta");
                 DevolverVenta(idUsuario);
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -278,6 +247,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "3")
             {
+                DibujarTitulo("Stock crítico");
                 MostrarStockCritico();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -286,6 +256,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "4")
             {
+                DibujarTitulo("Ventas por cliente");
                 MostrarVentasPorClientes();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -294,6 +265,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "5")
             {
+                DibujarTitulo("Productos más vendidos");
                 ProductosMasVendidos();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -323,6 +295,7 @@ namespace TPIntegrador
             // Si elige X cierra sesión, sino pide de vuelta la opción
             if (nuevaOpcion == "1")
             {
+                DibujarTitulo("Registrar venta");
                 RegistrarVenta();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -331,6 +304,7 @@ namespace TPIntegrador
             }
             else if (nuevaOpcion == "2")
             {
+                DibujarTitulo("Ventas por cliente");
                 MostrarVentasPorClientes();
                 Console.WriteLine("Ingrese una tecla para continuar.");
 
@@ -368,8 +342,6 @@ namespace TPIntegrador
             string usuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario. \nEntre 8 y 15 caracteres y no puede contener ni nombre ni apellido");
             // una vez solicitados los atributos, llamar al metodo CrearUsuario de la capa de negocio
             Usuario.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
-            // Agrega el usuario creado a la lista de Usuarios
-            //Usuarios.Add(nuevoUsuario);
         }
 
         private static void RegistrarProveedor()

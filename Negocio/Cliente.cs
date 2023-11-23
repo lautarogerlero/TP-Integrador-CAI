@@ -37,7 +37,6 @@ namespace Negocio
         public static string ObtenerListaClientes()
         {
             // Trae todos los clientes activos
-            String IdUsuarioMaster = "D347CE99-DB8D-4542-AA97-FC9F3CCE6969";
             string content = "";
             HttpResponseMessage response = WebHelper.Get($"Cliente/GetClientes");
             if (!response.IsSuccessStatusCode)
@@ -58,7 +57,6 @@ namespace Negocio
             string content = ObtenerListaClientes();
             // Analizar el contenido JSON
             JArray jsonArray = JArray.Parse(content);
-            // Buscar el objeto con nombreUsuario igual a "master"
             JToken cliente = jsonArray.FirstOrDefault(item => (string)item["nombre"] == nombre && (string)item["apellido"] == apellido);
 
             return cliente;
@@ -66,8 +64,6 @@ namespace Negocio
 
         public static void ModificarCliente(string nombre, string apellido)
         {
-            //String IdUsuarioMaster = "D347CE99-DB8D-4542-AA97-FC9F3CCE6969";
-
             Dictionary<String, String> map = new Dictionary<String, String>();
             JToken cliente = ObtenerClientePorNombre(nombre, apellido);
             if (cliente == null)
@@ -133,24 +129,5 @@ namespace Negocio
                 Console.WriteLine("Cliente modificado");
             }
         }
-
-        public static List<string> ObtenerIdsClientes()
-        {
-            string clientes = ObtenerListaClientes();
-            List<string> idsClientes = new List<string>();
-
-            List<Dictionary<string, object>> listaDiccionarios = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(clientes);
-
-            foreach (var diccionario in listaDiccionarios)
-            {
-                if (diccionario.TryGetValue("id", out var idValue))
-                {
-                    idsClientes.Add(idValue.ToString());
-                }
-            }
-
-            return idsClientes;
-        }
-
     }
 }

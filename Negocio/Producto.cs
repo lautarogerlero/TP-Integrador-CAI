@@ -53,7 +53,6 @@ namespace Negocio
             string content = ObtenerListaProductos();
             // Analizar el contenido JSON
             JArray jsonArray = JArray.Parse(content);
-            // Buscar el objeto con nombreUsuario igual a "master"
             JToken producto = jsonArray.FirstOrDefault(item => (string)item["nombre"] == nombre);
 
             return producto;

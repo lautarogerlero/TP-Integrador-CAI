@@ -1,10 +1,4 @@
-﻿// Contiene las acciones de negocio. Las clases sin atributos, solo con acciones
-// Acá va a estar la clase usuario con todas sus acciones
-// Por ejemplo: la clase usuario con el metodo crearUsuario
-// Realiza las validaciones de negocio (las validaciones especificas de cada clase)
-// El método crearUsuario crea una instancia de la clase Usuario de la capa de Modelo
-// Ve a las otras dos capas
-using Modelo;
+﻿using Modelo;
 using Utils;
 using Newtonsoft.Json;
 using System;
@@ -33,7 +27,6 @@ namespace Negocio
             }
             // Una vez que se obtiene un nombre de usuario válido, crea una instancia de UsuarioModel
             UsuarioModel nuevoUsuario = new UsuarioModel(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
-            // SolicitarContrasenia(nuevoUsuario);
             // Agrega al usuario a la base de datos
             var jsonRequest = JsonConvert.SerializeObject(nuevoUsuario);
             HttpResponseMessage response = WebHelper.Post("Usuario/AgregarUsuario", jsonRequest);
@@ -83,8 +76,6 @@ namespace Negocio
             } while (!contraseniaValida);
             //  Asigna la contraseña valida a usuario.Contrasenia
             ActualizarContrasenia(nombreUsuario, passwordAnterior, newPassword);
-            // Cambia la fecha en la que se actualizó la contraseña
-            // usuario.FechaContrasenia = DateTime.Now;
         }
 
         static bool ValidarContrasenia(string password, string anterior)
@@ -226,93 +217,6 @@ namespace Negocio
             JToken usuario = jsonArray.FirstOrDefault(item => (string)item["id"] == idFinal);
 
             return usuario;
-        }
-
-        //public static UsuarioModel LogIn(List<UsuarioModel> Usuarios)
-        //{
-        //    // Método que pide usuario y contraseña y verifica que exista en la lista de usuarios
-        //    UsuarioModel usuario = null;
-        //    UsuarioModel usuarioCompleto = null;
-        //    //do
-        //    //{
-        //    //    string nombreUsuario = ConsolaUtils.PedirString("Ingrese su nombre de usuario");
-        //    //    string password = ConsolaUtils.PedirString("Ingrese su contraseña");
-        //    // Primero busca que el nombre de usuario exista, para descontar intentos en caso de que ingrese mal la contraseña
-        //    //usuario = Usuarios.Find(u => u.NombreUsuario == nombreUsuario);
-        //    //    if (usuario != null)
-        //    //    {
-        //    //        // Busca que en usuarios haya un usuario con ese nombre de usuario y esa contraseña
-        //    //        usuarioCompleto = Usuarios.Find(u => u.NombreUsuario == nombreUsuario && u.Contraseña == password);
-        //    //        if (usuarioCompleto == null)
-        //    //        {
-        //    //            // Si no encontro nada se resta 1 intento
-        //    //            usuario.intentos--;
-        //    //            if (usuario.intentos > 1)
-        //    //            {
-        //    //                Console.WriteLine($"Alguno de los datos solicitados no es correcto.\nLe quedan {usuario.intentos} intentos");
-        //    //            }
-        //    //            else if (usuario.intentos == 1)
-        //    //            {
-        //    //                Console.WriteLine($"Alguno de los datos solicitados no es correcto.\nLe queda {usuario.intentos} intento");
-        //    //            }
-        //    //            else
-        //    //            {
-        //    //                // Si se quedó sin intentos se inhabilita el usuario
-        //    //                Console.WriteLine($"Te has quedado sin intentos, el usuario {usuario.NombreUsuario} queda INACTIVO");
-        //    //                usuario.Estado = "INACTIVO";
-        //    //                return null;
-        //    //            }
-        //    //        }
-        //    //        else
-        //    //        {
-        //    //            // Si es el primer login, pide una nueva contraseña, cambia PrimerLogin a false y estado a ACTIVO
-        //    //            if (usuario.PrimerLogin == true)
-        //    //            {
-        //    //                Console.WriteLine($"Bienvenida/o {usuario.Nombre}. Por ser la primera vez que inicia sesión debe establecer una nueva contraseña");
-        //    //                SolicitarContrasenia(usuario);
-        //    //                usuario.PrimerLogin = false;
-        //    //                usuario.Estado = "ACTIVO";
-        //    //            }
-        //    //            usuario.intentos = 3; // Vuelve el contador de intentos a 3
-        //    //            // chequear hace cuanto se cambio la contraseña
-        //    //            UltimoCambioContrasenia(usuario);
-        //    //        }
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        Console.WriteLine("Alguno de los datos solicitados no es correcto.");
-        //    //    }
-
-        //    //} while (usuario == null || (usuario.intentos > 0 && usuarioCompleto == null)); // Mientras le queden intentos y no haya encontrado un usuario
-
-        //    return usuario;
-        //}
-
-        private static void UltimoCambioContrasenia(UsuarioModel usuario)
-        {
-
-            //fecha actual
-            //    DateTime fechaActual = DateTime.Now;
-            //    // ultima fecha de cambio de contraseña de ese usuario 
-            //    // DateTime? fechaCambioContrasenia = usuario.FechaContrasenia;
-            //    int diferenciaDias;
-            //    // primero chequea si fechaCambioContrasenia tiene valor
-            //    if(fechaCambioContrasenia.HasValue)
-            //    {
-            //        //Restamos fecha actual y la fecha de cambio de contraseña y verificamos si pasaron mas de 30 dias
-            //        TimeSpan diferencia = fechaActual.Subtract(fechaCambioContrasenia.Value);
-            //        diferenciaDias = diferencia.Days;
-            //    }
-            //    else
-            //    {
-            //        diferenciaDias = 0;
-            //    }
-            //    if (diferenciaDias >= 30)
-            //    {
-            //        Console.WriteLine("Pasaron más de 30 días desde que actualizó su contraseña, por lo que deberá cambiarla");
-            //        SolicitarContrasenia(usuario);
-            //    }
-
         }
 
     }

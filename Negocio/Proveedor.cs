@@ -57,7 +57,6 @@ namespace Negocio
             string content = ObtenerListaProveedores();
             // Analizar el contenido JSON
             JArray jsonArray = JArray.Parse(content);
-            // Buscar el objeto con nombreUsuario igual a "master"
             JToken proveedor = jsonArray.FirstOrDefault(item => (string)item["nombre"] == nombre && (string)item["apellido"] == apellido);
 
             return proveedor;
