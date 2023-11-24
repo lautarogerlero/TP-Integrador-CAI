@@ -17,10 +17,12 @@ namespace Modelo
         public string IdUsuario { get => _idUsuario; set => _idUsuario = value; }
         public string IdProducto { get => _idProducto; set => _idProducto = value; }
         public int Cantidad { get => _cantidad; set => _cantidad = value; }
-
+        
+    // Constructor que recibe valores iniciales para idCliente, idUsuario, idProducto y cantidad
         public VentaModel(string idCliente, string idUsuario, string idProducto, int cantidad)
         {
-            // Las que tienen mayuscula son las que tienen setter
+        // Inicializar las propiedades con los valores proporcionados
+        // Las que tienen mayuscula son las que tienen setter
             IdCliente = idCliente;
             IdUsuario = idUsuario;
             IdProducto = idProducto;
