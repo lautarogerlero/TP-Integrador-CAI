@@ -20,7 +20,7 @@ namespace Negocio
             // Agregar el nuevo proveedor
             var jsonRequest = JsonConvert.SerializeObject(nuevaVenta);
             HttpResponseMessage response = WebHelper.Post("Venta/AgregarVenta", jsonRequest);
-
+            //se registra la venta, que se manda a la base de datos, para lo cual se crea un JSON. Esto llama a un metodo POST, que le pasa ese JSON.
             if (!response.IsSuccessStatusCode)
             {
                 throw new Exception(response.StatusCode.ToString());
@@ -32,6 +32,7 @@ namespace Negocio
         }
 
         public static void MostrarResumenVenta(JToken cliente, JToken producto, int cantidad)
+        //Esto es lo que no llegamos a hacer con el formulario. Basicamente es un resumen de la venta con todos sus datos.
         {
             string nombreCliente = cliente["nombre"].Value<string>();
             string apellidoCliente = cliente["apellido"].Value<string>();

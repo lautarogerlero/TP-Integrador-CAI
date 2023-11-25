@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace Utils
 {
     public class WebHelper
+        //Tiene los metodos de GET, POST, PUT, PATCH, DELETE que usamos en el Web Service. El GET tiene solo el URL. El DELETESinBody tiene el URL y el ID, porque se le pasa el ID a borrar dentro de la URL, no se pasa como contenido (BajaCliente). El DELETEConBody si tiene URL y JSON. El POST, el PUT, el PATCH tienen el URL y el JSON que se carga.
     {
         static HttpClient client = new HttpClient();
         static string rutaBase = "https://cai-tp.azurewebsites.net/api/";

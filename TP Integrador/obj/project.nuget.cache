@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cgE0L1ZSr2yTh45ixSGonr+G107p8mp8yZBMp/biNo0oQ8HljA2tLkEaVNMXrdB0pn9rZNK3ZpVXCIk0AFPjKg==",
+  "dgSpecHash": "TLMCvIn8haZjt+HCCiTu7XeGRdu8TeUQBoW3bqW+sPGZEnhcRdGM6dwXqVNupMsYALvk6H27Xe+GJM/PLYEzGw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lauta\\OneDrive - Económicas - UBA\\Carrera UBA\\CAI\\TP Integrador\\TP Integrador\\TP Integrador.csproj",
+  "projectFilePath": "C:\\Users\\lauta\\Source\\Repos\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lauta\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
