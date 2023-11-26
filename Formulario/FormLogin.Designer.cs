@@ -68,6 +68,7 @@
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(226, 31);
             this.textUsuario.TabIndex = 3;
+            this.textUsuario.TextChanged += new System.EventHandler(this.textUsuario_TextChanged);
             this.textUsuario.Enter += new System.EventHandler(this.textUsuario_Enter);
             // 
             // txtElectroHogar
