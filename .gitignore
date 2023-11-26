@@ -475,3 +475,12 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+/TP Integrador/obj/Debug/net6.0/TP Integrador.GeneratedMSBuildEditorConfig.editorconfig
+/TP Integrador/obj/Debug/net6.0/TP Integrador.csproj.AssemblyReference.cache
+/TP Integrador/obj/Debug/net6.0/TP Integrador.assets.cache
+/Negocio/obj/Debug/net6.0/Negocio.assets.cache
+/Negocio/obj/Debug/net6.0/Negocio.csproj.AssemblyReference.cache
+/Negocio/obj/Debug/net6.0/Negocio.GeneratedMSBuildEditorConfig.editorconfig
+/Modelo/obj/Debug/net6.0/Modelo.assets.cache
+/Modelo/obj/Debug/net6.0/Modelo.GeneratedMSBuildEditorConfig.editorconfig
