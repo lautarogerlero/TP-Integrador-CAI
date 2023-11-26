@@ -119,9 +119,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
+      "projectUniqueName": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
       "projectName": "TP Integrador",
-      "projectPath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
+      "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\TP Integrador.csproj",
       "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\TP Integrador\\obj\\",
       "projectStyle": "PackageReference",
@@ -140,14 +140,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
-              "projectPath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj"
             },
-            "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj": {
-              "projectPath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj"
             },
-            "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Utils\\Utils.csproj": {
-              "projectPath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Utils\\Utils.csproj"
+            "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Utils\\Utils.csproj": {
+              "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Utils\\Utils.csproj"
             }
           }
         }

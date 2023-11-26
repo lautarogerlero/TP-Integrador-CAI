@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ku8mRwKbkguXmzHzrMaugCOBfDq8znPxEduoiYTXVaRg4N14xjcebmG+z/VCu1bUc/JT55vS36iyv/juLih+Q==",
+  "dgSpecHash": "q/N6gwnnTVpbsynWprVmkqZfSZH4FgHEwHSb7FB04++VPLecnFC5q1WSZ9LQMVbKIyY5BQLmAOw1fdhJm3mtUA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj",
+  "projectFilePath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Negocio\\Negocio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lauta\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

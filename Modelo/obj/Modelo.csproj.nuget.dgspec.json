@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {}
+    "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
+    "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
+        "projectUniqueName": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
         "projectName": "Modelo",
-        "projectPath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
+        "projectPath": "C:\\Users\\lauta\\source\\repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\Modelo.csproj",
         "packagesPath": "C:\\Users\\lauta\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\lauta\\Source\\Repos\\lautarogerlero\\TP-Integrador-CAI\\Modelo\\obj\\",
         "projectStyle": "PackageReference",
