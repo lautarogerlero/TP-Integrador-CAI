@@ -28,242 +28,264 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBoxNombreUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.txtBoxEmailUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.txtBoxTelefonoUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.txtBoxDireccionUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.txtBoxApellidoUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.lblNombreUsuarioNuevo = new System.Windows.Forms.Label();
-            this.lblApellidoUsuarioNuevo = new System.Windows.Forms.Label();
-            this.lblDireccionUsuarioNuevo = new System.Windows.Forms.Label();
-            this.lblTelefonoUsuarioNuevo = new System.Windows.Forms.Label();
-            this.lblEmailUsuarioNuevo = new System.Windows.Forms.Label();
-            this.lblNumeroHostUsuarioNuevo = new System.Windows.Forms.Label();
-            this.txtBoxHostUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.lblDNIUsuarioNuevo = new System.Windows.Forms.Label();
-            this.txtBoxDNIUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.lblUsuarioNuevo = new System.Windows.Forms.Label();
-            this.txtBoxUsuarioNuevo = new System.Windows.Forms.TextBox();
-            this.lblRequisitosNombreUsuario = new System.Windows.Forms.Label();
-            this.btnConfirmarUsuarioNuevo = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            txtBoxNombreUsuarioNuevo = new TextBox();
+            txtBoxEmailUsuarioNuevo = new TextBox();
+            txtBoxTelefonoUsuarioNuevo = new TextBox();
+            txtBoxDireccionUsuarioNuevo = new TextBox();
+            txtBoxApellidoUsuarioNuevo = new TextBox();
+            lblNombreUsuarioNuevo = new Label();
+            lblApellidoUsuarioNuevo = new Label();
+            lblDireccionUsuarioNuevo = new Label();
+            lblTelefonoUsuarioNuevo = new Label();
+            lblEmailUsuarioNuevo = new Label();
+            lblNumeroHostUsuarioNuevo = new Label();
+            txtBoxHostUsuarioNuevo = new TextBox();
+            lblDNIUsuarioNuevo = new Label();
+            txtBoxDNIUsuarioNuevo = new TextBox();
+            lblUsuarioNuevo = new Label();
+            txtBoxUsuarioNuevo = new TextBox();
+            lblRequisitosNombreUsuario = new Label();
+            btnConfirmarUsuarioNuevo = new Button();
+            txtBoxFechaNacUsuarioAAgregar = new TextBox();
+            lblFechaNacimientoUsuarioAAgregar = new Label();
+            SuspendLayout();
             // 
             // txtBoxNombreUsuarioNuevo
             // 
-            this.txtBoxNombreUsuarioNuevo.Location = new System.Drawing.Point(128, 22);
-            this.txtBoxNombreUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxNombreUsuarioNuevo.Name = "txtBoxNombreUsuarioNuevo";
-            this.txtBoxNombreUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
-            this.txtBoxNombreUsuarioNuevo.TabIndex = 0;
+            txtBoxNombreUsuarioNuevo.Location = new Point(238, 47);
+            txtBoxNombreUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxNombreUsuarioNuevo.Name = "txtBoxNombreUsuarioNuevo";
+            txtBoxNombreUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxNombreUsuarioNuevo.TabIndex = 0;
             // 
             // txtBoxEmailUsuarioNuevo
             // 
-            this.txtBoxEmailUsuarioNuevo.Location = new System.Drawing.Point(127, 110);
-            this.txtBoxEmailUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxEmailUsuarioNuevo.Name = "txtBoxEmailUsuarioNuevo";
-            this.txtBoxEmailUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
-            this.txtBoxEmailUsuarioNuevo.TabIndex = 1;
+            txtBoxEmailUsuarioNuevo.Location = new Point(236, 235);
+            txtBoxEmailUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxEmailUsuarioNuevo.Name = "txtBoxEmailUsuarioNuevo";
+            txtBoxEmailUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxEmailUsuarioNuevo.TabIndex = 1;
             // 
             // txtBoxTelefonoUsuarioNuevo
             // 
-            this.txtBoxTelefonoUsuarioNuevo.Location = new System.Drawing.Point(504, 59);
-            this.txtBoxTelefonoUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxTelefonoUsuarioNuevo.Name = "txtBoxTelefonoUsuarioNuevo";
-            this.txtBoxTelefonoUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
-            this.txtBoxTelefonoUsuarioNuevo.TabIndex = 2;
+            txtBoxTelefonoUsuarioNuevo.Location = new Point(936, 126);
+            txtBoxTelefonoUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxTelefonoUsuarioNuevo.Name = "txtBoxTelefonoUsuarioNuevo";
+            txtBoxTelefonoUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxTelefonoUsuarioNuevo.TabIndex = 2;
             // 
             // txtBoxDireccionUsuarioNuevo
             // 
-            this.txtBoxDireccionUsuarioNuevo.Location = new System.Drawing.Point(504, 18);
-            this.txtBoxDireccionUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxDireccionUsuarioNuevo.Name = "txtBoxDireccionUsuarioNuevo";
-            this.txtBoxDireccionUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
-            this.txtBoxDireccionUsuarioNuevo.TabIndex = 3;
+            txtBoxDireccionUsuarioNuevo.Location = new Point(936, 38);
+            txtBoxDireccionUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxDireccionUsuarioNuevo.Name = "txtBoxDireccionUsuarioNuevo";
+            txtBoxDireccionUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxDireccionUsuarioNuevo.TabIndex = 3;
             // 
             // txtBoxApellidoUsuarioNuevo
             // 
-            this.txtBoxApellidoUsuarioNuevo.Location = new System.Drawing.Point(128, 62);
-            this.txtBoxApellidoUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxApellidoUsuarioNuevo.Name = "txtBoxApellidoUsuarioNuevo";
-            this.txtBoxApellidoUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
-            this.txtBoxApellidoUsuarioNuevo.TabIndex = 4;
+            txtBoxApellidoUsuarioNuevo.Location = new Point(238, 132);
+            txtBoxApellidoUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxApellidoUsuarioNuevo.Name = "txtBoxApellidoUsuarioNuevo";
+            txtBoxApellidoUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxApellidoUsuarioNuevo.TabIndex = 4;
             // 
             // lblNombreUsuarioNuevo
             // 
-            this.lblNombreUsuarioNuevo.AutoSize = true;
-            this.lblNombreUsuarioNuevo.Location = new System.Drawing.Point(14, 22);
-            this.lblNombreUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombreUsuarioNuevo.Name = "lblNombreUsuarioNuevo";
-            this.lblNombreUsuarioNuevo.Size = new System.Drawing.Size(102, 15);
-            this.lblNombreUsuarioNuevo.TabIndex = 5;
-            this.lblNombreUsuarioNuevo.Text = "Ingrese el nombre";
+            lblNombreUsuarioNuevo.AutoSize = true;
+            lblNombreUsuarioNuevo.Location = new Point(26, 47);
+            lblNombreUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblNombreUsuarioNuevo.Name = "lblNombreUsuarioNuevo";
+            lblNombreUsuarioNuevo.Size = new Size(209, 32);
+            lblNombreUsuarioNuevo.TabIndex = 5;
+            lblNombreUsuarioNuevo.Text = "Ingrese el nombre";
             // 
             // lblApellidoUsuarioNuevo
             // 
-            this.lblApellidoUsuarioNuevo.AutoSize = true;
-            this.lblApellidoUsuarioNuevo.Location = new System.Drawing.Point(14, 62);
-            this.lblApellidoUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApellidoUsuarioNuevo.Name = "lblApellidoUsuarioNuevo";
-            this.lblApellidoUsuarioNuevo.Size = new System.Drawing.Size(102, 15);
-            this.lblApellidoUsuarioNuevo.TabIndex = 6;
-            this.lblApellidoUsuarioNuevo.Text = "Ingrese el apellido";
+            lblApellidoUsuarioNuevo.AutoSize = true;
+            lblApellidoUsuarioNuevo.Location = new Point(26, 132);
+            lblApellidoUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblApellidoUsuarioNuevo.Name = "lblApellidoUsuarioNuevo";
+            lblApellidoUsuarioNuevo.Size = new Size(210, 32);
+            lblApellidoUsuarioNuevo.TabIndex = 6;
+            lblApellidoUsuarioNuevo.Text = "Ingrese el apellido";
             // 
             // lblDireccionUsuarioNuevo
             // 
-            this.lblDireccionUsuarioNuevo.AutoSize = true;
-            this.lblDireccionUsuarioNuevo.Location = new System.Drawing.Point(298, 25);
-            this.lblDireccionUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDireccionUsuarioNuevo.Name = "lblDireccionUsuarioNuevo";
-            this.lblDireccionUsuarioNuevo.Size = new System.Drawing.Size(109, 15);
-            this.lblDireccionUsuarioNuevo.TabIndex = 7;
-            this.lblDireccionUsuarioNuevo.Text = "Ingrese la direccion";
+            lblDireccionUsuarioNuevo.AutoSize = true;
+            lblDireccionUsuarioNuevo.Location = new Point(553, 53);
+            lblDireccionUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblDireccionUsuarioNuevo.Name = "lblDireccionUsuarioNuevo";
+            lblDireccionUsuarioNuevo.Size = new Size(221, 32);
+            lblDireccionUsuarioNuevo.TabIndex = 7;
+            lblDireccionUsuarioNuevo.Text = "Ingrese la direccion";
             // 
             // lblTelefonoUsuarioNuevo
             // 
-            this.lblTelefonoUsuarioNuevo.AutoSize = true;
-            this.lblTelefonoUsuarioNuevo.Location = new System.Drawing.Point(298, 67);
-            this.lblTelefonoUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTelefonoUsuarioNuevo.Name = "lblTelefonoUsuarioNuevo";
-            this.lblTelefonoUsuarioNuevo.Size = new System.Drawing.Size(165, 15);
-            this.lblTelefonoUsuarioNuevo.TabIndex = 8;
-            this.lblTelefonoUsuarioNuevo.Text = "Ingrese el numero de telefono";
+            lblTelefonoUsuarioNuevo.AutoSize = true;
+            lblTelefonoUsuarioNuevo.Location = new Point(553, 143);
+            lblTelefonoUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblTelefonoUsuarioNuevo.Name = "lblTelefonoUsuarioNuevo";
+            lblTelefonoUsuarioNuevo.Size = new Size(340, 32);
+            lblTelefonoUsuarioNuevo.TabIndex = 8;
+            lblTelefonoUsuarioNuevo.Text = "Ingrese el numero de telefono";
             // 
             // lblEmailUsuarioNuevo
             // 
-            this.lblEmailUsuarioNuevo.AutoSize = true;
-            this.lblEmailUsuarioNuevo.Location = new System.Drawing.Point(14, 113);
-            this.lblEmailUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmailUsuarioNuevo.Name = "lblEmailUsuarioNuevo";
-            this.lblEmailUsuarioNuevo.Size = new System.Drawing.Size(89, 15);
-            this.lblEmailUsuarioNuevo.TabIndex = 9;
-            this.lblEmailUsuarioNuevo.Text = "Ingrese el email";
+            lblEmailUsuarioNuevo.AutoSize = true;
+            lblEmailUsuarioNuevo.Location = new Point(26, 241);
+            lblEmailUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblEmailUsuarioNuevo.Name = "lblEmailUsuarioNuevo";
+            lblEmailUsuarioNuevo.Size = new Size(183, 32);
+            lblEmailUsuarioNuevo.TabIndex = 9;
+            lblEmailUsuarioNuevo.Text = "Ingrese el email";
             // 
             // lblNumeroHostUsuarioNuevo
             // 
-            this.lblNumeroHostUsuarioNuevo.AutoSize = true;
-            this.lblNumeroHostUsuarioNuevo.Location = new System.Drawing.Point(298, 113);
-            this.lblNumeroHostUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNumeroHostUsuarioNuevo.Name = "lblNumeroHostUsuarioNuevo";
-            this.lblNumeroHostUsuarioNuevo.Size = new System.Drawing.Size(253, 15);
-            this.lblNumeroHostUsuarioNuevo.TabIndex = 10;
-            this.lblNumeroHostUsuarioNuevo.Text = "Ingrese el n° Host (2=Supervisor, 3= Vendedor)";
+            lblNumeroHostUsuarioNuevo.AutoSize = true;
+            lblNumeroHostUsuarioNuevo.Location = new Point(553, 241);
+            lblNumeroHostUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblNumeroHostUsuarioNuevo.Name = "lblNumeroHostUsuarioNuevo";
+            lblNumeroHostUsuarioNuevo.Size = new Size(517, 32);
+            lblNumeroHostUsuarioNuevo.TabIndex = 10;
+            lblNumeroHostUsuarioNuevo.Text = "Ingrese el n° Host (2=Supervisor, 3= Vendedor)";
             // 
             // txtBoxHostUsuarioNuevo
             // 
-            this.txtBoxHostUsuarioNuevo.Location = new System.Drawing.Point(582, 110);
-            this.txtBoxHostUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxHostUsuarioNuevo.Name = "txtBoxHostUsuarioNuevo";
-            this.txtBoxHostUsuarioNuevo.Size = new System.Drawing.Size(58, 23);
-            this.txtBoxHostUsuarioNuevo.TabIndex = 11;
+            txtBoxHostUsuarioNuevo.Location = new Point(1081, 235);
+            txtBoxHostUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxHostUsuarioNuevo.Name = "txtBoxHostUsuarioNuevo";
+            txtBoxHostUsuarioNuevo.Size = new Size(104, 39);
+            txtBoxHostUsuarioNuevo.TabIndex = 11;
             // 
             // lblDNIUsuarioNuevo
             // 
-            this.lblDNIUsuarioNuevo.AutoSize = true;
-            this.lblDNIUsuarioNuevo.Location = new System.Drawing.Point(14, 166);
-            this.lblDNIUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDNIUsuarioNuevo.Name = "lblDNIUsuarioNuevo";
-            this.lblDNIUsuarioNuevo.Size = new System.Drawing.Size(80, 15);
-            this.lblDNIUsuarioNuevo.TabIndex = 12;
-            this.lblDNIUsuarioNuevo.Text = "Ingrese el DNI";
+            lblDNIUsuarioNuevo.AutoSize = true;
+            lblDNIUsuarioNuevo.Location = new Point(26, 354);
+            lblDNIUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblDNIUsuarioNuevo.Name = "lblDNIUsuarioNuevo";
+            lblDNIUsuarioNuevo.Size = new Size(166, 32);
+            lblDNIUsuarioNuevo.TabIndex = 12;
+            lblDNIUsuarioNuevo.Text = "Ingrese el DNI";
             // 
             // txtBoxDNIUsuarioNuevo
             // 
-            this.txtBoxDNIUsuarioNuevo.Location = new System.Drawing.Point(128, 163);
-            this.txtBoxDNIUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxDNIUsuarioNuevo.Name = "txtBoxDNIUsuarioNuevo";
-            this.txtBoxDNIUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
-            this.txtBoxDNIUsuarioNuevo.TabIndex = 13;
+            txtBoxDNIUsuarioNuevo.Location = new Point(238, 348);
+            txtBoxDNIUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxDNIUsuarioNuevo.Name = "txtBoxDNIUsuarioNuevo";
+            txtBoxDNIUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxDNIUsuarioNuevo.TabIndex = 13;
             // 
             // lblUsuarioNuevo
             // 
-            this.lblUsuarioNuevo.AutoSize = true;
-            this.lblUsuarioNuevo.Location = new System.Drawing.Point(298, 166);
-            this.lblUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUsuarioNuevo.Name = "lblUsuarioNuevo";
-            this.lblUsuarioNuevo.Size = new System.Drawing.Size(161, 15);
-            this.lblUsuarioNuevo.TabIndex = 14;
-            this.lblUsuarioNuevo.Text = "Ingrese el nombre de Usuario";
+            lblUsuarioNuevo.AutoSize = true;
+            lblUsuarioNuevo.Location = new Point(553, 351);
+            lblUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblUsuarioNuevo.Name = "lblUsuarioNuevo";
+            lblUsuarioNuevo.Size = new Size(330, 32);
+            lblUsuarioNuevo.TabIndex = 14;
+            lblUsuarioNuevo.Text = "Ingrese el nombre de Usuario";
             // 
             // txtBoxUsuarioNuevo
             // 
-            this.txtBoxUsuarioNuevo.Location = new System.Drawing.Point(504, 163);
-            this.txtBoxUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtBoxUsuarioNuevo.Name = "txtBoxUsuarioNuevo";
-            this.txtBoxUsuarioNuevo.Size = new System.Drawing.Size(136, 23);
-            this.txtBoxUsuarioNuevo.TabIndex = 15;
+            txtBoxUsuarioNuevo.Location = new Point(936, 351);
+            txtBoxUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxUsuarioNuevo.Name = "txtBoxUsuarioNuevo";
+            txtBoxUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxUsuarioNuevo.TabIndex = 15;
             // 
             // lblRequisitosNombreUsuario
             // 
-            this.lblRequisitosNombreUsuario.AutoSize = true;
-            this.lblRequisitosNombreUsuario.Location = new System.Drawing.Point(298, 202);
-            this.lblRequisitosNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRequisitosNombreUsuario.Name = "lblRequisitosNombreUsuario";
-            this.lblRequisitosNombreUsuario.Size = new System.Drawing.Size(347, 15);
-            this.lblRequisitosNombreUsuario.TabIndex = 16;
-            this.lblRequisitosNombreUsuario.Text = "Entre 8 y 15 caracteres. No puede contener ni nombre ni apellido";
+            lblRequisitosNombreUsuario.AutoSize = true;
+            lblRequisitosNombreUsuario.Location = new Point(510, 396);
+            lblRequisitosNombreUsuario.Margin = new Padding(7, 0, 7, 0);
+            lblRequisitosNombreUsuario.Name = "lblRequisitosNombreUsuario";
+            lblRequisitosNombreUsuario.Size = new Size(712, 32);
+            lblRequisitosNombreUsuario.TabIndex = 16;
+            lblRequisitosNombreUsuario.Text = "Entre 8 y 15 caracteres. No puede contener ni nombre ni apellido";
             // 
             // btnConfirmarUsuarioNuevo
             // 
-            this.btnConfirmarUsuarioNuevo.Location = new System.Drawing.Point(504, 271);
-            this.btnConfirmarUsuarioNuevo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnConfirmarUsuarioNuevo.Name = "btnConfirmarUsuarioNuevo";
-            this.btnConfirmarUsuarioNuevo.Size = new System.Drawing.Size(159, 32);
-            this.btnConfirmarUsuarioNuevo.TabIndex = 17;
-            this.btnConfirmarUsuarioNuevo.Text = "Confirmar Usuario Nuevo";
-            this.btnConfirmarUsuarioNuevo.UseVisualStyleBackColor = true;
-            this.btnConfirmarUsuarioNuevo.Click += new System.EventHandler(this.btnConfirmarUsuarioNuevo_Click);
+            btnConfirmarUsuarioNuevo.Location = new Point(936, 578);
+            btnConfirmarUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            btnConfirmarUsuarioNuevo.Name = "btnConfirmarUsuarioNuevo";
+            btnConfirmarUsuarioNuevo.Size = new Size(295, 68);
+            btnConfirmarUsuarioNuevo.TabIndex = 17;
+            btnConfirmarUsuarioNuevo.Text = "Confirmar Usuario Nuevo";
+            btnConfirmarUsuarioNuevo.UseVisualStyleBackColor = true;
+            btnConfirmarUsuarioNuevo.Click += btnConfirmarUsuarioNuevo_Click;
+            // 
+            // txtBoxFechaNacUsuarioAAgregar
+            // 
+            txtBoxFechaNacUsuarioAAgregar.Location = new Point(236, 501);
+            txtBoxFechaNacUsuarioAAgregar.Margin = new Padding(7, 6, 7, 6);
+            txtBoxFechaNacUsuarioAAgregar.Name = "txtBoxFechaNacUsuarioAAgregar";
+            txtBoxFechaNacUsuarioAAgregar.Size = new Size(249, 39);
+            txtBoxFechaNacUsuarioAAgregar.TabIndex = 18;
+            // 
+            // lblFechaNacimientoUsuarioAAgregar
+            // 
+            lblFechaNacimientoUsuarioAAgregar.AutoSize = true;
+            lblFechaNacimientoUsuarioAAgregar.Location = new Point(26, 444);
+            lblFechaNacimientoUsuarioAAgregar.Name = "lblFechaNacimientoUsuarioAAgregar";
+            lblFechaNacimientoUsuarioAAgregar.Size = new Size(426, 32);
+            lblFechaNacimientoUsuarioAAgregar.TabIndex = 19;
+            lblFechaNacimientoUsuarioAAgregar.Text = "Ingrese la fecha de Nac. (dd/mm/yyyy)";
             // 
             // FormA1AgregarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 317);
-            this.Controls.Add(this.btnConfirmarUsuarioNuevo);
-            this.Controls.Add(this.lblRequisitosNombreUsuario);
-            this.Controls.Add(this.txtBoxUsuarioNuevo);
-            this.Controls.Add(this.lblUsuarioNuevo);
-            this.Controls.Add(this.txtBoxDNIUsuarioNuevo);
-            this.Controls.Add(this.lblDNIUsuarioNuevo);
-            this.Controls.Add(this.txtBoxHostUsuarioNuevo);
-            this.Controls.Add(this.lblNumeroHostUsuarioNuevo);
-            this.Controls.Add(this.lblEmailUsuarioNuevo);
-            this.Controls.Add(this.lblTelefonoUsuarioNuevo);
-            this.Controls.Add(this.lblDireccionUsuarioNuevo);
-            this.Controls.Add(this.lblApellidoUsuarioNuevo);
-            this.Controls.Add(this.lblNombreUsuarioNuevo);
-            this.Controls.Add(this.txtBoxApellidoUsuarioNuevo);
-            this.Controls.Add(this.txtBoxDireccionUsuarioNuevo);
-            this.Controls.Add(this.txtBoxTelefonoUsuarioNuevo);
-            this.Controls.Add(this.txtBoxEmailUsuarioNuevo);
-            this.Controls.Add(this.txtBoxNombreUsuarioNuevo);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FormA1AgregarUsuario";
-            this.Text = "Administrador > Agregar Usuario";
-            this.Load += new System.EventHandler(this.FormA1AgregarUsuario_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1282, 692);
+            Controls.Add(lblFechaNacimientoUsuarioAAgregar);
+            Controls.Add(txtBoxFechaNacUsuarioAAgregar);
+            Controls.Add(btnConfirmarUsuarioNuevo);
+            Controls.Add(lblRequisitosNombreUsuario);
+            Controls.Add(txtBoxUsuarioNuevo);
+            Controls.Add(lblUsuarioNuevo);
+            Controls.Add(txtBoxDNIUsuarioNuevo);
+            Controls.Add(lblDNIUsuarioNuevo);
+            Controls.Add(txtBoxHostUsuarioNuevo);
+            Controls.Add(lblNumeroHostUsuarioNuevo);
+            Controls.Add(lblEmailUsuarioNuevo);
+            Controls.Add(lblTelefonoUsuarioNuevo);
+            Controls.Add(lblDireccionUsuarioNuevo);
+            Controls.Add(lblApellidoUsuarioNuevo);
+            Controls.Add(lblNombreUsuarioNuevo);
+            Controls.Add(txtBoxApellidoUsuarioNuevo);
+            Controls.Add(txtBoxDireccionUsuarioNuevo);
+            Controls.Add(txtBoxTelefonoUsuarioNuevo);
+            Controls.Add(txtBoxEmailUsuarioNuevo);
+            Controls.Add(txtBoxNombreUsuarioNuevo);
+            Margin = new Padding(7, 6, 7, 6);
+            Name = "FormA1AgregarUsuario";
+            Text = "Administrador > Agregar Usuario";
+            Load += FormA1AgregarUsuario_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBoxNombreUsuarioNuevo;
-        private System.Windows.Forms.TextBox txtBoxEmailUsuarioNuevo;
-        private System.Windows.Forms.TextBox txtBoxTelefonoUsuarioNuevo;
-        private System.Windows.Forms.TextBox txtBoxDireccionUsuarioNuevo;
-        private System.Windows.Forms.Label lblNombreUsuarioNuevo;
-        private System.Windows.Forms.Label lblApellidoUsuarioNuevo;
-        private System.Windows.Forms.Label lblDireccionUsuarioNuevo;
-        private System.Windows.Forms.Label lblTelefonoUsuarioNuevo;
-        private System.Windows.Forms.Label lblEmailUsuarioNuevo;
-        private System.Windows.Forms.TextBox txtBoxApellidoUsuarioNuevo;
-        private System.Windows.Forms.Label lblNumeroHostUsuarioNuevo;
-        private System.Windows.Forms.TextBox txtBoxHostUsuarioNuevo;
-        private System.Windows.Forms.Label lblDNIUsuarioNuevo;
-        private System.Windows.Forms.TextBox txtBoxDNIUsuarioNuevo;
-        private System.Windows.Forms.Label lblUsuarioNuevo;
-        private System.Windows.Forms.TextBox txtBoxUsuarioNuevo;
-        private System.Windows.Forms.Label lblRequisitosNombreUsuario;
-        private System.Windows.Forms.Button btnConfirmarUsuarioNuevo;
+        private TextBox txtBoxNombreUsuarioNuevo;
+        private TextBox txtBoxEmailUsuarioNuevo;
+        private TextBox txtBoxTelefonoUsuarioNuevo;
+        private TextBox txtBoxDireccionUsuarioNuevo;
+        private Label lblNombreUsuarioNuevo;
+        private Label lblApellidoUsuarioNuevo;
+        private Label lblDireccionUsuarioNuevo;
+        private Label lblTelefonoUsuarioNuevo;
+        private Label lblEmailUsuarioNuevo;
+        private TextBox txtBoxApellidoUsuarioNuevo;
+        private Label lblNumeroHostUsuarioNuevo;
+        private TextBox txtBoxHostUsuarioNuevo;
+        private Label lblDNIUsuarioNuevo;
+        private TextBox txtBoxDNIUsuarioNuevo;
+        private Label lblUsuarioNuevo;
+        private TextBox txtBoxUsuarioNuevo;
+        private Label lblRequisitosNombreUsuario;
+        private Button btnConfirmarUsuarioNuevo;
+        private TextBox txtBoxFechaNacUsuarioAAgregar;
+        private Label lblFechaNacimientoUsuarioAAgregar;
     }
 }
