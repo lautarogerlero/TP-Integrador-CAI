@@ -69,7 +69,7 @@ namespace TPIntegrador
 
                             while (!cerrarMenu) // mientras cerrarMenu = false;
                             {
-                                JToken usuario = Usuario.ObtenerUsuarioPorId(idUsuario);
+                                JToken usuario = UsuarioNegocio.ObtenerUsuarioPorId(idUsuario);
                                 string nombreUsuario = usuario["nombreUsuario"].ToString();
                                 int host = int.Parse(usuario["host"].ToString());
                                 DibujarTitulo($"{nombreUsuario}");
@@ -341,7 +341,7 @@ namespace TPIntegrador
             int dni = ConsolaUtils.ValidarDni("Ingrese el DNI");
             string usuario = ConsolaUtils.PedirString("Ingrese el nombre de usuario. \nEntre 8 y 15 caracteres y no puede contener ni nombre ni apellido");
             // una vez solicitados los atributos, llamar al metodo CrearUsuario de la capa de negocio
-            Usuario.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
+            UsuarioNegocio.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
         }
 
         private static void RegistrarProveedor()
@@ -376,7 +376,7 @@ namespace TPIntegrador
 
                 try
                 {
-                    idUsuario = Usuario.LogIn(login, nombreUsuario, contraseña);
+                    idUsuario = UsuarioNegocio.LogIn(login, nombreUsuario, contraseña);
                     Console.WriteLine("Login exitoso");
                     usuarioEncontrado = true;
                     // Si el inicio de sesión es exitoso, restablece el contador de intentos fallidos.
@@ -416,7 +416,7 @@ namespace TPIntegrador
         {
             try
             {
-                Usuario.BorrarUsuario(idUsuario);
+                UsuarioNegocio.BorrarUsuario(idUsuario);
                 Console.WriteLine("Usuario borrado exitosamente");
             }
             catch (Exception ex)
@@ -429,7 +429,7 @@ namespace TPIntegrador
         private static string ObtenerIdUsuario(string nombreUsuario)
         {
             string idUsuario = "";
-            JToken usuario = Usuario.ObtenerUsuarioPorNombre(nombreUsuario);
+            JToken usuario = UsuarioNegocio.ObtenerUsuarioPorNombre(nombreUsuario);
             if (usuario != null)
             {
                 idUsuario = usuario["id"].ToString();
@@ -490,7 +490,7 @@ namespace TPIntegrador
                 string nombreProducto = ConsolaUtils.PedirString("Ingrese el nombre del producto");
 
                 JToken cliente = Cliente.ObtenerClientePorNombre(nombreCliente, apellidoCliente);
-                JToken usuario = Usuario.ObtenerUsuarioPorNombre(nombreUsuario);
+                JToken usuario = UsuarioNegocio.ObtenerUsuarioPorNombre(nombreUsuario);
                 JToken producto = Producto.ObtenerProductoPorNombre(nombreProducto);
 
                 if (cliente != null && usuario != null && producto != null)

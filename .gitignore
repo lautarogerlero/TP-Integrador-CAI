@@ -484,3 +484,43 @@ $RECYCLE.BIN/
 /Negocio/obj/Debug/net6.0/Negocio.GeneratedMSBuildEditorConfig.editorconfig
 /Modelo/obj/Debug/net6.0/Modelo.assets.cache
 /Modelo/obj/Debug/net6.0/Modelo.GeneratedMSBuildEditorConfig.editorconfig
+*.bin
+*.v2
+.vs/TP Integrador/v17/.suo
+Modelo/bin/Debug/net6.0/Modelo.dll
+Modelo/bin/Debug/net6.0/Modelo.pdb
+Modelo/obj/Debug/net6.0/Modelo.assets.cache
+Modelo/obj/Debug/net6.0/Modelo.csproj.CoreCompileInputs.cache
+Modelo/obj/Debug/net6.0/Modelo.csproj.FileListAbsolute.txt
+Modelo/obj/Debug/net6.0/Modelo.dll
+Modelo/obj/Debug/net6.0/Modelo.GeneratedMSBuildEditorConfig.editorconfig
+Modelo/obj/Debug/net6.0/Modelo.pdb
+Modelo/obj/Debug/net6.0/ref/Modelo.dll
+Modelo/obj/Debug/net6.0/refint/Modelo.dll
+TP Integrador/obj/TP Integrador.csproj.nuget.g.props
+TP Integrador/obj/TP Integrador.csproj.nuget.dgspec.json
+TP Integrador/obj/project.nuget.cache
+TP Integrador/obj/project.assets.json
+TP Integrador/obj/Debug/net6.0/TP Integrador.pdb
+TP Integrador/obj/Debug/net6.0/TP Integrador.genruntimeconfig.cache
+Modelo/bin/Debug/net6.0/Modelo.dll
+Modelo/bin/Debug/net6.0/Modelo.pdb
+Modelo/obj/Debug/net6.0/Modelo.assets.cache
+Modelo/obj/Debug/net6.0/Modelo.csproj.CoreCompileInputs.cache
+Modelo/obj/Debug/net6.0/Modelo.csproj.FileListAbsolute.txt
+Modelo/obj/Debug/net6.0/Modelo.dll
+Modelo/obj/Debug/net6.0/Modelo.GeneratedMSBuildEditorConfig.editorconfig
+Modelo/obj/Debug/net6.0/Modelo.pdb
+Modelo/obj/Debug/net6.0/ref/Modelo.dll
+Modelo/obj/Debug/net6.0/refint/Modelo.dll
+Modelo/obj/Modelo.csproj.nuget.dgspec.json
+Modelo/obj/Modelo.csproj.nuget.g.props
+Modelo/obj/project.assets.json
+Modelo/obj/project.nuget.cache
+.vs/TP Integrador/v17/.suo
+.vs/TP Integrador/v17/.futdcache.v2
+.vs/TP Integrador/DesignTimeBuild/.dtbcache.v2
+.vs/ProjectEvaluation/tp integrador.projects.v7.bin
+.vs/ProjectEvaluation/tp integrador.metadata.v7.bin
+.vs/TP Integrador/v17/.suo
+.vs/TP Integrador/v17/.suo

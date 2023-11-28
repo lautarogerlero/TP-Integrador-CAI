@@ -38,7 +38,9 @@ namespace Form1
                 int dni = ConsolaUtils.ValidateDNI(txtBoxDNIUsuarioNuevo.Text);
                 ConsolaUtils.ValidateUsuario(nombre, apellido, txtBoxNombreUsuarioNuevo.Text);
 
-                Usuario.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, txtBoxNombreUsuarioNuevo.Text, host, dni);
+
+
+                UsuarioNegocio.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, txtBoxNombreUsuarioNuevo.Text, host, dni);
             }
             catch (Exception ex)
             {

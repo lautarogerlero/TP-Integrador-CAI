@@ -28,50 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textUsuario = new TextBox();
+            textPassword = new TextBox();
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // textUsuario
             // 
-            textBox1.Location = new Point(341, 91);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            textUsuario.Location = new Point(298, 68);
+            textUsuario.Margin = new Padding(3, 2, 3, 2);
+            textUsuario.Name = "textUsuario";
+            textUsuario.Size = new Size(110, 23);
+            textUsuario.TabIndex = 0;
             // 
-            // textBox2
+            // textPassword
             // 
-            textBox2.Location = new Point(341, 146);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 1;
+            textPassword.Location = new Point(298, 110);
+            textPassword.Margin = new Padding(3, 2, 3, 2);
+            textPassword.Name = "textPassword";
+            textPassword.Size = new Size(110, 23);
+            textPassword.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(181, 94);
+            label1.Location = new Point(158, 70);
             label1.Name = "label1";
-            label1.Size = new Size(59, 20);
+            label1.Size = new Size(47, 15);
             label1.TabIndex = 2;
             label1.Text = "Usuario";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(181, 149);
+            label2.Location = new Point(158, 112);
             label2.Name = "label2";
-            label2.Size = new Size(83, 20);
+            label2.Size = new Size(67, 15);
             label2.TabIndex = 3;
             label2.Text = "Contraseña";
             // 
             // button1
             // 
-            button1.Location = new Point(341, 205);
+            button1.Location = new Point(298, 154);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(125, 29);
+            button1.Size = new Size(109, 22);
             button1.TabIndex = 4;
             button1.Text = "Iniciar Sesion";
             button1.UseVisualStyleBackColor = true;
@@ -79,14 +82,15 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 374);
+            ClientSize = new Size(542, 280);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textPassword);
+            Controls.Add(textUsuario);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -96,8 +100,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textUsuario;
+        private TextBox textPassword;
         private Label label1;
         private Label label2;
         private Button button1;

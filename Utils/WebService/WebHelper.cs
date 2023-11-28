@@ -9,7 +9,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Utils
+namespace Utils.WebService
 {
     public class WebHelper
     {
@@ -25,7 +25,7 @@ namespace Utils
             return response;
         }
 
-        public static HttpResponseMessage Post(string url, String jsonRequest)
+        public static HttpResponseMessage Post(string url, string jsonRequest)
         {
             var uri = rutaBase + url;
 
@@ -37,7 +37,7 @@ namespace Utils
 
         }
 
-        public static HttpResponseMessage Put(string url, String jsonRequest)
+        public static HttpResponseMessage Put(string url, string jsonRequest)
         {
             var uri = rutaBase + url;
 
@@ -49,7 +49,7 @@ namespace Utils
 
         }
 
-        public static HttpResponseMessage Patch(string url, String jsonRequest)
+        public static HttpResponseMessage Patch(string url, string jsonRequest)
         {
             var uri = rutaBase + url;
 
@@ -77,7 +77,7 @@ namespace Utils
         }
 
 
-        public static HttpResponseMessage DeleteConBody(string url, String jsonRequest)
+        public static HttpResponseMessage DeleteConBody(string url, string jsonRequest)
         {
             var uri = rutaBase + url;
 

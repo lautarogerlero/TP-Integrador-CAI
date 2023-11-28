@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace Formularios
 {
-    public partial class Form1 : Form
+    public partial class FormVendedor : Form
     {
-        public Form1()
+        public FormVendedor()
         {
             InitializeComponent();
+        }
+
+        private void FrmVendedor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

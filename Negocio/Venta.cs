@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using Utils;
+using Utils.WebService;
 
 namespace Negocio
 {
