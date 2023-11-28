@@ -223,6 +223,80 @@ namespace Utils
             }
             return lista;
         }
+                //VALIDACIONES PARA FORMULARIOS
+
+        public static void ValidateTelefono(string telefono)
+        {
+            if (telefono.Length != 8)
+            {
+                throw new FormatException("El número de teléfono debe tener exactamente 8 dígitos.");
+            }
+        }
+
+        public static void ValidateEmail(string email)
+        {
+            if (!email.Contains("@") || !email.EndsWith(".com"))
+            {
+                throw new FormatException("El correo electrónico debe contener un arroba (@) y terminar en .com.");
+            }
+        }
+
+        public static DateTime ValidateFechaNacimiento(string fechaNacimientoText)
+        {
+            if (!DateTime.TryParseExact(fechaNacimientoText, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime fechaNacimiento))
+            {
+                throw new FormatException("La fecha proporcionada no tiene el formato correcto (dd/MM/yyyy)");
+            }
+
+            return fechaNacimiento;
+        }
+
+        public static int ValidateHost(string hostText)
+        {
+            if (!int.TryParse(hostText, out int host) || (host != 2 && host != 3))
+            {
+                throw new FormatException("El valor ingresado para host debe ser 2 o 3. \n  (2 para Supervisor, 3 para Vendedor");
+            }
+
+            return host;
+        }
+        public static int ValidateDNI(string dniText)
+        {
+            if (!int.TryParse(dniText, out int dni) || dni < 0 || dni > 100000000)
+            {
+                throw new FormatException("El valor ingresado para DNI debe estar entre 0 y 100 millones.");
+            }
+
+            return dni;
+        }
+
+        public static void ValidateUsuario(string nombre, string apellido, string usuario)
+        {
+            if (usuario.Length < 8 || usuario.Length > 15 || usuario.Contains(nombre) || usuario.Contains(apellido))
+            {
+                throw new FormatException("El nombre de usuario debe tener entre 8 y 15 caracteres y no puede contener el nombre ni el apellido.");
+            }
+        }
+
+        public static long ValidateCUIT(string cuitText)
+        {
+            if (!long.TryParse(cuitText, out long cuit) || cuitText.Length < 10 || cuitText.Length > 11)
+            {
+                throw new FormatException("El CUIT debe ser un número válido de 10 u 11 dígitos.");
+            }
+
+            return cuit;
+        }
+
+        public static void ValidateCategoria(string categoriaText)
+        {
+            if (!int.TryParse(categoriaText, out int categoria) || categoria < 1 || categoria > 5)
+            {
+                throw new FormatException("Error: La categoría debe ser un número entre 1 y 5.");
+            }
+        }
+
 
     }
 }
+
