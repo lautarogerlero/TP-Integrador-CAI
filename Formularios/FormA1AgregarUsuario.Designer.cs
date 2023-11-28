@@ -46,199 +46,199 @@
             txtBoxUsuarioNuevo = new TextBox();
             lblRequisitosNombreUsuario = new Label();
             btnConfirmarUsuarioNuevo = new Button();
-            txtBoxFechaNacUsuarioAAgregar = new TextBox();
             lblFechaNacimientoUsuarioAAgregar = new Label();
+            dtiFechaNacimiento = new DateTimePicker();
             SuspendLayout();
             // 
             // txtBoxNombreUsuarioNuevo
             // 
-            txtBoxNombreUsuarioNuevo.Location = new Point(238, 47);
-            txtBoxNombreUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxNombreUsuarioNuevo.Location = new Point(128, 22);
+            txtBoxNombreUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxNombreUsuarioNuevo.Name = "txtBoxNombreUsuarioNuevo";
-            txtBoxNombreUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxNombreUsuarioNuevo.Size = new Size(136, 23);
             txtBoxNombreUsuarioNuevo.TabIndex = 0;
             // 
             // txtBoxEmailUsuarioNuevo
             // 
-            txtBoxEmailUsuarioNuevo.Location = new Point(236, 235);
-            txtBoxEmailUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxEmailUsuarioNuevo.Location = new Point(127, 110);
+            txtBoxEmailUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxEmailUsuarioNuevo.Name = "txtBoxEmailUsuarioNuevo";
-            txtBoxEmailUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxEmailUsuarioNuevo.Size = new Size(136, 23);
             txtBoxEmailUsuarioNuevo.TabIndex = 1;
             // 
             // txtBoxTelefonoUsuarioNuevo
             // 
-            txtBoxTelefonoUsuarioNuevo.Location = new Point(936, 126);
-            txtBoxTelefonoUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxTelefonoUsuarioNuevo.Location = new Point(504, 59);
+            txtBoxTelefonoUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxTelefonoUsuarioNuevo.Name = "txtBoxTelefonoUsuarioNuevo";
-            txtBoxTelefonoUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxTelefonoUsuarioNuevo.Size = new Size(136, 23);
             txtBoxTelefonoUsuarioNuevo.TabIndex = 2;
             // 
             // txtBoxDireccionUsuarioNuevo
             // 
-            txtBoxDireccionUsuarioNuevo.Location = new Point(936, 38);
-            txtBoxDireccionUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxDireccionUsuarioNuevo.Location = new Point(504, 18);
+            txtBoxDireccionUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxDireccionUsuarioNuevo.Name = "txtBoxDireccionUsuarioNuevo";
-            txtBoxDireccionUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxDireccionUsuarioNuevo.Size = new Size(136, 23);
             txtBoxDireccionUsuarioNuevo.TabIndex = 3;
             // 
             // txtBoxApellidoUsuarioNuevo
             // 
-            txtBoxApellidoUsuarioNuevo.Location = new Point(238, 132);
-            txtBoxApellidoUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxApellidoUsuarioNuevo.Location = new Point(128, 62);
+            txtBoxApellidoUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxApellidoUsuarioNuevo.Name = "txtBoxApellidoUsuarioNuevo";
-            txtBoxApellidoUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxApellidoUsuarioNuevo.Size = new Size(136, 23);
             txtBoxApellidoUsuarioNuevo.TabIndex = 4;
             // 
             // lblNombreUsuarioNuevo
             // 
             lblNombreUsuarioNuevo.AutoSize = true;
-            lblNombreUsuarioNuevo.Location = new Point(26, 47);
-            lblNombreUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblNombreUsuarioNuevo.Location = new Point(14, 22);
+            lblNombreUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblNombreUsuarioNuevo.Name = "lblNombreUsuarioNuevo";
-            lblNombreUsuarioNuevo.Size = new Size(209, 32);
+            lblNombreUsuarioNuevo.Size = new Size(102, 15);
             lblNombreUsuarioNuevo.TabIndex = 5;
             lblNombreUsuarioNuevo.Text = "Ingrese el nombre";
             // 
             // lblApellidoUsuarioNuevo
             // 
             lblApellidoUsuarioNuevo.AutoSize = true;
-            lblApellidoUsuarioNuevo.Location = new Point(26, 132);
-            lblApellidoUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblApellidoUsuarioNuevo.Location = new Point(14, 62);
+            lblApellidoUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblApellidoUsuarioNuevo.Name = "lblApellidoUsuarioNuevo";
-            lblApellidoUsuarioNuevo.Size = new Size(210, 32);
+            lblApellidoUsuarioNuevo.Size = new Size(102, 15);
             lblApellidoUsuarioNuevo.TabIndex = 6;
             lblApellidoUsuarioNuevo.Text = "Ingrese el apellido";
             // 
             // lblDireccionUsuarioNuevo
             // 
             lblDireccionUsuarioNuevo.AutoSize = true;
-            lblDireccionUsuarioNuevo.Location = new Point(553, 53);
-            lblDireccionUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblDireccionUsuarioNuevo.Location = new Point(298, 25);
+            lblDireccionUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblDireccionUsuarioNuevo.Name = "lblDireccionUsuarioNuevo";
-            lblDireccionUsuarioNuevo.Size = new Size(221, 32);
+            lblDireccionUsuarioNuevo.Size = new Size(109, 15);
             lblDireccionUsuarioNuevo.TabIndex = 7;
             lblDireccionUsuarioNuevo.Text = "Ingrese la direccion";
             // 
             // lblTelefonoUsuarioNuevo
             // 
             lblTelefonoUsuarioNuevo.AutoSize = true;
-            lblTelefonoUsuarioNuevo.Location = new Point(553, 143);
-            lblTelefonoUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblTelefonoUsuarioNuevo.Location = new Point(298, 67);
+            lblTelefonoUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblTelefonoUsuarioNuevo.Name = "lblTelefonoUsuarioNuevo";
-            lblTelefonoUsuarioNuevo.Size = new Size(340, 32);
+            lblTelefonoUsuarioNuevo.Size = new Size(165, 15);
             lblTelefonoUsuarioNuevo.TabIndex = 8;
             lblTelefonoUsuarioNuevo.Text = "Ingrese el numero de telefono";
             // 
             // lblEmailUsuarioNuevo
             // 
             lblEmailUsuarioNuevo.AutoSize = true;
-            lblEmailUsuarioNuevo.Location = new Point(26, 241);
-            lblEmailUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblEmailUsuarioNuevo.Location = new Point(14, 113);
+            lblEmailUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblEmailUsuarioNuevo.Name = "lblEmailUsuarioNuevo";
-            lblEmailUsuarioNuevo.Size = new Size(183, 32);
+            lblEmailUsuarioNuevo.Size = new Size(89, 15);
             lblEmailUsuarioNuevo.TabIndex = 9;
             lblEmailUsuarioNuevo.Text = "Ingrese el email";
             // 
             // lblNumeroHostUsuarioNuevo
             // 
             lblNumeroHostUsuarioNuevo.AutoSize = true;
-            lblNumeroHostUsuarioNuevo.Location = new Point(553, 241);
-            lblNumeroHostUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblNumeroHostUsuarioNuevo.Location = new Point(298, 113);
+            lblNumeroHostUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblNumeroHostUsuarioNuevo.Name = "lblNumeroHostUsuarioNuevo";
-            lblNumeroHostUsuarioNuevo.Size = new Size(517, 32);
+            lblNumeroHostUsuarioNuevo.Size = new Size(253, 15);
             lblNumeroHostUsuarioNuevo.TabIndex = 10;
             lblNumeroHostUsuarioNuevo.Text = "Ingrese el n° Host (2=Supervisor, 3= Vendedor)";
             // 
             // txtBoxHostUsuarioNuevo
             // 
-            txtBoxHostUsuarioNuevo.Location = new Point(1081, 235);
-            txtBoxHostUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxHostUsuarioNuevo.Location = new Point(582, 110);
+            txtBoxHostUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxHostUsuarioNuevo.Name = "txtBoxHostUsuarioNuevo";
-            txtBoxHostUsuarioNuevo.Size = new Size(104, 39);
+            txtBoxHostUsuarioNuevo.Size = new Size(58, 23);
             txtBoxHostUsuarioNuevo.TabIndex = 11;
             // 
             // lblDNIUsuarioNuevo
             // 
             lblDNIUsuarioNuevo.AutoSize = true;
-            lblDNIUsuarioNuevo.Location = new Point(26, 354);
-            lblDNIUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblDNIUsuarioNuevo.Location = new Point(14, 166);
+            lblDNIUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblDNIUsuarioNuevo.Name = "lblDNIUsuarioNuevo";
-            lblDNIUsuarioNuevo.Size = new Size(166, 32);
+            lblDNIUsuarioNuevo.Size = new Size(80, 15);
             lblDNIUsuarioNuevo.TabIndex = 12;
             lblDNIUsuarioNuevo.Text = "Ingrese el DNI";
             // 
             // txtBoxDNIUsuarioNuevo
             // 
-            txtBoxDNIUsuarioNuevo.Location = new Point(238, 348);
-            txtBoxDNIUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxDNIUsuarioNuevo.Location = new Point(128, 163);
+            txtBoxDNIUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxDNIUsuarioNuevo.Name = "txtBoxDNIUsuarioNuevo";
-            txtBoxDNIUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxDNIUsuarioNuevo.Size = new Size(136, 23);
             txtBoxDNIUsuarioNuevo.TabIndex = 13;
             // 
             // lblUsuarioNuevo
             // 
             lblUsuarioNuevo.AutoSize = true;
-            lblUsuarioNuevo.Location = new Point(553, 351);
-            lblUsuarioNuevo.Margin = new Padding(7, 0, 7, 0);
+            lblUsuarioNuevo.Location = new Point(298, 165);
+            lblUsuarioNuevo.Margin = new Padding(4, 0, 4, 0);
             lblUsuarioNuevo.Name = "lblUsuarioNuevo";
-            lblUsuarioNuevo.Size = new Size(330, 32);
+            lblUsuarioNuevo.Size = new Size(161, 15);
             lblUsuarioNuevo.TabIndex = 14;
             lblUsuarioNuevo.Text = "Ingrese el nombre de Usuario";
             // 
             // txtBoxUsuarioNuevo
             // 
-            txtBoxUsuarioNuevo.Location = new Point(936, 351);
-            txtBoxUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            txtBoxUsuarioNuevo.Location = new Point(504, 165);
+            txtBoxUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             txtBoxUsuarioNuevo.Name = "txtBoxUsuarioNuevo";
-            txtBoxUsuarioNuevo.Size = new Size(249, 39);
+            txtBoxUsuarioNuevo.Size = new Size(136, 23);
             txtBoxUsuarioNuevo.TabIndex = 15;
             // 
             // lblRequisitosNombreUsuario
             // 
             lblRequisitosNombreUsuario.AutoSize = true;
-            lblRequisitosNombreUsuario.Location = new Point(510, 396);
-            lblRequisitosNombreUsuario.Margin = new Padding(7, 0, 7, 0);
+            lblRequisitosNombreUsuario.Location = new Point(275, 186);
+            lblRequisitosNombreUsuario.Margin = new Padding(4, 0, 4, 0);
             lblRequisitosNombreUsuario.Name = "lblRequisitosNombreUsuario";
-            lblRequisitosNombreUsuario.Size = new Size(712, 32);
+            lblRequisitosNombreUsuario.Size = new Size(347, 15);
             lblRequisitosNombreUsuario.TabIndex = 16;
             lblRequisitosNombreUsuario.Text = "Entre 8 y 15 caracteres. No puede contener ni nombre ni apellido";
             // 
             // btnConfirmarUsuarioNuevo
             // 
-            btnConfirmarUsuarioNuevo.Location = new Point(936, 578);
-            btnConfirmarUsuarioNuevo.Margin = new Padding(7, 6, 7, 6);
+            btnConfirmarUsuarioNuevo.Location = new Point(504, 271);
+            btnConfirmarUsuarioNuevo.Margin = new Padding(4, 3, 4, 3);
             btnConfirmarUsuarioNuevo.Name = "btnConfirmarUsuarioNuevo";
-            btnConfirmarUsuarioNuevo.Size = new Size(295, 68);
+            btnConfirmarUsuarioNuevo.Size = new Size(159, 32);
             btnConfirmarUsuarioNuevo.TabIndex = 17;
             btnConfirmarUsuarioNuevo.Text = "Confirmar Usuario Nuevo";
             btnConfirmarUsuarioNuevo.UseVisualStyleBackColor = true;
             btnConfirmarUsuarioNuevo.Click += btnConfirmarUsuarioNuevo_Click;
             // 
-            // txtBoxFechaNacUsuarioAAgregar
-            // 
-            txtBoxFechaNacUsuarioAAgregar.Location = new Point(236, 501);
-            txtBoxFechaNacUsuarioAAgregar.Margin = new Padding(7, 6, 7, 6);
-            txtBoxFechaNacUsuarioAAgregar.Name = "txtBoxFechaNacUsuarioAAgregar";
-            txtBoxFechaNacUsuarioAAgregar.Size = new Size(249, 39);
-            txtBoxFechaNacUsuarioAAgregar.TabIndex = 18;
-            // 
             // lblFechaNacimientoUsuarioAAgregar
             // 
             lblFechaNacimientoUsuarioAAgregar.AutoSize = true;
-            lblFechaNacimientoUsuarioAAgregar.Location = new Point(26, 444);
+            lblFechaNacimientoUsuarioAAgregar.Location = new Point(14, 208);
+            lblFechaNacimientoUsuarioAAgregar.Margin = new Padding(2, 0, 2, 0);
             lblFechaNacimientoUsuarioAAgregar.Name = "lblFechaNacimientoUsuarioAAgregar";
-            lblFechaNacimientoUsuarioAAgregar.Size = new Size(426, 32);
+            lblFechaNacimientoUsuarioAAgregar.Size = new Size(213, 15);
             lblFechaNacimientoUsuarioAAgregar.TabIndex = 19;
             lblFechaNacimientoUsuarioAAgregar.Text = "Ingrese la fecha de Nac. (dd/mm/yyyy)";
             // 
+            // dtiFechaNacimiento
+            // 
+            dtiFechaNacimiento.Location = new Point(127, 248);
+            dtiFechaNacimiento.Name = "dtiFechaNacimiento";
+            dtiFechaNacimiento.Size = new Size(200, 23);
+            dtiFechaNacimiento.TabIndex = 20;
+            // 
             // FormA1AgregarUsuario
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1282, 692);
+            ClientSize = new Size(690, 324);
+            Controls.Add(dtiFechaNacimiento);
             Controls.Add(lblFechaNacimientoUsuarioAAgregar);
-            Controls.Add(txtBoxFechaNacUsuarioAAgregar);
             Controls.Add(btnConfirmarUsuarioNuevo);
             Controls.Add(lblRequisitosNombreUsuario);
             Controls.Add(txtBoxUsuarioNuevo);
@@ -257,7 +257,7 @@
             Controls.Add(txtBoxTelefonoUsuarioNuevo);
             Controls.Add(txtBoxEmailUsuarioNuevo);
             Controls.Add(txtBoxNombreUsuarioNuevo);
-            Margin = new Padding(7, 6, 7, 6);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "FormA1AgregarUsuario";
             Text = "Administrador > Agregar Usuario";
             ResumeLayout(false);
@@ -284,7 +284,7 @@
         private TextBox txtBoxUsuarioNuevo;
         private Label lblRequisitosNombreUsuario;
         private Button btnConfirmarUsuarioNuevo;
-        private TextBox txtBoxFechaNacUsuarioAAgregar;
         private Label lblFechaNacimientoUsuarioAAgregar;
+        private DateTimePicker dtiFechaNacimiento;
     }
 }

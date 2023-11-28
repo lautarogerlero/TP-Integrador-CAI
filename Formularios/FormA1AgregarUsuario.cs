@@ -33,14 +33,14 @@ namespace Form1
 
                 ConsolaUtils.ValidateTelefono(telefono);
                 ConsolaUtils.ValidateEmail(email);
-                DateTime fechaNacimiento = ConsolaUtils.ValidateFechaNacimiento(txtBoxFechaNacUsuarioAAgregar.Text);
                 int host = ConsolaUtils.ValidateHost(txtBoxHostUsuarioNuevo.Text);
                 int dni = ConsolaUtils.ValidateDNI(txtBoxDNIUsuarioNuevo.Text);
                 ConsolaUtils.ValidateUsuario(nombre, apellido, txtBoxNombreUsuarioNuevo.Text);
+                DateTime fechaNacimiento = dtiFechaNacimiento.Value;
+                string usuario = txtBoxUsuarioNuevo.Text;
 
-
-
-                UsuarioNegocio.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, txtBoxNombreUsuarioNuevo.Text, host, dni);
+                UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+                usuarioNegocio.CrearUsuario(id, nombre, apellido, direccion, telefono, email, fechaNacimiento, usuario, host, dni);
             }
             catch (Exception ex)
             {
@@ -50,6 +50,6 @@ namespace Form1
     }
 
 
-  
-    
+
+
 }
